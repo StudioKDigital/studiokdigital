@@ -1,1 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Studio K — L'Architecture · Accompagnement 1:1</title>
+<meta name="description" content="L'accompagnement Studio K — Donner une direction claire à ton business. Sur candidature.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K2RC0XT3N6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K2RC0XT3N6');
+</script>
+<style>
 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; }
+body { background: #1E0A0A; font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; color: #F5F0E8; line-height: 1.7; }
+
+.sk-grain { position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E"); }
+
+.sk-rv { opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1); }
+.sk-rv.on { opacity:1;transform:translate(0); }
+
+/* SECTIONS */
+section {
+  width: 100%;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.container-wide {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* TYPOGRAPHIE COMMUNE */
+.eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: .48rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #F2D675;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.eyebrow::before, .eyebrow::after {
+  content:''; width: 26px; height: 1px; background: #F2D675;
+}
+
+.eyebrow.left { justify-content: flex-start; }
+.eyebrow.left::after { display: none; }
+
+h1, h2, h3 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+h1 em, h2 em, h3 em { font-style: italic; color: #F2D675; }
+
+p { color: rgba(245,240,232,.75); }
+p strong { color: #F5F0E8; font-weight: 500; }
+
+.text-center { text-align: center; }
+
+/* HERO */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 6rem;
+  position: relative;
+  background: linear-gradient(180deg, #1E0A0A 0%, #2A0D0F 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 8%; right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242,214,117,.15), transparent);
+}
+
+.hero-archetype-tag {
+  display: inline-block;
+  background: rgba(242,214,117,.08);
+  border: 1px solid rgba(242,214,117,.2);
+  color: #F2D675;
+  padding: .5rem 1.4rem;
+  border-radius: 30px;
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  color: #F5F0E8;
+  margin-bottom: 1.5rem;
+  letter-spacing: -.01em;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  color: rgba(245,240,232,.7);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-arrow {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: rgba(242,214,117,.4);
+  margin-top: 1rem;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* DIAGNOSTIC */
+.diagnostic {
+  background: #1E0A0A;
+  text-align: center;
+  position: relative;
+}
+
+.diagnostic h2 {
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  color: #F5F0E8;
+  margin-bottom: 1.2rem;
+}
+
+.diagnostic-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: #F2D675;
+  line-height: 1.6;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  position: relative;
+}
+
+.diagnostic-quote::before, .diagnostic-quote::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: rgba(242,214,117,.4);
+}
+
+.diagnostic-quote::before { top: 0; }
+.diagnostic-quote::after { bottom: 0; }
+
+/* MÉTHODE — 3 PILIERS */
+.methode {
+  background: linear-gradient(180deg, #1E0A0A 0%, #28080A 100%);
+  text-align: center;
+}
+
+.methode h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #F5F0E8;
+  margin-bottom: 1rem;
+}
+
+.methode-intro {
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  font-size: 1rem;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pillar {
+  background: rgba(245,240,232,.02);
+  border: 1px solid rgba(242,214,117,.1);
+  padding: 2.5rem 1.8rem;
+  text-align: center;
+  border-radius: 2px;
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, #F2D675, transparent);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.pillar:hover {
+  background: rgba(242,214,117,.04);
+  border-color: rgba(242,214,117,.25);
+  transform: translateY(-3px);
+}
+
+.pillar:hover::before { opacity: 1; }
+
+.pillar-num {
+  font-family: 'Jost', sans-serif;
+  font-size: .55rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #F2D675;
+  margin-bottom: 1.2rem;
+}
+
+.pillar h3 {
+  font-size: 1.4rem;
+  color: #F5F0E8;
+  margin-bottom: 1rem;
+}
+
+.pillar h3 em { color: #F2D675; }
+
+.pillar p {
+  font-size: .85rem;
+  color: rgba(245,240,232,.6);
+  line-height: 1.7;
+}
+
+/* DOSSIER */
+.dossier {
+  background: #1E0A0A;
+  text-align: center;
+}
+
+.dossier h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #F5F0E8;
+  margin-bottom: 1rem;
+}
+
+.dossier-intro {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  color: rgba(245,240,232,.65);
+  font-size: 1.1rem;
+}
+
+.dossier-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.feature {
+  background: rgba(245,240,232,.02);
+  border: 1px solid rgba(242,214,117,.08);
+  padding: 1.5rem 1.8rem;
+  border-radius: 2px;
+}
+
+.feature-icon {
+  font-size: 1.6rem;
+  margin-bottom: .8rem;
+  display: block;
+}
+
+.feature h4 {
+  font-family: 'DM Serif Display', serif;
+  color: #F5F0E8;
+  font-size: 1.05rem;
+  margin-bottom: .5rem;
+  font-weight: 400;
+}
+
+.feature p {
+  font-size: .82rem;
+  color: rgba(245,240,232,.6);
+  line-height: 1.6;
+}
+
+/* PROCESS */
+.process {
+  background: linear-gradient(180deg, #1E0A0A 0%, #28080A 100%);
+  text-align: center;
+}
+
+.process h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #F5F0E8;
+  margin-bottom: 3rem;
+}
+
+.steps {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.step:last-child { margin-bottom: 0; }
+
+.step-num {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(242,214,117,.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #F2D675;
+  background: rgba(242,214,117,.04);
+}
+
+.step-content { flex: 1; padding-top: .5rem; }
+.step-content h4 {
+  font-family: 'DM Serif Display', serif;
+  color: #F5F0E8;
+  font-size: 1.15rem;
+  margin-bottom: .5rem;
+  font-weight: 400;
+}
+
+.step-content p {
+  font-size: .9rem;
+  color: rgba(245,240,232,.65);
+  line-height: 1.7;
+}
+
+/* POUR QUI */
+.for-who {
+  background: #1E0A0A;
+}
+
+.for-who h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #F5F0E8;
+  margin-bottom: 3rem;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.who-card {
+  padding: 2rem;
+  border-radius: 2px;
+  border: 1px solid rgba(242,214,117,.1);
+  background: rgba(245,240,232,.02);
+}
+
+.who-card.no { border-left: 3px solid rgba(245,100,100,.4); }
+.who-card.yes { border-left: 3px solid rgba(134,239,172,.5); }
+
+.who-card h3 {
+  font-size: 1.1rem;
+  color: #F5F0E8;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
+.who-card.no h3::before { content: '⌀ '; color: rgba(245,100,100,.7); }
+.who-card.yes h3::before { content: '✦ '; color: #F2D675; }
+
+.who-card ul {
+  list-style: none;
+}
+
+.who-card ul li {
+  padding: .4rem 0 .4rem 1.2rem;
+  position: relative;
+  font-size: .87rem;
+  color: rgba(245,240,232,.7);
+  line-height: 1.6;
+}
+
+.who-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: rgba(245,240,232,.4);
+}
+
+/* FAQ */
+.faq {
+  background: linear-gradient(180deg, #1E0A0A 0%, #28080A 100%);
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #F5F0E8;
+  margin-bottom: 3rem;
+}
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(242,214,117,.1);
+  padding: 1.5rem 0;
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-question {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  color: #F5F0E8;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 400;
+  transition: color .3s ease;
+}
+
+.faq-question:hover { color: #F2D675; }
+
+.faq-toggle {
+  font-size: 1.2rem;
+  color: #F2D675;
+  transition: transform .3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, margin .3s ease;
+  font-size: .9rem;
+  color: rgba(245,240,232,.7);
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  margin-top: 1rem;
+}
+
+/* CTA FINAL */
+.cta-final {
+  background: #1E0A0A;
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+}
+
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 8%; right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242,214,117,.15), transparent);
+}
+
+.cta-final h2 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #F5F0E8;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.cta-final-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  color: rgba(245,240,232,.85);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.cta-final-quote strong { color: #F2D675; font-weight: 400; }
+
+.btn-cta {
+  display: inline-block;
+  background: rgba(242,214,117,.92);
+  color: #1E0A0A;
+  border: 1px solid #F2D675;
+  padding: 1.2rem 3rem;
+  font-family: 'Jost', sans-serif;
+  font-size: .8rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: all .35s cubic-bezier(.22,1,.36,1);
+  text-decoration: none;
+}
+
+.btn-cta:hover {
+  background: #F2D675;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(242,214,117,.2);
+}
+
+.cta-secondary-text {
+  margin-top: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(245,240,232,.5);
+  font-size: .9rem;
+}
+
+/* FOOTER */
+footer {
+  background: #150505;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(242,214,117,.08);
+}
+
+.footer-brand {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  color: #F2D675;
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+.footer-handle {
+  font-family: 'Jost', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.5);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  section { padding: 4rem 1.5rem; }
+  .pillars { grid-template-columns: 1fr; }
+  .dossier-features { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
+  .step { gap: 1rem; }
+  .step-num { width: 42px; height: 42px; font-size: 1.1rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="sk-grain"></div>
+
+<!-- HERO -->
+<section class="hero sk-rv">
+  <div class="container text-center">
+    <div id="archetypeTag" class="hero-archetype-tag" style="display:none;"></div>
+    <h1 id="heroTitle">L'<em>Architecture</em> Studio K™</h1>
+    <p class="hero-sub" id="heroSub">L'accompagnement 1:1 pour transformer ce que tu portes en un business clair, structuré et activable.</p>
+    <p class="hero-arrow">↓</p>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC -->
+<section class="diagnostic sk-rv">
+  <div class="container">
+    <div class="eyebrow">Le constat</div>
+    <h2 id="diagnosticTitle">Tu ne manques pas de <em>talent</em>.</h2>
+    <p class="diagnostic-quote" id="diagnosticQuote">
+      Ce qui te bloque n'est pas dans toi.<br/>
+      C'est dans la structure de ton business.
+    </p>
+    <p>Plus de capacité ne résout pas un problème de structure. Il faut autre chose : <strong>une architecture claire</strong>.</p>
+  </div>
+</section>
+
+<!-- MÉTHODE -->
+<section class="methode sk-rv">
+  <div class="container-wide">
+    <div class="eyebrow">La méthode</div>
+    <h2>L'<em>Architecture</em> Studio K™</h2>
+    <p class="methode-intro">3 piliers. Un seul objectif : <strong>donner une direction simple</strong> à ton business.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">Pilier 01</div>
+        <h3><em>Intention</em></h3>
+        <p>Vision · Cible · Positionnement · Différenciateur. Ce que tu portes et pourquoi ça existe.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pilier 02</div>
+        <h3><em>Architecture</em></h3>
+        <p>Offre · Message · Branding · Système d'acquisition. Donner une forme claire à ce qui existe.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pilier 03</div>
+        <h3><em>Déploiement</em></h3>
+        <p>Plan d'action · Priorités · Contenu · Organisation. Mettre le business en mouvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE DOSSIER -->
+<section class="dossier sk-rv">
+  <div class="container-wide">
+    <div class="eyebrow">Le livrable central</div>
+    <h2>Le <em>Dossier™</em></h2>
+    <p class="dossier-intro">Tu ne repars pas avec des conseils. Tu repars avec ton business <strong>cartographié, organisé et activable</strong>.</p>
+
+    <div class="dossier-features">
+      <div class="feature">
+        <span class="feature-icon">📁</span>
+        <h4>Notion Structuré</h4>
+        <p>Vision · Offre · Acquisition · Contenu · Suivi · Contacts. Tout en un seul espace.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">⚙️</span>
+        <h4>Prompts & Skills Claude</h4>
+        <p>Bibliothèque de prompts personnalisés. Tu utilises Claude comme un assistant business — sans dépendre de moi.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📐</span>
+        <h4>Framework Contenu</h4>
+        <p>Structure éditoriale réutilisable. Pour ne plus jamais te demander quoi poster.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎯</span>
+        <h4>Plan d'action 90 jours</h4>
+        <p>Priorités hiérarchisées. Ce qu'il faut faire, dans quel ordre, et pourquoi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process sk-rv">
+  <div class="container">
+    <div class="eyebrow">Comment ça se passe</div>
+    <h2>4 étapes</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Candidature</h4>
+          <p>Tu remplis un formulaire court. Quelques questions pour comprendre où tu en es.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Appel découverte (30 min)</h4>
+          <p>On vérifie ensemble que c'est aligné. Pas de vente forcée.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Accompagnement (4 à 8 semaines)</h4>
+          <p>On structure ton business par les 3 piliers. Sessions hebdomadaires + travail entre les rendez-vous.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Formation autonomie</h4>
+          <p>Session finale 2h pour que tu sois 100% autonome avec Le Dossier™ et les outils.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="for-who sk-rv">
+  <div class="container-wide">
+    <div class="eyebrow">Pour qui</div>
+    <h2>C'est <em>fait</em> pour toi si...</h2>
+
+    <div class="who-grid">
+      <div class="who-card yes">
+        <h3>C'est pour toi si</h3>
+        <ul>
+          <li>tu as un business (ou idée solide) et tu sais que tu vaux mieux que ce qui se voit</li>
+          <li>tu en as marre du flou et tu veux du concret</li>
+          <li>tu veux comprendre ton business — pas juste suivre des recettes</li>
+          <li>tu cherches une vraie structure, pas plus d'infos</li>
+          <li>tu es prête à faire le travail, pas à déléguer ta réflexion</li>
+        </ul>
+      </div>
+      <div class="who-card no">
+        <h3>Ce n'est pas pour toi si</h3>
+        <ul>
+          <li>tu cherches quelqu'un qui exécute à ta place</li>
+          <li>tu veux des recettes magiques sans réflexion</li>
+          <li>tu n'as pas encore une idée minimum de ton activité</li>
+          <li>tu veux du contenu pour "remplir"</li>
+          <li>tu cherches la rapidité plutôt que la solidité</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq sk-rv">
+  <div class="container">
+    <div class="eyebrow">Questions fréquentes</div>
+    <h2>FAQ</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Combien ça coûte ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>L'investissement est communiqué à l'appel découverte, une fois que je suis sûre que c'est aligné. Je préfère vérifier qu'on travaille bien ensemble avant de parler chiffre.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Combien de temps ça dure ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Entre 4 et 8 semaines selon où tu en es. On adapte le rythme à ton avancement, ton temps disponible, et tes priorités.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Pourquoi sur candidature uniquement ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Parce que je ne prends pas plus de quelques clientes en accompagnement à la fois. La candidature me permet de m'assurer que je peux vraiment t'aider — et que tu es au bon moment pour ça.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Et si je ne suis pas prise ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Je te dirai pourquoi (mauvais timing, pas le bon profil, etc.) et je t'orienterai si je vois mieux pour toi ailleurs.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Vous accompagnez quel type de business ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Solopreneures, freelances, créatrices de service. Que tu démarres ou que tu aies déjà des clientes — l'important c'est que tu aies quelque chose à structurer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final sk-rv">
+  <div class="container">
+    <div class="eyebrow">Prête ?</div>
+    <h2>Tu n'as pas besoin de faire <em>plus</em>.</h2>
+    <p class="cta-final-quote">
+      Tu as besoin de faire <strong>les bonnes choses</strong>.<br/>
+      Et de leur donner une structure.
+    </p>
+    <a href="https://tally.so/r/XXXXX" class="btn-cta" onclick="trackCandidacy()">Postuler à L'Architecture</a>
+    <p class="cta-secondary-text">Réponse sous 48h — Pas de vente forcée.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Studio K</div>
+  <div class="footer-handle">@studio.k.digital · hello@studiok.fr</div>
+</footer>
+
+<script>
+
+// ARCHETYPES — Personnalisation hero selon URL ?archetype=
+const archetypes = {
+  invisible: {
+    name: "La Créatrice Invisible",
+    heroTitle: "Ton business <em>existe</em>. Mais personne ne le voit.",
+    heroSub: "Le problème n'est pas ton talent. C'est qu'il n'a pas de forme lisible. Voici comment je rends visible ce que tu portes déjà.",
+    diagnosticTitle: "Tu ne manques pas de <em>talent</em>.",
+    diagnosticQuote: "Ce qui te bloque, c'est l'absence d'une <em>direction lisible</em>.<br/>Sans forme claire, tes clientes ne peuvent pas te choisir."
+  },
+  empire: {
+    name: "L'Empire Sans Système",
+    heroTitle: "Ton business <em>tourne</em>. Mais il te consomme.",
+    heroSub: "Tu n'as pas besoin de plus de clients. Tu as besoin d'un système pour que ton business tourne — sans dépendre de toi.",
+    diagnosticTitle: "Tu ne manques pas d'<em>ambition</em>.",
+    diagnosticQuote: "Ce qui te bloque, c'est l'absence de <em>structure duplicable</em>.<br/>Sans système, tu deviens le goulot d'étranglement de ton propre business."
+  },
+  multipassionnee: {
+    name: "La Multipassionnée Dispersée",
+    heroTitle: "Tu as <em>mille idées</em>. Aucune n'a de direction.",
+    heroSub: "Tu n'as pas besoin de plus d'idées. Tu as besoin de choisir une direction. Et de la structurer pour qu'elle existe vraiment.",
+    diagnosticTitle: "Tu ne manques pas de <em>potentiel</em>.",
+    diagnosticQuote: "Ce qui te bloque, c'est l'absence d'une <em>ligne claire</em>.<br/>Trop d'options dispersent ton énergie. Une seule direction la concentre."
+  },
+  specialiste: {
+    name: "La Spécialiste Cachée",
+    heroTitle: "Ton <em>expertise</em> est rare. Personne ne le voit.",
+    heroSub: "Le problème n'est pas ce que tu sais. C'est comment tu l'exprimes. Voici comment rendre évident ce qui est déjà fort en toi.",
+    diagnosticTitle: "Tu ne manques pas d'<em>expertise</em>.",
+    diagnosticQuote: "Ce qui te bloque, c'est <em>l'expression de ta valeur</em>.<br/>Sans message lisible, ta compétence reste invisible aux bonnes personnes."
+  },
+  catalyseur: {
+    name: "La Catalyseuse Épuisée",
+    heroTitle: "Tu crées de l'<em>impact</em>. Mais tu t'écrases.",
+    heroSub: "Tu n'as pas besoin de moins t'engager. Tu as besoin d'un système pour que ton impact soit durable — sans te détruire.",
+    diagnosticTitle: "Tu ne manques pas d'<em>engagement</em>.",
+    diagnosticQuote: "Ce qui te bloque, c'est l'absence de <em>cadre opérationnel</em>.<br/>Sans système, tu portes tout. Avec un système, ton impact se démultiplie."
+  }
+};
+
+// Personnalisation depuis URL ?archetype=invisible
+function personalizeHero() {
+  const params = new URLSearchParams(window.location.search);
+  const archetypeKey = params.get('archetype');
+  
+  if (archetypeKey && archetypes[archetypeKey]) {
+    const a = archetypes[archetypeKey];
+    
+    // Tag archétype
+    const tag = document.getElementById('archetypeTag');
+    tag.textContent = `Tu es ${a.name}`;
+    tag.style.display = 'inline-block';
+    
+    // Hero
+    document.getElementById('heroTitle').innerHTML = a.heroTitle;
+    document.getElementById('heroSub').textContent = a.heroSub;
+    
+    // Diagnostic
+    document.getElementById('diagnosticTitle').innerHTML = a.diagnosticTitle;
+    document.getElementById('diagnosticQuote').innerHTML = a.diagnosticQuote;
+    
+    // Track
+    gtag('event', 'offre_view', {
+      event_category: 'engagement',
+      event_label: archetypeKey
+    });
+  }
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// CTA tracking
+function trackCandidacy() {
+  const params = new URLSearchParams(window.location.search);
+  const archetypeKey = params.get('archetype') || 'direct';
+  gtag('event', 'candidacy_click', {
+    event_category: 'conversion',
+    event_label: archetypeKey
+  });
+}
+
+// Reveal on scroll
+function revealElements() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('on');
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -55px 0px' });
+  document.querySelectorAll('.sk-rv').forEach(el => obs.observe(el));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  personalizeHero();
+  revealElements();
+});
+
+</script>
+
+</body>
+</html>
