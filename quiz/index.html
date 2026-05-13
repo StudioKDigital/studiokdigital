@@ -1,1 +1,875 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Studio K — Découvre Ton Archétype de Business</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K2RC0XT3N6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K2RC0XT3N6');
+</script>
+<style>
 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; }
+body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; min-height: 100vh; }
+
+.sk-grain { position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E"); }
+
+.sk-rv { opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1); }
+.sk-rv.on { opacity:1;transform:translate(0); }
+
+.sk-quiz {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  position: relative;
+  background: #1E0A0A;
+}
+
+.sk-quiz::before {
+  content:'';
+  position:absolute;
+  top:0; left:8%; right:8%; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(242,214,117,.08),transparent);
+  z-index:1;
+}
+
+.sk-quiz-inner {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.sk-quiz-header { text-align:center;margin-bottom:3rem; }
+.sk-quiz-eyebrow { font-family:'Jost',sans-serif;font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:#F2D675;margin-bottom:1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem; }
+.sk-quiz-eyebrow::before,.sk-quiz-eyebrow::after { content:'';width:26px;height:1px;background:#F2D675; }
+.sk-quiz-title { font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;color:#F5F0E8;margin-bottom:1rem; }
+.sk-quiz-title em { font-style:italic;color:#F2D675; }
+.sk-quiz-sub { font-family:'Cormorant Garamond',serif;font-size:clamp(.95rem,2.5vw,1.1rem);font-style:italic;color:rgba(245,240,232,.4);line-height:1.8;margin-bottom:2.5rem; }
+
+.sk-progress { width:100%;height:1px;background:rgba(242,214,117,.08);margin-bottom:3rem;overflow:hidden;border-radius:1px; }
+.sk-progress-fill { height:100%;background:linear-gradient(90deg,#F2D675,rgba(242,214,117,.4));width:12.5%;transition:width .5s cubic-bezier(.22,1,.36,1); }
+
+.sk-question-block { margin-bottom:2.5rem;animation:fadeIn .5s cubic-bezier(.22,1,.36,1);text-align:left; }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.sk-question-num { font-family:'Jost',sans-serif;font-size:.47rem;letter-spacing:.32em;text-transform:uppercase;color:#F2D675;margin-bottom:1rem;text-align:center; }
+.sk-question-text { font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3vw,1.6rem);color:#F5F0E8;line-height:1.3;margin-bottom:1.8rem;text-align:center; }
+
+.sk-answers { display:flex;flex-direction:column;gap:.8rem; }
+.sk-answer-btn { background:rgba(245,240,232,.02);border:1px solid rgba(245,240,232,.06);color:rgba(245,240,232,.65);padding:1.1rem 1.5rem;font-family:'Jost',sans-serif;font-size:.85rem;text-align:left;cursor:pointer;border-radius:2px;transition:background .3s,border-color .3s,color .3s;position:relative;padding-left:2.8rem;width:100%; }
+
+.sk-answer-btn::before { content:'';position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);width:16px;height:16px;border:1px solid rgba(242,214,117,.25);border-radius:50%;transition:all .3s; }
+
+.sk-answer-btn:hover { background:rgba(61,0,8,.15);border-color:rgba(242,214,117,.15);color:#F5F0E8; }
+.sk-answer-btn:hover::before { border-color:#F2D675; }
+
+.sk-answer-btn.selected { background:rgba(242,214,117,.12);border-color:#F2D675;color:#F5F0E8; }
+.sk-answer-btn.selected::before { border-color:#F2D675;background:#F2D675; }
+
+.sk-results { display:none;animation:fadeIn .6s cubic-bezier(.22,1,.36,1); }
+.sk-results.active { display:flex; }
+
+/* ==================== ARCHETYPE CARD (PARTAGEABLE) ==================== */
+
+.sk-card-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 3rem;
+}
+
+.sk-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 2/3;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(242,214,117,.15);
+  background: #1E0A0A;
+  animation: cardFadeIn 1.4s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes cardFadeIn {
+  from { opacity:0; transform:scale(.95) translateY(20px); }
+  to { opacity:1; transform:scale(1) translateY(0); }
+}
+
+.sk-card-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.sk-card-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(30,10,10,.85) 0%,
+      rgba(30,10,10,.3) 25%,
+      rgba(30,10,10,.2) 55%,
+      rgba(30,10,10,.7) 80%,
+      rgba(30,10,10,.95) 100%
+    );
+  z-index: 2;
+}
+
+.sk-card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+/* TOP : Title + Subtitle */
+.sk-card-top {
+  position: relative;
+}
+
+.sk-card-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: .42rem;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: #F2D675;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+}
+
+.sk-card-eyebrow::before,
+.sk-card-eyebrow::after {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: #F2D675;
+}
+
+.sk-card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: #F5F0E8;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -.01em;
+}
+
+.sk-card-title em {
+  font-style: italic;
+  color: #F2D675;
+  font-weight: 400;
+}
+
+.sk-card-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(.85rem, 2vw, 1rem);
+  color: rgba(245,240,232,.85);
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* BOTTOM : Mon archétype business + @ */
+.sk-card-bottom {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.sk-card-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: rgba(242,214,117,.4);
+}
+
+.sk-card-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .9rem;
+  color: rgba(245,240,232,.7);
+  margin-bottom: .5rem;
+  letter-spacing: .02em;
+}
+
+.sk-card-handle {
+  font-family: 'Jost', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #F2D675;
+  font-weight: 400;
+}
+
+/* ==================== END CARD ==================== */
+
+.sk-archetype-sub-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+  color: #F2D675;
+  line-height: 1.6;
+  margin: 0 auto 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  letter-spacing: .01em;
+  position: relative;
+  padding: 1.5rem 2rem;
+}
+
+.sk-archetype-sub-quote::before,
+.sk-archetype-sub-quote::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 1px;
+  background: rgba(242,214,117,.4);
+}
+
+.sk-archetype-sub-quote::before { top: 0; }
+.sk-archetype-sub-quote::after { bottom: 0; }
+
+.sk-archetype-desc { background:rgba(245,240,232,.02);border:1px solid rgba(245,240,232,.06);padding:2rem;margin:1rem auto 2rem;line-height:1.8;color:rgba(245,240,232,.75);max-width:600px;text-align:center; }
+.sk-archetype-desc p { margin-bottom:1rem; }
+.sk-archetype-desc strong { color:#F2D675;font-weight:500;display:inline; }
+
+.sk-scores { background:rgba(242,214,117,.04);border:1px solid rgba(242,214,117,.1);padding:2rem;margin:2rem auto;border-radius:2px;max-width:600px; }
+.sk-scores-title { font-family:'DM Serif Display',serif;font-size:1.1rem;color:#F5F0E8;margin-bottom:1.5rem;text-align:center; }
+.sk-score-item { margin-bottom:1.5rem;text-align:center; }
+.sk-score-label { display:block;margin-bottom:.4rem;font-family:'Jost',sans-serif;font-size:.8rem;color:rgba(245,240,232,.7); }
+.sk-score-bar { width:100%;height:6px;background:rgba(242,214,117,.1);border-radius:3px;overflow:hidden;border:1px solid rgba(242,214,117,.15);margin:0 auto .4rem; }
+.sk-score-bar-fill { height:100%;background:linear-gradient(90deg,#F2D675,rgba(242,214,117,.6));transition:width .6s cubic-bezier(.22,1,.36,1); }
+.sk-score-count { font-family:'Jost',sans-serif;font-size:.7rem;color:rgba(242,214,117,.6);font-weight:400;letter-spacing:.05em; }
+
+.sk-strengths { margin:2rem auto;text-align:center;max-width:600px; }
+.sk-strengths-label { font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(242,214,117,.5);margin-bottom:1rem;display:block; }
+.sk-strength-badge { display:inline-block;background:rgba(242,214,117,.05);border:1px solid rgba(242,214,117,.12);padding:.5rem .9rem;margin:.3rem;font-size:1.1rem;border-radius:2px; }
+
+.sk-cta-block { margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid rgba(242,214,117,.08);text-align:center;max-width:600px; }
+.sk-cta-text { font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(245,240,232,.85);margin-bottom:2rem;line-height:1.8; }
+.sk-cta-text strong { color:#F2D675;font-weight:400; }
+
+/* ==================== BOUTONS STYLISÉS ==================== */
+
+.sk-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.sk-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 400;
+  transition: all .35s cubic-bezier(.22,1,.36,1);
+  width: 100%;
+  padding: 1rem 1.8rem;
+  position: relative;
+}
+
+/* Bouton principal — Or subtil */
+.sk-btn-primary {
+  background: rgba(242,214,117,.92);
+  color: #1E0A0A;
+  border: 1px solid #F2D675;
+  font-weight: 500;
+}
+
+.sk-btn-primary:hover {
+  background: #F2D675;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(242,214,117,.15);
+}
+
+/* Bouton secondaire — Contour fin */
+.sk-btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(242,214,117,.3);
+  color: #F2D675;
+  font-weight: 300;
+}
+
+.sk-btn-secondary:hover {
+  border-color: #F2D675;
+  background: rgba(242,214,117,.04);
+  transform: translateY(-1px);
+}
+
+canvas { display:none; }
+
+@media(max-width:650px){
+  .sk-quiz { padding:4rem 1.5rem; }
+  .sk-question-text { font-size:1.2rem; }
+  .sk-card-content { padding: 2rem 1.5rem; }
+  .sk-card { max-width: 340px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="sk-grain"></div>
+
+<section id="quizScreen" class="sk-quiz sk-rv">
+  <div class="sk-quiz-inner">
+    <div class="sk-quiz-header">
+      <div class="sk-quiz-eyebrow">Diagnostic</div>
+      <h1 class="sk-quiz-title">Découvre Ton Archétype de <em>Business</em></h1>
+      <p class="sk-quiz-sub">8 questions. Ce qui te bloque vraiment.</p>
+    </div>
+
+    <div class="sk-progress">
+      <div class="sk-progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="sk-question-block" id="questionBlock"></div>
+  </div>
+</section>
+
+<section id="resultsScreen" class="sk-quiz sk-results sk-rv">
+  <div class="sk-quiz-inner">
+    
+    <!-- CARTE PARTAGEABLE -->
+    <div class="sk-card-wrap">
+      <div class="sk-card" id="archetypeCard">
+        <div class="sk-card-image" id="cardImage"></div>
+        <div class="sk-card-overlay"></div>
+        <div class="sk-card-content">
+          <div class="sk-card-top">
+            <div class="sk-card-eyebrow">Archétype</div>
+            <h2 class="sk-card-title" id="cardTitle"></h2>
+          </div>
+          <div class="sk-card-bottom">
+            <div class="sk-card-tag">Mon archétype business</div>
+            <div class="sk-card-handle">@studio.k.digital</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sk-archetype-sub-quote" id="archetypeSub"></p>
+
+    <div class="sk-archetype-desc" id="archetypeDesc"></div>
+
+    <div class="sk-scores">
+      <div class="sk-scores-title">Tes résultats détaillés</div>
+      <div id="scoresDisplay"></div>
+    </div>
+
+    <div class="sk-strengths">
+      <span class="sk-strengths-label">Ton pack d'emojis</span>
+      <div id="strengthBadges"></div>
+    </div>
+
+    <div class="sk-cta-block">
+      <p class="sk-cta-text">
+        Tu n'as pas besoin de faire <strong>plus</strong>.<br/>
+        Tu as besoin de <strong>structurer</strong>.
+      </p>
+      <div class="sk-buttons">
+        <button class="sk-btn sk-btn-primary" onclick="applyCandidacy()">Comment je débloque ça →</button>
+        <button class="sk-btn sk-btn-secondary" onclick="shareToSocials()">Partager mon archétype</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<canvas id="canvas"></canvas>
+
+<script>
+
+const quizData = [
+  {
+    id: 1,
+    question: "Quand tu regardes ton business aujourd'hui, qu'est-ce qui te frustre le plus profondément ?",
+    answers: [
+      { text: "J'ai quelque chose de bien… mais personne ne le voit", score: "invisible" },
+      { text: "Ça marche… mais tout repose sur moi", score: "empire" },
+      { text: "J'ai plein d'idées mais je ne sais pas par où commencer", score: "multipassionnee" },
+      { text: "Je sais que je suis compétente… mais ça ne se ressent pas", score: "specialiste" },
+      { text: "Je crée de l'impact… mais je m'épuise", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 2,
+    question: "Si quelqu'un devait te recommander, ce serait pour quoi ?",
+    answers: [
+      { text: "Mon talent brut", score: "invisible" },
+      { text: "Ma capacité à créer", score: "empire" },
+      { text: "Plein de choses mais rien de vraiment clair", score: "multipassionnee" },
+      { text: "Mon expertise", score: "specialiste" },
+      { text: "Le vrai changement que je crée", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Si tu pouvais changer une chose maintenant ?",
+    answers: [
+      { text: "Ma visibilité — personne ne me connaît", score: "invisible" },
+      { text: "Mon temps — j'en ai marre de tout faire", score: "empire" },
+      { text: "Ma clarté — avoir une vraie direction", score: "multipassionnee" },
+      { text: "La confiance en ma valeur", score: "specialiste" },
+      { text: "Mon énergie — je suis épuisée", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Quand tu essayes d'avancer, tu :",
+    answers: [
+      { text: "Postes sans vraie stratégie", score: "invisible" },
+      { text: "Gères des urgences toute la journée", score: "empire" },
+      { text: "Lances plein de trucs différents", score: "multipassionnee" },
+      { text: "Réfléchis sans passer à l'action", score: "specialiste" },
+      { text: "Fais tout toi-même", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Le truc qui te paralyse le plus ?",
+    answers: [
+      { text: "Ne pas savoir comment me positionner", score: "invisible" },
+      { text: "Pas de système — tout est dans ma tête", score: "empire" },
+      { text: "Choisir le bon projet parmi tous", score: "multipassionnee" },
+      { text: "Le doute face à ceux qui font la même chose", score: "specialiste" },
+      { text: "Tout dépend de moi", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 6,
+    question: "Que fais-tu chaque jour qui te passionne vraiment ?",
+    answers: [
+      { text: "Créer", score: "invisible" },
+      { text: "Travailler avec mes client(es)", score: "empire" },
+      { text: "Avoir plein d'idées qui fusent", score: "multipassionnee" },
+      { text: "Creuser mon domaine", score: "specialiste" },
+      { text: "Aider les gens à se transformer", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 7,
+    question: "Si tu pouvais débloquer une chose pour ton business :",
+    answers: [
+      { text: "Être connue et valorisée", score: "invisible" },
+      { text: "Avoir du temps libre pour ma vie", score: "empire" },
+      { text: "Être alignée avec mes valeurs", score: "multipassionnee" },
+      { text: "Assumer ma valeur", score: "specialiste" },
+      { text: "Respirer", score: "catalyseur" }
+    ]
+  },
+  {
+    id: 8,
+    question: "Ce que tu ressens le plus souvent :",
+    answers: [
+      { text: "Frustration", score: "invisible" },
+      { text: "Pression", score: "empire" },
+      { text: "Confusion", score: "multipassionnee" },
+      { text: "Incertitude", score: "specialiste" },
+      { text: "Épuisement", score: "catalyseur" }
+    ]
+  }
+];
+
+const archetypes = {
+  invisible: {
+    title: 'La Créatrice <em>Invisible</em>',
+    titlePlain: 'La Créatrice Invisible',
+    subtitle: "Tu as quelque chose de fort mais personne ne le sait.",
+    image: "/images/invisible.png",
+    description: `<p>Ce que tu crées est d'une qualité incontestable, mais en dehors de ton cercle direct, tu es invisible.</p><p>Et à force, tu commences à douter — pas de ton travail, mais de <strong>toi</strong>.</p><p>Le problème n'est pas ton niveau. <strong>C'est que ton business n'a pas de forme lisible.</strong> C'est un talent flottant, sans architecture.</p><p>→ Les gens ne comprennent pas<br/>→ Donc ils ne choisissent pas</p><p><strong>Ton blocage principal : Ton intention & ton positionnement.</strong></p><p>Tu as besoin de clarifier ta direction et de la rendre visible. C'est un problème d'Intention — pas de capacité.</p><p>Quand ta direction sera claire, tes clientes te trouveront naturellement.</p>`,
+    emojis: ["👤", "✨", "📡", "🕯️", "🌫️"]
+  },
+
+  empire: {
+    title: "L'Empire Sans <em>Système</em>",
+    titlePlain: "L'Empire Sans Système",
+    subtitle: "Tu n'es pas bloquée. Tu es coincée dans un schéma précis.",
+    image: "/images/empire.png",
+    description: `<p>Ton business fonctionne.<br/>Mais il te <strong>consomme</strong>.</p><p>Tout passe par toi. Tout dépend de toi. Et plus tu avances, plus tu t'enfermes.</p><p>Le problème n'est pas ton ambition. <strong>C'est l'absence de structure.</strong></p><p>→ rien n'est cadré<br/>→ rien n'est duplicable</p><p><strong>Ton blocage principal : la structure</strong></p><p>Tu n'as pas besoin de plus de clients. Tu as besoin <strong>d'un système</strong>.</p>`,
+    emojis: ["🏗️", "📊", "⚙️", "🔁", "🧱"]
+  },
+
+  multipassionnee: {
+    title: 'La Multipassionnée <em>Dispersée</em>',
+    titlePlain: 'La Multipassionnée Dispersée',
+    subtitle: "Tes idées fusent mais tu n'as aucune direction.",
+    image: "/images/multipassionnee.png",
+    description: `<p>Tu as une grande créativité, mais tu l'utilises mal. Tu comprends vite. Tu as beaucoup d'idées, mais rien de concret. Tes efforts sont dispersés et tu perds ton énergie.</p><p>Le problème n'est pas ton potentiel. <strong>C'est l'absence de direction.</strong></p><p>→ trop d'options<br/>→ aucune ligne claire</p><p><strong>Ton blocage principal : l'intention.</strong></p><p>Tu n'as pas besoin de plus d'idées. Tu dois <strong>choisir une direction. Et la structurer.</strong></p>`,
+    emojis: ["🌈", "🧠", "💭", "🔀", "✨"]
+  },
+
+  specialiste: {
+    title: 'La Spécialiste <em>Cachée</em>',
+    titlePlain: 'La Spécialiste Cachée',
+    subtitle: "Tu as une expertise rare mais tu doutes de toi.",
+    image: "/images/specialiste.png",
+    description: `<p>Tu sais ce que tu fais. Tu es hyper spécialisée. Compétente. Mais ça ne se ressent pas à l'extérieur.</p><p>Et du coup, tu doutes constamment de ta légitimité.</p><p>Le problème n'est pas ton expertise. <strong>C'est son expression.</strong></p><p>→ ton message n'est pas lisible<br/>→ ta valeur n'est pas perçue</p><p><strong>Ton blocage principal : ta structure & ton message.</strong></p><p>Tu dois rendre <strong>évident</strong> ce qui l'est.</p><p>Avec le bon positionnement tes clientes te trouveront, parce que tu es la seule qui peut vraiment les aider.</p>`,
+    emojis: ["🎯", "🔍", "🧬", "📌", "🧠"]
+  },
+
+  catalyseur: {
+    title: 'La Catalyseuse <em>Épuisée</em>',
+    titlePlain: 'La Catalyseuse Épuisée',
+    subtitle: "Tu crées de l'impact mais à quel prix ?",
+    image: "/images/catalyseur.png",
+    description: `<p>Tu aides. Tu donnes. Tu transformes. Mais tu t'oublies dans le process. Et ça devient invivable.</p><p>Tu as créé quelque chose qui marche et qui crée de l'impact. La plupart ne le font jamais.</p><p>Le problème n'est pas ton engagement. <strong>C'est ton système.</strong></p><p>→ tout repose sur toi<br/>→ rien n'est cadré</p><p><strong>Ton blocage principal : le déploiement.</strong></p><p>Tu dois <strong>structurer pour durer</strong>. Sinon tu vas t'épuiser.</p>`,
+    emojis: ["⚡", "🔥", "💥", "🫀", "🌊"]
+  }
+};
+
+let currentQuestion = 0;
+let scores = {};
+
+function initQuiz() {
+  Object.keys(archetypes).forEach(key => { scores[key] = 0; });
+  showQuestion(0);
+  revealElements();
+}
+
+function showQuestion(n) {
+  const q = quizData[n];
+  const html = `
+    <div class="sk-question-num">Question ${n+1} / 8</div>
+    <div class="sk-question-text">${q.question}</div>
+    <div class="sk-answers">
+      ${q.answers.map((a, i) => `
+        <button class="sk-answer-btn" onclick="selectAnswer('${a.score}', ${n}, ${i})">
+          ${a.text}
+        </button>
+      `).join('')}
+    </div>
+  `;
+  document.getElementById('questionBlock').innerHTML = html;
+  updateProgress(n);
+}
+
+function selectAnswer(key, qIdx, aIdx) {
+  scores[key]++;
+  currentQuestion++;
+  document.querySelectorAll('.sk-answer-btn')[aIdx].classList.add('selected');
+  gtag('event', 'quiz_answer', {event_category: 'engagement', event_label: key});
+  setTimeout(() => {
+    if (currentQuestion < quizData.length) {
+      showQuestion(currentQuestion);
+    } else {
+      showResults();
+    }
+  }, 400);
+}
+
+function updateProgress(n) {
+  const pct = ((n + 1) / quizData.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function getArchetype() {
+  let max = 0, key = 'invisible';
+  Object.keys(scores).forEach(k => {
+    if (scores[k] > max) { max = scores[k]; key = k; }
+  });
+  return key;
+}
+
+function showResults() {
+  const key = getArchetype();
+  const a = archetypes[key];
+  
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultsScreen').classList.add('active');
+  
+  document.getElementById('cardImage').style.backgroundImage = `url('${a.image}')`;
+  document.getElementById('cardTitle').innerHTML = a.title;
+  
+  document.getElementById('archetypeSub').textContent = a.subtitle;
+  document.getElementById('archetypeDesc').innerHTML = a.description;
+  
+  const scoresHtml = Object.keys(scores).map(k => {
+    return `
+      <div class="sk-score-item">
+        <div class="sk-score-label">${archetypes[k].titlePlain}</div>
+        <div class="sk-score-bar">
+          <div class="sk-score-bar-fill" style="width:0%" id="bar-${k}"></div>
+        </div>
+        <div class="sk-score-count">${scores[k]} / 8</div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('scoresDisplay').innerHTML = scoresHtml;
+  
+  setTimeout(() => {
+    Object.keys(scores).forEach(k => {
+      const pct = (scores[k] / 8) * 100;
+      document.getElementById(`bar-${k}`).style.width = pct + '%';
+    });
+  }, 100);
+  
+  document.getElementById('strengthBadges').innerHTML = a.emojis.map(e => 
+    `<span class="sk-strength-badge">${e}</span>`
+  ).join('');
+  
+  window.currentArchetype = key;
+  window.currentArchetypeData = a;
+  gtag('event', 'quiz_complete', {event_category: 'engagement', event_label: key});
+  revealElements();
+}
+
+function applyCandidacy() {
+  gtag('event', 'offre_redirect', {event_category: 'engagement', event_label: window.currentArchetype});
+  window.location.href = `/offre?archetype=${window.currentArchetype}`;
+}
+
+function shareToSocials() {
+  generateCardImage();
+  gtag('event', 'share_click', {event_category: 'engagement', event_label: window.currentArchetype});
+}
+
+/* ==================== GÉNÉRATION CARTE PNG ==================== */
+
+function generateCardImage() {
+  const a = window.currentArchetypeData;
+  const cvs = document.getElementById('canvas');
+  
+  // Format carte 1080x1620 (ratio 2:3)
+  cvs.width = 1080;
+  cvs.height = 1620;
+  const ctx = cvs.getContext('2d');
+  
+  // Charger l'image archetype
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  
+  img.onload = function() {
+    // 1. Background bordeaux
+    ctx.fillStyle = '#1E0A0A';
+    ctx.fillRect(0, 0, 1080, 1620);
+    
+    // 2. Image archétype en fond (cover)
+    const imgRatio = img.width / img.height;
+    const cardRatio = 1080 / 1620;
+    let drawW, drawH, drawX, drawY;
+    if (imgRatio > cardRatio) {
+      drawH = 1620;
+      drawW = drawH * imgRatio;
+      drawX = (1080 - drawW) / 2;
+      drawY = 0;
+    } else {
+      drawW = 1080;
+      drawH = drawW / imgRatio;
+      drawX = 0;
+      drawY = (1620 - drawH) / 2;
+    }
+    ctx.drawImage(img, drawX, drawY, drawW, drawH);
+    
+    // 3. Overlay gradient
+    const grad = ctx.createLinearGradient(0, 0, 0, 1620);
+    grad.addColorStop(0, 'rgba(30,10,10,.85)');
+    grad.addColorStop(0.25, 'rgba(30,10,10,.3)');
+    grad.addColorStop(0.55, 'rgba(30,10,10,.2)');
+    grad.addColorStop(0.8, 'rgba(30,10,10,.7)');
+    grad.addColorStop(1, 'rgba(30,10,10,.95)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1080, 1620);
+    
+    // 4. Bordure subtile dorée
+    ctx.strokeStyle = 'rgba(242,214,117,.2)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(1, 1, 1078, 1618);
+    
+    ctx.textAlign = 'center';
+    
+    // 5. EYEBROW "ARCHÉTYPE"
+    ctx.font = '500 22px "Jost"';
+    ctx.fillStyle = '#F2D675';
+    ctx.fillText('— ARCHÉTYPE —', 540, 130);
+    
+    // 6. Titre archétype (avec italique sur le 2e mot)
+    ctx.fillStyle = '#F5F0E8';
+    drawTitleWithItalic(ctx, a.titlePlain, 540, 230, 1080);
+    
+    // BOTTOM
+    
+    // 8. Ligne dorée séparatrice
+    ctx.strokeStyle = 'rgba(242,214,117,.5)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(490, 1380);
+    ctx.lineTo(590, 1380);
+    ctx.stroke();
+    
+    // 9. "Mon archétype business"
+    ctx.font = 'italic 36px "Cormorant Garamond"';
+    ctx.fillStyle = 'rgba(245,240,232,.7)';
+    ctx.fillText('Mon archétype business', 540, 1450);
+    
+    // 10. @studio.k.digital
+    ctx.font = '500 26px "Jost"';
+    ctx.fillStyle = '#F2D675';
+    ctx.letterSpacing = '4px';
+    ctx.fillText('@STUDIO.K.DIGITAL', 540, 1510);
+    
+    // Convertir en blob pour partage/download
+    cvs.toBlob(async function(blob) {
+      const fileName = `archetype-${window.currentArchetype}-studiok.png`;
+      const file = new File([blob], fileName, { type: 'image/png' });
+      
+      // Détecter mobile
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      // 1. Essayer Web Share API (mobile moderne)
+      if (isMobile && navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: 'Mon archétype Studio K',
+            text: `Je suis ${window.currentArchetypeData.titlePlain} — Studio K`
+          });
+          return;
+        } catch (err) {
+          // Si l'utilisateur annule ou erreur → fallback
+          if (err.name !== 'AbortError') {
+            showImageFallback(cvs.toDataURL('image/png'), fileName);
+          }
+          return;
+        }
+      }
+      
+      // 2. Mobile sans Web Share API → afficher l'image en grand pour appui long
+      if (isMobile) {
+        showImageFallback(cvs.toDataURL('image/png'), fileName);
+        return;
+      }
+      
+      // 3. Desktop → téléchargement classique
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.download = fileName;
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }, 'image/png');
+  };
+  
+  img.onerror = function() {
+    console.error('Image archetype non chargée');
+    alert('Image en cours de chargement, réessaye dans 2 secondes !');
+  };
+  
+  img.src = a.image;
+}
+
+function showImageFallback(dataUrl, fileName) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:fixed;inset:0;background:rgba(30,10,10,.96);z-index:99999;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:1.5rem;overflow-y:auto;animation:fadeIn .3s ease;
+  `;
+  
+  overlay.innerHTML = `
+    <div style="text-align:center;max-width:420px;width:100%;">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#F2D675;font-size:1.05rem;margin-bottom:1.2rem;line-height:1.5;">
+        Appuie longuement sur l'image<br/>pour la sauvegarder dans ta galerie
+      </p>
+      <img src="${dataUrl}" alt="Archétype" style="width:100%;max-width:380px;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5);margin-bottom:1.5rem;display:block;margin-left:auto;margin-right:auto;"/>
+      <button id="closeFallback" style="background:transparent;border:1px solid rgba(242,214,117,.3);color:#F2D675;padding:.9rem 2rem;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;border-radius:2px;">Fermer</button>
+    </div>
+  `;
+  
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  
+  document.getElementById('closeFallback').onclick = function() {
+    overlay.remove();
+    document.body.style.overflow = '';
+  };
+}
+
+function drawTitleWithItalic(ctx, text, x, y, maxWidth) {
+  // Titre en 2 lignes : article + nom / qualificatif italique
+  // Ex: "La Créatrice" / "Invisible"
+  const words = text.split(' ');
+  const lastWord = words.pop();
+  const firstPart = words.join(' ');
+  
+  ctx.font = '64px "DM Serif Display"';
+  ctx.fillStyle = '#F5F0E8';
+  ctx.fillText(firstPart, x, y);
+  
+  ctx.font = 'italic 64px "DM Serif Display"';
+  ctx.fillStyle = '#F2D675';
+  ctx.fillText(lastWord, x, y + 75);
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  let currentY = y;
+  
+  for (let i = 0; i < words.length; i++) {
+    const testLine = line + words[i] + ' ';
+    const metrics = ctx.measureText(testLine);
+    
+    if (metrics.width > maxWidth && i > 0) {
+      ctx.fillText(line.trim(), x, currentY);
+      line = words[i] + ' ';
+      currentY += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, currentY);
+}
+
+function revealElements() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      e.isIntersecting ? e.target.classList.add('on') : e.target.classList.remove('on');
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -55px 0px' });
+  document.querySelectorAll('.sk-rv').forEach(el => obs.observe(el));
+}
+
+window.addEventListener('DOMContentLoaded', initQuiz);
+
+</script>
+
+</body>
+</html>
