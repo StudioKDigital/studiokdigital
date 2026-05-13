@@ -591,8 +591,12 @@ document.querySelectorAll('.sk-rv,.sk-rl').forEach(el=>{
 /* MAILERLITE SUCCESS CALLBACK */
 function ml_webform_success_41066761() {
   var $ = ml_jQuery || jQuery;
-  $('.ml-subscribe-form-41066761 .row-success').show();
-  $('.ml-subscribe-form-41066761 .row-form').hide();
+  var email = $('.ml-subscribe-form-41066761 input[name="fields[email]"]').val();
+  if (email) {
+    window.location.href = 'https://studiokdigital.fr/quiz?email=' + encodeURIComponent(email);
+  } else {
+    window.location.href = 'https://studiokdigital.fr/quiz';
+  }
 }
 </script>
 
