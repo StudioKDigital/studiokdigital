@@ -201,6 +201,24 @@ p strong { color: #F5F0E8; font-weight: 500; }
   font-size: 1rem;
 }
 
+.methode-note {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(245,240,232,.55);
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.7;
+  padding: 1.5rem 1.5rem 0;
+  border-top: 1px dashed rgba(242,214,117,.15);
+}
+
+.methode-note em {
+  color: #F2D675;
+  font-style: italic;
+}
+
 .pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -282,6 +300,24 @@ p strong { color: #F5F0E8; font-weight: 500; }
   font-size: 1.1rem;
 }
 
+.dossier-note {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(245,240,232,.55);
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.7;
+  padding: 1.5rem 1.5rem 0;
+  border-top: 1px dashed rgba(242,214,117,.15);
+}
+
+.dossier-note em {
+  color: #F2D675;
+  font-style: italic;
+}
+
 .dossier-features {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -299,8 +335,8 @@ p strong { color: #F5F0E8; font-weight: 500; }
 }
 
 .feature-icon {
-  font-size: 1.6rem;
-  margin-bottom: .8rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
   display: block;
 }
 
@@ -313,9 +349,24 @@ p strong { color: #F5F0E8; font-weight: 500; }
 }
 
 .feature p {
-  font-size: .82rem;
-  color: rgba(245,240,232,.6);
-  line-height: 1.6;
+  font-size: .9rem;
+  color: rgba(245,240,232,.78);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.feature p strong {
+  display: block;
+  color: #F5F0E8;
+  font-weight: 500;
+  margin-bottom: .6rem;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+}
+
+.feature p br {
+  display: block;
+  content: "";
 }
 
 /* PROCESS */
@@ -376,6 +427,143 @@ p strong { color: #F5F0E8; font-weight: 500; }
   font-size: .9rem;
   color: rgba(245,240,232,.65);
   line-height: 1.7;
+}
+
+/* LES 3 PORTES */
+.doors {
+  background: #1E0A0A;
+  text-align: center;
+  padding: 5rem 0;
+  position: relative;
+}
+
+.doors::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242,214,117,.1), transparent);
+}
+
+.doors h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #F5F0E8;
+  margin-bottom: 1rem;
+}
+
+.doors-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(245,240,232,.55);
+  font-size: 1.05rem;
+  max-width: 540px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.doors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.door {
+  background: rgba(245,240,232,.025);
+  border: 1px solid rgba(242,214,117,.12);
+  padding: 2rem 1.8rem;
+  position: relative;
+  transition: all .35s ease;
+}
+
+.door:hover {
+  background: rgba(245,240,232,.04);
+  border-color: rgba(242,214,117,.25);
+  transform: translateY(-2px);
+}
+
+.door.featured {
+  border-color: rgba(242,214,117,.35);
+  background: rgba(242,214,117,.04);
+}
+
+.door::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #F2D675, transparent);
+  opacity: 0;
+  transition: opacity .35s;
+}
+
+.door.featured::before { opacity: .6; }
+.door:hover::before { opacity: 1; }
+
+.door-num {
+  font-family: 'Jost', sans-serif;
+  font-size: .55rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(242,214,117,.6);
+  margin-bottom: 1rem;
+}
+
+.door h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: #F5F0E8;
+  margin-bottom: .8rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.door h3 em {
+  font-style: italic;
+  color: #F2D675;
+}
+
+.door-promise {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(245,240,232,.85);
+  font-size: 1.05rem;
+  margin-bottom: .7rem;
+  line-height: 1.5;
+}
+
+.door-for {
+  font-size: .85rem;
+  color: rgba(245,240,232,.6);
+  line-height: 1.7;
+}
+
+.door-pillars {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(242,214,117,.15);
+  font-family: 'Jost', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: rgba(242,214,117,.7);
+  line-height: 1.6;
+}
+
+.door-pillars em {
+  font-style: italic;
+  color: #F2D675;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .85rem;
+}
+
+@media (max-width: 750px) {
+  .doors-grid { grid-template-columns: 1fr; }
 }
 
 /* POUR QUI */
@@ -611,8 +799,8 @@ footer {
 <section class="hero sk-rv">
   <div class="container text-center">
     <div id="archetypeTag" class="hero-archetype-tag" style="display:none;"></div>
-    <h1 id="heroTitle">L'<em>Architecture</em> Studio K™</h1>
-    <p class="hero-sub" id="heroSub">L'accompagnement 1:1 pour transformer ce que tu portes en un business clair, structuré et activable.</p>
+    <h1 id="heroTitle">Le <em>chemin</em> pour structurer ton business.</h1>
+    <p class="hero-sub" id="heroSub">Trois accompagnements selon ton stade. Une seule méthode : les 3 piliers Studio K. Pour faire les bonnes choses, pas plus de choses.</p>
     <p class="hero-arrow">↓</p>
   </div>
 </section>
@@ -623,10 +811,10 @@ footer {
     <div class="eyebrow">Le constat</div>
     <h2 id="diagnosticTitle">Tu ne manques pas de <em>talent</em>.</h2>
     <p class="diagnostic-quote" id="diagnosticQuote">
-      Ce qui te bloque n'est pas dans toi.<br/>
-      C'est dans la structure de ton business.
+      Ce qui te bloque ne vient pas de toi.<br/>
+      Ça vient de la structure de ton business.
     </p>
-    <p>Plus de capacité ne résout pas un problème de structure. Il faut autre chose : <strong>une architecture claire</strong>.</p>
+    <p>Plus de capacité ne résout pas un problème de structure. Il faut autre chose : <strong>un cadre clair</strong>.</p>
   </div>
 </section>
 
@@ -641,19 +829,21 @@ footer {
       <div class="pillar">
         <div class="pillar-num">Pilier 01</div>
         <h3><em>Intention</em></h3>
-        <p>Vision · Cible · Positionnement · Différenciateur. Ce que tu portes et pourquoi ça existe.</p>
+        <p>Vision · Positionnement · Différenciateur. Ce que tu portes et pourquoi ça existe.</p>
       </div>
       <div class="pillar">
         <div class="pillar-num">Pilier 02</div>
         <h3><em>Architecture</em></h3>
-        <p>Offre · Message · Branding · Système d'acquisition. Donner une forme claire à ce qui existe.</p>
+        <p>Offre · Message · Branding · Acquisition. Donner une forme claire à ce qui existe.</p>
       </div>
       <div class="pillar">
         <div class="pillar-num">Pilier 03</div>
         <h3><em>Déploiement</em></h3>
-        <p>Plan d'action · Priorités · Contenu · Organisation. Mettre le business en mouvement.</p>
+        <p>Contenu · Priorités · Système · Exécution. Mettre le business en mouvement.</p>
       </div>
     </div>
+
+    <p class="methode-note">L'Architecture Studio K™ n'est pas un programme figé. Certaines clientes ont besoin d'une direction. D'autres d'une restructuration complète. La profondeur de l'accompagnement s'adapte à ton stade, ton business et ce que tu portes déjà. Mais la méthode reste la même : <em>Intention → Architecture → Déploiement</em>.</p>
   </div>
 </section>
 
@@ -667,25 +857,23 @@ footer {
     <div class="dossier-features">
       <div class="feature">
         <span class="feature-icon">📁</span>
-        <h4>Notion Structuré</h4>
-        <p>Vision · Offre · Acquisition · Contenu · Suivi · Contacts. Tout en un seul espace.</p>
+        <p><strong>Ta cartographie business</strong><br/>Vision · Offre · Message · Acquisition · Suivi. Tout au même endroit, structuré, accessible.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">⚙️</span>
-        <h4>Prompts & Skills Claude</h4>
-        <p>Bibliothèque de prompts personnalisés. Tu utilises Claude comme un assistant business — sans dépendre de moi.</p>
+        <p><strong>Tes systèmes IA</strong><br/>Prompts · outils · frameworks. Tout ce dont tu as besoin pour penser, décider et communiquer avec clarté — sans dépendre de moi.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">📐</span>
-        <h4>Framework Contenu</h4>
-        <p>Structure éditoriale réutilisable. Pour ne plus jamais te demander quoi poster.</p>
+        <p><strong>Ton framework contenu</strong><br/>Une structure éditoriale réutilisable. Pour ne plus jamais te demander quoi poster.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">🎯</span>
-        <h4>Plan d'action 90 jours</h4>
-        <p>Priorités hiérarchisées. Ce qu'il faut faire, dans quel ordre, et pourquoi.</p>
+        <p><strong>Ton plan d'action</strong><br/>Priorités hiérarchisées. Ce qu'il faut faire, dans quel ordre, et pourquoi.</p>
       </div>
     </div>
+
+    <p class="dossier-note">Le contenu et la profondeur du Dossier <em>s'adaptent à l'accompagnement choisi</em>.</p>
   </div>
 </section>
 
@@ -693,35 +881,35 @@ footer {
 <section class="process sk-rv">
   <div class="container">
     <div class="eyebrow">Comment ça se passe</div>
-    <h2>4 étapes</h2>
+    <h2>Le <em>parcours</em></h2>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-content">
           <h4>Candidature</h4>
-          <p>Tu remplis un formulaire court. Quelques questions pour comprendre où tu en es.</p>
+          <p>Tu remplis un formulaire approfondi pour me donner une vision claire de ton business, ton stade et tes blocages.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h4>Appel découverte (30 min)</h4>
-          <p>On vérifie ensemble que c'est aligné. Pas de vente forcée.</p>
+          <h4>Sélection</h4>
+          <p>Je lis personnellement chaque candidature. Si je pense pouvoir réellement t'aider, tu reçois la suite sous 48h.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h4>Accompagnement (4 à 8 semaines)</h4>
-          <p>On structure ton business par les 3 piliers. Sessions hebdomadaires + travail entre les rendez-vous.</p>
+          <h4>Accompagnement</h4>
+          <p>On structure ton business à travers les 3 piliers Studio K™ : <em>intention → architecture → déploiement</em>.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <h4>Formation autonomie</h4>
-          <p>Session finale 2h pour que tu sois 100% autonome avec Le Dossier™ et les outils.</p>
+          <h4>Autonomie</h4>
+          <p>Tu repars avec Le Dossier™, tes systèmes, tes outils et une direction claire pour avancer sans dépendre de moi.</p>
         </div>
       </div>
     </div>
@@ -749,8 +937,8 @@ footer {
         <h3>Ce n'est pas pour toi si</h3>
         <ul>
           <li>tu cherches quelqu'un qui exécute à ta place</li>
-          <li>tu veux des recettes magiques sans réflexion</li>
-          <li>tu n'as pas encore une idée minimum de ton activité</li>
+          <li>tu attends qu'un business apparaisse "tout seul" sans faire le travail de clarification</li>
+          <li>tu cherches une solution magique sans implication personnelle</li>
           <li>tu veux du contenu pour "remplir"</li>
           <li>tu cherches la rapidité plutôt que la solidité</li>
         </ul>
@@ -772,7 +960,7 @@ footer {
           <span class="faq-toggle">+</span>
         </div>
         <div class="faq-answer">
-          <p>L'investissement est communiqué à l'appel découverte, une fois que je suis sûre que c'est aligné. Je préfère vérifier qu'on travaille bien ensemble avant de parler chiffre.</p>
+          <p>L'investissement dépend de la profondeur d'accompagnement nécessaire. Chaque candidature est étudiée individuellement afin de proposer le cadre le plus juste selon ton stade, tes besoins et l'ampleur du travail à structurer.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -781,7 +969,7 @@ footer {
           <span class="faq-toggle">+</span>
         </div>
         <div class="faq-answer">
-          <p>Entre 4 et 8 semaines selon où tu en es. On adapte le rythme à ton avancement, ton temps disponible, et tes priorités.</p>
+          <p>Selon la profondeur de l'accompagnement : de quelques heures à plusieurs semaines. Je te dis ce qui est adapté à ton stade après ta candidature.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -790,7 +978,7 @@ footer {
           <span class="faq-toggle">+</span>
         </div>
         <div class="faq-answer">
-          <p>Parce que je ne prends pas plus de quelques clientes en accompagnement à la fois. La candidature me permet de m'assurer que je peux vraiment t'aider — et que tu es au bon moment pour ça.</p>
+          <p>Je travaille avec un nombre limité de clientes à la fois. La candidature me permet de préserver la qualité du travail, l'alignement et la profondeur de l'accompagnement.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -824,8 +1012,8 @@ footer {
       Tu as besoin de faire <strong>les bonnes choses</strong>.<br/>
       Et de leur donner une structure.
     </p>
-    <a href="https://tally.so/r/XXXXX" class="btn-cta" onclick="trackCandidacy()">Postuler à L'Architecture</a>
-    <p class="cta-secondary-text">Réponse sous 48h — Pas de vente forcée.</p>
+    <a href="https://tally.so/r/XXXXX" class="btn-cta" onclick="trackCandidacy()">✦ Je fais le premier pas</a>
+    <p class="cta-secondary-text">Sélection sur dossier · Réponse sous 48h · Pas d'appel de vente.</p>
   </div>
 </section>
 
@@ -841,38 +1029,38 @@ footer {
 const archetypes = {
   invisible: {
     name: "La Créatrice Invisible",
-    heroTitle: "Ton business <em>existe</em>. Mais personne ne le voit.",
-    heroSub: "Le problème n'est pas ton talent. C'est qu'il n'a pas de forme lisible. Voici comment je rends visible ce que tu portes déjà.",
-    diagnosticTitle: "Tu ne manques pas de <em>talent</em>.",
-    diagnosticQuote: "Ce qui te bloque, c'est l'absence d'une <em>direction lisible</em>.<br/>Sans forme claire, tes clientes ne peuvent pas te choisir."
+    heroTitle: "Ton talent <em>existe</em>.<br/>Mais il n'a pas de forme.",
+    heroSub: "Tu portes quelque chose de fort, et personne ne le voit. Pas parce que ça ne vaut rien — parce que ça n'a pas encore trouvé sa lisibilité.",
+    diagnosticTitle: "Tu n'as pas un problème de <em>talent</em>.",
+    diagnosticQuote: "Tu as un problème de <em>forme</em>.<br/>Sans contour clair, ton expertise reste invisible."
   },
   empire: {
     name: "L'Empire Sans Système",
-    heroTitle: "Ton business <em>tourne</em>. Mais il te consomme.",
-    heroSub: "Tu n'as pas besoin de plus de clients. Tu as besoin d'un système pour que ton business tourne — sans dépendre de toi.",
-    diagnosticTitle: "Tu ne manques pas d'<em>ambition</em>.",
-    diagnosticQuote: "Ce qui te bloque, c'est l'absence de <em>structure duplicable</em>.<br/>Sans système, tu deviens le goulot d'étranglement de ton propre business."
+    heroTitle: "Ton business <em>tourne</em>.<br/>Mais il te consomme.",
+    heroSub: "Plus de clientes ne résoudra pas ton épuisement. Ce qu'il te faut, c'est un système qui te désimbrique de ton propre business.",
+    diagnosticTitle: "Tu n'as pas un problème d'<em>ambition</em>.",
+    diagnosticQuote: "Tu as un problème de <em>structure</em>.<br/>Sans système, tu deviens le goulot d'étranglement de tout."
   },
   multipassionnee: {
     name: "La Multipassionnée Dispersée",
-    heroTitle: "Tu as <em>mille idées</em>. Aucune n'a de direction.",
-    heroSub: "Tu n'as pas besoin de plus d'idées. Tu as besoin de choisir une direction. Et de la structurer pour qu'elle existe vraiment.",
-    diagnosticTitle: "Tu ne manques pas de <em>potentiel</em>.",
-    diagnosticQuote: "Ce qui te bloque, c'est l'absence d'une <em>ligne claire</em>.<br/>Trop d'options dispersent ton énergie. Une seule direction la concentre."
+    heroTitle: "Tu as <em>mille idées</em>.<br/>Aucune ne tient vraiment.",
+    heroSub: "Le problème n'est pas ton manque d'idées. C'est l'absence d'un cadre qui te permettrait d'en choisir une — et de la construire.",
+    diagnosticTitle: "Tu n'as pas un problème de <em>potentiel</em>.",
+    diagnosticQuote: "Tu as un problème de <em>direction</em>.<br/>Sans hiérarchie, ton énergie se dilue dans tout."
   },
   specialiste: {
     name: "La Spécialiste Cachée",
-    heroTitle: "Ton <em>expertise</em> est rare. Personne ne le voit.",
-    heroSub: "Le problème n'est pas ce que tu sais. C'est comment tu l'exprimes. Voici comment rendre évident ce qui est déjà fort en toi.",
-    diagnosticTitle: "Tu ne manques pas d'<em>expertise</em>.",
-    diagnosticQuote: "Ce qui te bloque, c'est <em>l'expression de ta valeur</em>.<br/>Sans message lisible, ta compétence reste invisible aux bonnes personnes."
+    heroTitle: "Ton <em>expertise</em> est rare.<br/>Mais elle reste cachée.",
+    heroSub: "Tu sais des choses. Vraiment. Mais sur le terrain de la communication grand public, tu te tais ou tu sur-techniques. Et la valeur ne se voit pas.",
+    diagnosticTitle: "Tu n'as pas un problème d'<em>expertise</em>.",
+    diagnosticQuote: "Tu as un problème d'<em>expression</em>.<br/>Ce qui est évident pour toi reste invisible aux autres."
   },
   catalyseur: {
     name: "La Catalyseuse Épuisée",
-    heroTitle: "Tu crées de l'<em>impact</em>. Mais tu t'écrases.",
-    heroSub: "Tu n'as pas besoin de moins t'engager. Tu as besoin d'un système pour que ton impact soit durable — sans te détruire.",
-    diagnosticTitle: "Tu ne manques pas d'<em>engagement</em>.",
-    diagnosticQuote: "Ce qui te bloque, c'est l'absence de <em>cadre opérationnel</em>.<br/>Sans système, tu portes tout. Avec un système, ton impact se démultiplie."
+    heroTitle: "Tu crées de l'<em>impact</em>.<br/>Tu t'oublies dans le process.",
+    heroSub: "Tes clientes t'adorent. Tu transformes des vies. Mais tu paies le prix fort — parce que ton business n'a pas de cadre qui te protège.",
+    diagnosticTitle: "Tu n'as pas un problème d'<em>engagement</em>.",
+    diagnosticQuote: "Tu as un problème de <em>cadre</em>.<br/>En l'absence de structure, c'est ton énergie qui sert de structure."
   }
 };
 
@@ -936,7 +1124,10 @@ function revealElements() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  personalizeHero();
+  // Attendre que tout soit vraiment chargé
+  setTimeout(() => {
+    personalizeHero();
+  }, 100);
   revealElements();
 });
 
