@@ -651,7 +651,10 @@ function showResults() {
 
 function applyCandidacy() {
   gtag('event', 'offre_redirect', {event_category: 'engagement', event_label: window.currentArchetype});
-  window.location.href = `/offre?archetype=${window.currentArchetype}`;
+  const email = new URLSearchParams(window.location.search).get('email') || '';
+  const params = new URLSearchParams({ archetype: window.currentArchetype });
+  if (email) params.set('email', email);
+  window.location.href = `/offre?${params.toString()}`;
 }
 
 function shareToSocials() {
