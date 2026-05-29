@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Studio K — L'Architecture · Accompagnement 1:1</title>
+<title>Studio K — Le Cadre · Accompagnement 1:1</title>
 <meta name="description" content="L'accompagnement Studio K — Donner une direction claire à ton business. Sur candidature.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2RC0XT3N6"></script>
@@ -822,7 +822,7 @@ footer {
 <section class="methode sk-rv">
   <div class="container-wide">
     <div class="eyebrow">La méthode</div>
-    <h2>L'<em>Architecture</em> Studio K™</h2>
+    <h2>Le <em>Cadre</em> Studio K™</h2>
     <p class="methode-intro">3 piliers. Un seul objectif : <strong>donner une direction simple</strong> à ton business.</p>
 
     <div class="pillars">
@@ -843,7 +843,7 @@ footer {
       </div>
     </div>
 
-    <p class="methode-note">L'Architecture Studio K™ n'est pas un programme figé. Certaines clientes ont besoin d'une direction. D'autres d'une restructuration complète. La profondeur de l'accompagnement s'adapte à ton stade, ton business et ce que tu portes déjà. Mais la méthode reste la même : <em>Intention → Architecture → Déploiement</em>.</p>
+    <p class="methode-note">Le Cadre Studio K™ n'est pas un programme figé. Certaines clientes ont besoin d'une direction. D'autres d'une restructuration complète. La profondeur de l'accompagnement s'adapte à ton stade, ton business et ce que tu portes déjà. Mais la méthode reste la même : <em>Intention → Architecture → Déploiement</em>.</p>
   </div>
 </section>
 
@@ -852,7 +852,7 @@ footer {
   <div class="container-wide">
     <div class="eyebrow">Le livrable central</div>
     <h2>Le <em>Dossier™</em></h2>
-    <p class="dossier-intro">Tu ne repars pas avec des conseils. Tu repars avec ton business <strong>cartographié, organisé et activable</strong>.</p>
+    <p class="dossier-intro">Tu ne repars pas avec des conseils. Tu repars avec ton business <strong>cartographié, organisé et activable</strong> — y compris des éléments concrets, déclinés à ta charte, prêts à l'emploi.</p>
 
     <div class="dossier-features">
       <div class="feature">
@@ -865,7 +865,7 @@ footer {
       </div>
       <div class="feature">
         <span class="feature-icon">📐</span>
-        <p><strong>Ton framework contenu</strong><br/>Une structure éditoriale réutilisable. Pour ne plus jamais te demander quoi poster.</p>
+        <p><strong>Ton framework contenu</strong><br/>Une structure éditoriale réutilisable — et, selon ton accompagnement, déclinée concrètement à ta charte. Pour ne plus jamais te demander quoi poster.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">🎯</span>
@@ -1012,7 +1012,7 @@ footer {
       Tu as besoin de faire <strong>les bonnes choses</strong>.<br/>
       Et de leur donner une structure.
     </p>
-    <a href="https://tally.so/r/XXXXX" class="btn-cta" onclick="trackCandidacy()">✦ Je fais le premier pas</a>
+    <a href="https://tally.so/r/Y5o7B5" id="candidacyBtn" class="btn-cta" onclick="trackCandidacy()">✦ Je fais le premier pas</a>
     <p class="cta-secondary-text">Sélection sur dossier · Réponse sous 48h · Pas d'appel de vente.</p>
   </div>
 </section>
@@ -1073,6 +1073,16 @@ const archetypes = {
 function personalizeHero() {
   const params = new URLSearchParams(window.location.search);
   const archetypeKey = params.get('archetype');
+  const email = params.get('email') || '';
+
+  // Construire le lien Tally avec email + archetype
+  const tallyParams = new URLSearchParams();
+  if (archetypeKey) tallyParams.set('archetype', archetypeKey);
+  if (email) tallyParams.set('email', email);
+  const btn = document.getElementById('candidacyBtn');
+  if (btn && tallyParams.toString()) {
+    btn.href = `https://tally.so/r/Y5o7B5?${tallyParams.toString()}`;
+  }
   
   if (archetypeKey && archetypes[archetypeKey]) {
     const a = archetypes[archetypeKey];
