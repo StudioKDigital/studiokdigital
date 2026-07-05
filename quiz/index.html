@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Studio K — Découvre Ton Archétype de Business</title>
+<title>Studio K — Découvre Ton Archétype de Marque</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2RC0XT3N6"></script>
 <script>
@@ -193,7 +193,7 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
   margin: 0 auto;
 }
 
-/* BOTTOM : Mon archétype business + @ */
+/* BOTTOM : Mon archétype marque + @ */
 .sk-card-bottom {
   position: relative;
   padding-top: 1.5rem;
@@ -351,7 +351,7 @@ canvas { display:none; }
   <div class="sk-quiz-inner">
     <div class="sk-quiz-header">
       <div class="sk-quiz-eyebrow">Diagnostic</div>
-      <h1 class="sk-quiz-title">Découvre Ton Archétype de <em>Business</em></h1>
+      <h1 class="sk-quiz-title">Découvre Ton Archétype de <em>Marque</em></h1>
       <p class="sk-quiz-sub">8 questions. Ce qui te bloque vraiment.</p>
     </div>
 
@@ -377,7 +377,7 @@ canvas { display:none; }
             <h2 class="sk-card-title" id="cardTitle"></h2>
           </div>
           <div class="sk-card-bottom">
-            <div class="sk-card-tag">Mon archétype business</div>
+            <div class="sk-card-tag">Mon archétype marque</div>
             <div class="sk-card-handle">@studio.k.digital</div>
           </div>
         </div>
@@ -415,10 +415,13 @@ canvas { display:none; }
 
 <script>
 
+// Email transmis par MailerLite dans l'URL (?email=...) — récupéré une fois, réutilisé partout
+const userEmail = new URLSearchParams(window.location.search).get('email') || '';
+
 const quizData = [
   {
     id: 1,
-    question: "Quand tu regardes ton business aujourd'hui, qu'est-ce qui te frustre le plus profondément ?",
+    question: "Quand tu regardes ton projet aujourd'hui, qu'est-ce qui te frustre le plus profondément ?",
     answers: [
       { text: "J'ai quelque chose de bien… mais personne ne le voit", score: "invisible" },
       { text: "Ça marche… mais tout repose sur moi", score: "empire" },
@@ -484,7 +487,7 @@ const quizData = [
   },
   {
     id: 7,
-    question: "Si tu pouvais débloquer une chose pour ton business :",
+    question: "Si tu pouvais débloquer une chose pour ta marque :",
     answers: [
       { text: "Être connue et valorisée", score: "invisible" },
       { text: "Avoir du temps libre pour ma vie", score: "empire" },
@@ -512,7 +515,7 @@ const archetypes = {
     titlePlain: 'La Créatrice Invisible',
     subtitle: "Tu as quelque chose de fort mais personne ne le sait.",
     image: "/images/invisible.png",
-    description: `<p>Ce que tu crées est d'une qualité incontestable, mais en dehors de ton cercle direct, tu es invisible.</p><p>Et à force, tu commences à douter — pas de ton travail, mais de <strong>toi</strong>.</p><p>Le problème n'est pas ton niveau. <strong>C'est que ton business n'a pas de forme lisible.</strong> C'est un talent flottant, sans architecture.</p><p>→ Les gens ne comprennent pas<br/>→ Donc ils ne choisissent pas</p><p><strong>Ton blocage principal : Ton intention & ton positionnement.</strong></p><p>Tu as besoin de clarifier ta direction et de la rendre visible. C'est un problème d'Intention — pas de capacité.</p><p>Quand ta direction sera claire, tes clientes te trouveront naturellement.</p>`,
+    description: `<p>Ce que tu crées est d'une qualité incontestable, mais en dehors de ton cercle direct, tu es invisible.</p><p>Et à force, tu commences à douter — pas de ton travail, mais de <strong>toi</strong>.</p><p>Le problème n'est pas ton niveau. <strong>C'est que ton projet n'a pas de forme lisible.</strong> C'est un talent flottant, sans architecture.</p><p>→ Les gens ne comprennent pas<br/>→ Donc ils ne choisissent pas</p><p><strong>Ton blocage principal : Ton intention & ton positionnement.</strong></p><p>Tu as besoin de clarifier ta direction et de la rendre visible. C'est un problème d'Intention — pas de capacité.</p><p>Quand ta direction sera claire, tes clientes te trouveront naturellement.</p>`,
     emojis: ["👤", "✨", "📡", "🕯️", "🌫️"]
   },
 
@@ -521,7 +524,7 @@ const archetypes = {
     titlePlain: "L'Empire Sans Système",
     subtitle: "Tu n'es pas bloquée. Tu es coincée dans un schéma précis.",
     image: "/images/empire.png",
-    description: `<p>Ton business fonctionne.<br/>Mais il te <strong>consomme</strong>.</p><p>Tout passe par toi. Tout dépend de toi. Et plus tu avances, plus tu t'enfermes.</p><p>Le problème n'est pas ton ambition. <strong>C'est l'absence de structure.</strong></p><p>→ rien n'est cadré<br/>→ rien n'est duplicable</p><p><strong>Ton blocage principal : la structure</strong></p><p>Tu n'as pas besoin de plus de clients. Tu as besoin <strong>d'un système</strong>.</p>`,
+    description: `<p>Ta marque fonctionne.<br/>Mais il te <strong>consomme</strong>.</p><p>Tout passe par toi. Tout dépend de toi. Et plus tu avances, plus tu t'enfermes.</p><p>Le problème n'est pas ton ambition. <strong>C'est l'absence de structure.</strong></p><p>→ rien n'est cadré<br/>→ rien n'est duplicable</p><p><strong>Ton blocage principal : la structure</strong></p><p>Tu n'as pas besoin de plus de clients. Tu as besoin <strong>d'un système</strong>.</p>`,
     emojis: ["🏗️", "📊", "⚙️", "🔁", "🧱"]
   },
 
@@ -651,10 +654,20 @@ function showResults() {
 
 function applyCandidacy() {
   gtag('event', 'offre_redirect', {event_category: 'engagement', event_label: window.currentArchetype});
-  const email = new URLSearchParams(window.location.search).get('email') || '';
-  const params = new URLSearchParams({ archetype: window.currentArchetype });
-  if (email) params.set('email', email);
-  window.location.href = `/offre?${params.toString()}`;
+
+  // Pousse l'archétype dans MailerLite (best-effort — ne bloque jamais la redirection).
+  // keepalive:true permet à la requête de finir même si la page part déjà vers /offre.
+  if (userEmail) {
+    fetch('/api/track-archetype', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: userEmail, archetype: window.currentArchetype }),
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  const emailParam = userEmail ? `&email=${encodeURIComponent(userEmail)}` : '';
+  window.location.href = `/offre?archetype=${window.currentArchetype}${emailParam}`;
 }
 
 function shareToSocials() {
@@ -735,10 +748,10 @@ function generateCardImage() {
     ctx.lineTo(590, 1380);
     ctx.stroke();
     
-    // 9. "Mon archétype business"
+    // 9. "Mon archétype marque"
     ctx.font = 'italic 36px "Cormorant Garamond"';
     ctx.fillStyle = 'rgba(245,240,232,.7)';
-    ctx.fillText('Mon archétype business', 540, 1450);
+    ctx.fillText('Mon archétype marque', 540, 1450);
     
     // 10. @studio.k.digital
     ctx.font = '500 26px "Jost"';
