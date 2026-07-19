@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Studio K — Découvre Ton Archétype de Marque</title>
+<meta name="theme-color" content="#1E0A0A"/>
+<title>Studio K — Ton Archétype</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2RC0XT3N6"></script>
 <script>
@@ -13,10 +14,18 @@ gtag('js', new Date());
 gtag('config', 'G-K2RC0XT3N6');
 </script>
 <style>
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; }
-body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; min-height: 100vh; }
+:root{
+  --base:#1E0A0A;--dark:#100303;--light:#301410;--gold:#F2D675;--gold-soft:#FBF0C0;--cream:#F5F0E8;
+  --c75:rgba(245,240,232,.75);--c60:rgba(245,240,232,.6);--c45:rgba(245,240,232,.45);--c30:rgba(245,240,232,.3);
+  --dm:'DM Serif Display',Georgia,serif;--cg:'Cormorant Garamond',Georgia,serif;--ai:'Jost','Helvetica Neue',sans-serif;
+  --sh-out:8px 8px 22px var(--dark),-8px -8px 22px var(--light);
+  --sh-sm:4px 4px 12px var(--dark),-4px -4px 12px var(--light);
+  --sh-in:inset 5px 5px 14px var(--dark),inset -5px -5px 14px var(--light);
+}
+html{background:var(--base);scroll-behavior:smooth}
+body { background: var(--base) !important; font-family: var(--ai); font-weight: 300; overflow-x: hidden; min-height: 100vh; color:var(--cream); }
 
 .sk-grain { position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:.4;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E"); }
@@ -32,7 +41,7 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
   justify-content: center;
   padding: 6rem 2rem;
   position: relative;
-  background: #1E0A0A;
+  background: var(--base);
 }
 
 .sk-quiz::before {
@@ -44,7 +53,7 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
 }
 
 .sk-quiz-inner {
-  max-width: 720px;
+  max-width: 560px;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -52,54 +61,59 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
   text-align: center;
 }
 
-.sk-quiz-header { text-align:center;margin-bottom:3rem; }
-.sk-quiz-eyebrow { font-family:'Jost',sans-serif;font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:#F2D675;margin-bottom:1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem; }
-.sk-quiz-eyebrow::before,.sk-quiz-eyebrow::after { content:'';width:26px;height:1px;background:#F2D675; }
-.sk-quiz-title { font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;color:#F5F0E8;margin-bottom:1rem; }
-.sk-quiz-title em { font-style:italic;color:#F2D675; }
-.sk-quiz-sub { font-family:'Cormorant Garamond',serif;font-size:clamp(.95rem,2.5vw,1.1rem);font-style:italic;color:rgba(245,240,232,.4);line-height:1.8;margin-bottom:2.5rem; }
+.sk-quiz-header { text-align:center;margin-bottom:2.6rem; }
+.sk-quiz-eyebrow { font-family:var(--ai);font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:flex;align-items:center;justify-content:center;gap:1rem; }
+.sk-quiz-eyebrow::before,.sk-quiz-eyebrow::after { content:'';width:26px;height:1px;background:var(--gold); }
+.sk-quiz-title { font-family:var(--dm);font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.15;color:var(--cream);margin-bottom:.9rem; }
+.sk-quiz-title em { font-style:italic;color:var(--gold); }
+.sk-quiz-sub { font-family:var(--cg);font-size:clamp(.95rem,2.5vw,1.05rem);font-style:italic;color:var(--c45);line-height:1.8;margin-bottom:2.2rem; }
 
-.sk-progress { width:100%;height:1px;background:rgba(242,214,117,.08);margin-bottom:3rem;overflow:hidden;border-radius:1px; }
-.sk-progress-fill { height:100%;background:linear-gradient(90deg,#F2D675,rgba(242,214,117,.4));width:12.5%;transition:width .5s cubic-bezier(.22,1,.36,1); }
+/* barre de progression — rainure neumorphique */
+.sk-progress { width:100%;height:10px;border-radius:8px;background:var(--base);box-shadow:var(--sh-in);margin-bottom:2.6rem;overflow:hidden; }
+.sk-progress-fill { height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-soft));width:12.5%;transition:width .5s cubic-bezier(.22,1,.36,1);border-radius:8px; }
 
-.sk-question-block { margin-bottom:2.5rem;animation:fadeIn .5s cubic-bezier(.22,1,.36,1);text-align:left; }
+.sk-question-block { margin-bottom:0;animation:fadeIn .5s cubic-bezier(.22,1,.36,1);text-align:left; }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
-.sk-question-num { font-family:'Jost',sans-serif;font-size:.47rem;letter-spacing:.32em;text-transform:uppercase;color:#F2D675;margin-bottom:1rem;text-align:center; }
-.sk-question-text { font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3vw,1.6rem);color:#F5F0E8;line-height:1.3;margin-bottom:1.8rem;text-align:center; }
+.sk-question-num { font-family:var(--ai);font-size:.47rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;text-align:center; }
+.sk-question-text { font-family:var(--dm);font-size:clamp(1.25rem,3vw,1.5rem);color:var(--cream);line-height:1.35;margin-bottom:1.8rem;text-align:center; }
 
-.sk-answers { display:flex;flex-direction:column;gap:.8rem; }
-.sk-answer-btn { background:rgba(245,240,232,.02);border:1px solid rgba(245,240,232,.06);color:rgba(245,240,232,.65);padding:1.1rem 1.5rem;font-family:'Jost',sans-serif;font-size:.85rem;text-align:left;cursor:pointer;border-radius:2px;transition:background .3s,border-color .3s,color .3s;position:relative;padding-left:2.8rem;width:100%; }
-
-.sk-answer-btn::before { content:'';position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);width:16px;height:16px;border:1px solid rgba(242,214,117,.25);border-radius:50%;transition:all .3s; }
-
-.sk-answer-btn:hover { background:rgba(61,0,8,.15);border-color:rgba(242,214,117,.15);color:#F5F0E8; }
-.sk-answer-btn:hover::before { border-color:#F2D675; }
-
-.sk-answer-btn.selected { background:rgba(242,214,117,.12);border-color:#F2D675;color:#F5F0E8; }
-.sk-answer-btn.selected::before { border-color:#F2D675;background:#F2D675; }
+/* réponses — cartes neumorphiques */
+.sk-answers { display:flex;flex-direction:column;gap:.85rem; }
+.sk-answer-btn {
+  background:var(--base);border:none;color:var(--c75);
+  padding:1.1rem 1.5rem;font-family:var(--ai);font-size:.85rem;text-align:left;cursor:pointer;
+  border-radius:16px;box-shadow:var(--sh-sm);
+  transition:box-shadow .3s,color .3s,transform .2s;
+  position:relative;padding-left:2.9rem;width:100%;
+}
+.sk-answer-btn::before { content:'';position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);width:16px;height:16px;border:1px solid rgba(242,214,117,.3);border-radius:50%;transition:all .3s;box-shadow:var(--sh-in); }
+.sk-answer-btn:hover { color:var(--cream);box-shadow:6px 6px 16px var(--dark),-6px -6px 16px var(--light); transform:translateY(-1px); }
+.sk-answer-btn:hover::before { border-color:var(--gold); }
+.sk-answer-btn.selected { color:var(--cream);box-shadow:var(--sh-in); }
+.sk-answer-btn.selected::before { border-color:var(--gold);background:var(--gold);box-shadow:none; }
 
 .sk-results { display:none;animation:fadeIn .6s cubic-bezier(.22,1,.36,1); }
 .sk-results.active { display:flex; }
 
-/* ==================== ARCHETYPE CARD (PARTAGEABLE) ==================== */
+/* ==================== CARTE ARCHÉTYPE (PARTAGEABLE) ==================== */
 
 .sk-card-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2.6rem;
 }
 
 .sk-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 380px;
   aspect-ratio: 2/3;
-  border-radius: 4px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(242,214,117,.15);
-  background: #1E0A0A;
+  box-shadow: var(--sh-out), 0 0 0 1px rgba(242,214,117,.12);
+  background: var(--base);
   animation: cardFadeIn 1.4s cubic-bezier(.22,1,.36,1);
 }
 
@@ -138,21 +152,18 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2.5rem 2rem;
+  padding: 2.2rem 1.8rem;
   text-align: center;
 }
 
-/* TOP : Title + Subtitle */
-.sk-card-top {
-  position: relative;
-}
+.sk-card-top { position: relative; }
 
 .sk-card-eyebrow {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--ai);
   font-size: .42rem;
   letter-spacing: .4em;
   text-transform: uppercase;
-  color: #F2D675;
+  color: var(--gold);
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
@@ -165,26 +176,22 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
   content: '';
   width: 18px;
   height: 1px;
-  background: #F2D675;
+  background: var(--gold);
 }
 
 .sk-card-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(1.4rem, 4vw, 1.9rem);
-  color: #F5F0E8;
+  font-family: var(--dm);
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  color: var(--cream);
   line-height: 1.15;
   margin-bottom: 1rem;
   letter-spacing: -.01em;
 }
 
-.sk-card-title em {
-  font-style: italic;
-  color: #F2D675;
-  font-weight: 400;
-}
+.sk-card-title em { font-style: italic; color: var(--gold); font-weight: 400; }
 
 .sk-card-sub {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--cg);
   font-style: italic;
   font-size: clamp(.85rem, 2vw, 1rem);
   color: rgba(245,240,232,.85);
@@ -193,11 +200,7 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
   margin: 0 auto;
 }
 
-/* BOTTOM : Mon archétype marque + @ */
-.sk-card-bottom {
-  position: relative;
-  padding-top: 1.5rem;
-}
+.sk-card-bottom { position: relative; padding-top: 1.5rem; }
 
 .sk-card-bottom::before {
   content: '';
@@ -211,33 +214,33 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
 }
 
 .sk-card-tag {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--cg);
   font-style: italic;
-  font-size: .9rem;
+  font-size: .88rem;
   color: rgba(245,240,232,.7);
   margin-bottom: .5rem;
   letter-spacing: .02em;
 }
 
 .sk-card-handle {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--ai);
   font-size: .7rem;
   letter-spacing: .25em;
   text-transform: uppercase;
-  color: #F2D675;
+  color: var(--gold);
   font-weight: 400;
 }
 
-/* ==================== END CARD ==================== */
+/* ==================== FIN CARTE ==================== */
 
 .sk-archetype-sub-quote {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--cg);
   font-style: italic;
-  font-size: clamp(1.1rem, 2.8vw, 1.3rem);
-  color: #F2D675;
+  font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+  color: var(--gold);
   line-height: 1.6;
   margin: 0 auto 1.5rem;
-  max-width: 600px;
+  max-width: 500px;
   text-align: center;
   letter-spacing: .01em;
   position: relative;
@@ -258,89 +261,52 @@ body { background: #1E0A0A !important; font-family: 'Jost', sans-serif; font-wei
 .sk-archetype-sub-quote::before { top: 0; }
 .sk-archetype-sub-quote::after { bottom: 0; }
 
-.sk-archetype-desc { background:rgba(245,240,232,.02);border:1px solid rgba(245,240,232,.06);padding:2rem;margin:1rem auto 2rem;line-height:1.8;color:rgba(245,240,232,.75);max-width:600px;text-align:center; }
+/* panneau neumorphique — description */
+.sk-archetype-desc { background:var(--base);border-radius:22px;box-shadow:var(--sh-out);padding:1.8rem 1.7rem;margin:1rem auto 2rem;line-height:1.8;color:var(--c75);max-width:520px;text-align:center; }
 .sk-archetype-desc p { margin-bottom:1rem; }
-.sk-archetype-desc strong { color:#F2D675;font-weight:500;display:inline; }
+.sk-archetype-desc strong { color:var(--gold);font-weight:500;display:inline; }
 
-.sk-scores { background:rgba(242,214,117,.04);border:1px solid rgba(242,214,117,.1);padding:2rem;margin:2rem auto;border-radius:2px;max-width:600px; }
-.sk-scores-title { font-family:'DM Serif Display',serif;font-size:1.1rem;color:#F5F0E8;margin-bottom:1.5rem;text-align:center; }
-.sk-score-item { margin-bottom:1.5rem;text-align:center; }
-.sk-score-label { display:block;margin-bottom:.4rem;font-family:'Jost',sans-serif;font-size:.8rem;color:rgba(245,240,232,.7); }
-.sk-score-bar { width:100%;height:6px;background:rgba(242,214,117,.1);border-radius:3px;overflow:hidden;border:1px solid rgba(242,214,117,.15);margin:0 auto .4rem; }
-.sk-score-bar-fill { height:100%;background:linear-gradient(90deg,#F2D675,rgba(242,214,117,.6));transition:width .6s cubic-bezier(.22,1,.36,1); }
-.sk-score-count { font-family:'Jost',sans-serif;font-size:.7rem;color:rgba(242,214,117,.6);font-weight:400;letter-spacing:.05em; }
+/* panneau neumorphique — scores */
+.sk-scores { background:var(--base);border-radius:22px;box-shadow:var(--sh-out);padding:1.8rem 1.7rem;margin:2rem auto;max-width:520px; }
+.sk-scores-title { font-family:var(--dm);font-size:1.1rem;color:var(--cream);margin-bottom:1.5rem;text-align:center; }
+.sk-score-item { margin-bottom:1.4rem;text-align:center; }
+.sk-score-label { display:block;margin-bottom:.5rem;font-family:var(--ai);font-size:.8rem;color:var(--c75); }
+.sk-score-bar { width:100%;height:8px;border-radius:8px;background:var(--base);box-shadow:var(--sh-in);overflow:hidden;margin:0 auto .4rem; }
+.sk-score-bar-fill { height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-soft));border-radius:8px;transition:width .6s cubic-bezier(.22,1,.36,1); }
+.sk-score-count { font-family:var(--ai);font-size:.7rem;color:rgba(242,214,117,.65);font-weight:400;letter-spacing:.05em; }
 
-.sk-strengths { margin:2rem auto;text-align:center;max-width:600px; }
-.sk-strengths-label { font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(242,214,117,.5);margin-bottom:1rem;display:block; }
-.sk-strength-badge { display:inline-block;background:rgba(242,214,117,.05);border:1px solid rgba(242,214,117,.12);padding:.5rem .9rem;margin:.3rem;font-size:1.1rem;border-radius:2px; }
+.sk-strengths { margin:2rem auto;text-align:center;max-width:520px; }
+.sk-strengths-label { font-family:var(--ai);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(242,214,117,.5);margin-bottom:1rem;display:block; }
+.sk-strength-badge { display:inline-block;background:var(--base);box-shadow:var(--sh-sm);padding:.5rem .9rem;margin:.3rem;font-size:1.1rem;border-radius:12px; }
 
-.sk-cta-block { margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid rgba(242,214,117,.08);text-align:center;max-width:600px; }
-.sk-cta-text { font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(245,240,232,.85);margin-bottom:2rem;line-height:1.8; }
-.sk-cta-text strong { color:#F2D675;font-weight:400; }
+.sk-cta-block { margin:2.2rem auto 0;padding-top:2rem;border-top:1px solid rgba(242,214,117,.08);text-align:center;max-width:520px; }
+.sk-cta-text { font-family:var(--cg);font-size:1.1rem;font-style:italic;color:var(--c75);margin-bottom:2rem;line-height:1.8; }
+.sk-cta-text strong { color:var(--gold);font-weight:400; }
 
-/* ==================== BOUTONS STYLISÉS ==================== */
+/* ==================== BOUTONS ==================== */
 
-.sk-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: .8rem;
-  align-items: center;
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-}
+.sk-buttons { display:flex;flex-direction:column;gap:.9rem;align-items:center;width:100%;max-width:320px;margin:0 auto; }
 
-.sk-btn {
-  font-family: 'Jost', sans-serif;
-  font-size: .72rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 2px;
-  font-weight: 400;
-  transition: all .35s cubic-bezier(.22,1,.36,1);
-  width: 100%;
-  padding: 1rem 1.8rem;
-  position: relative;
-}
+.sk-btn { font-family:var(--ai);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-radius:16px;font-weight:600;transition:transform .25s,box-shadow .25s;width:100%;padding:16px 20px;position:relative;border:none; }
 
-/* Bouton principal — Or subtil */
-.sk-btn-primary {
-  background: rgba(242,214,117,.92);
-  color: #1E0A0A;
-  border: 1px solid #F2D675;
-  font-weight: 500;
-}
+/* bouton principal — CTA doré, identique au reste du tunnel */
+.sk-btn-primary { background:linear-gradient(145deg,#F5DC82,#E4C25E);color:var(--base);box-shadow:var(--sh-sm); }
+.sk-btn-primary:hover { transform:translateY(-2px);box-shadow:6px 6px 18px var(--dark),-6px -6px 18px var(--light),0 0 26px rgba(242,214,117,.32); }
+.sk-btn-primary:active { box-shadow:var(--sh-in); }
 
-.sk-btn-primary:hover {
-  background: #F2D675;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(242,214,117,.15);
-}
-
-/* Bouton secondaire — Contour fin */
-.sk-btn-secondary {
-  background: transparent;
-  border: 1px solid rgba(242,214,117,.3);
-  color: #F2D675;
-  font-weight: 300;
-}
-
-.sk-btn-secondary:hover {
-  border-color: #F2D675;
-  background: rgba(242,214,117,.04);
-  transform: translateY(-1px);
-}
+/* bouton secondaire — neumorphique creusé au repos */
+.sk-btn-secondary { background:var(--base);color:var(--gold);font-weight:500;box-shadow:var(--sh-sm); }
+.sk-btn-secondary:hover { transform:translateY(-1px);box-shadow:6px 6px 16px var(--dark),-6px -6px 16px var(--light); }
+.sk-btn-secondary:active { box-shadow:var(--sh-in); }
 
 canvas { display:none; }
 
 @media(max-width:650px){
-  .sk-quiz { padding:4rem 1.5rem; }
+  .sk-quiz { padding:4rem 1.3rem; }
   .sk-question-text { font-size:1.2rem; }
-  .sk-card-content { padding: 2rem 1.5rem; }
-  .sk-card { max-width: 340px; }
+  .sk-card-content { padding: 1.8rem 1.4rem; }
+  .sk-card { max-width: 320px; }
 }
-
 </style>
 </head>
 <body>
@@ -351,7 +317,7 @@ canvas { display:none; }
   <div class="sk-quiz-inner">
     <div class="sk-quiz-header">
       <div class="sk-quiz-eyebrow">Diagnostic</div>
-      <h1 class="sk-quiz-title">Découvre Ton Archétype de <em>Marque</em></h1>
+      <h1 class="sk-quiz-title">Ton <em>Archétype</em></h1>
       <p class="sk-quiz-sub">8 questions. Ce qui te bloque vraiment.</p>
     </div>
 
@@ -377,7 +343,7 @@ canvas { display:none; }
             <h2 class="sk-card-title" id="cardTitle"></h2>
           </div>
           <div class="sk-card-bottom">
-            <div class="sk-card-tag">Mon archétype marque</div>
+            <div class="sk-card-tag">Mon archétype</div>
             <div class="sk-card-handle">@studio.k.digital</div>
           </div>
         </div>
@@ -415,13 +381,10 @@ canvas { display:none; }
 
 <script>
 
-// Email transmis par MailerLite dans l'URL (?email=...) — récupéré une fois, réutilisé partout
-const userEmail = new URLSearchParams(window.location.search).get('email') || '';
-
 const quizData = [
   {
     id: 1,
-    question: "Quand tu regardes ton projet aujourd'hui, qu'est-ce qui te frustre le plus profondément ?",
+    question: "Quand tu regardes ton business aujourd'hui, qu'est-ce qui te frustre le plus profondément ?",
     answers: [
       { text: "J'ai quelque chose de bien… mais personne ne le voit", score: "invisible" },
       { text: "Ça marche… mais tout repose sur moi", score: "empire" },
@@ -487,7 +450,7 @@ const quizData = [
   },
   {
     id: 7,
-    question: "Si tu pouvais débloquer une chose pour ta marque :",
+    question: "Si tu pouvais débloquer une chose pour ton business :",
     answers: [
       { text: "Être connue et valorisée", score: "invisible" },
       { text: "Avoir du temps libre pour ma vie", score: "empire" },
@@ -515,7 +478,7 @@ const archetypes = {
     titlePlain: 'La Créatrice Invisible',
     subtitle: "Tu as quelque chose de fort mais personne ne le sait.",
     image: "/images/invisible.png",
-    description: `<p>Ce que tu crées est d'une qualité incontestable, mais en dehors de ton cercle direct, tu es invisible.</p><p>Et à force, tu commences à douter — pas de ton travail, mais de <strong>toi</strong>.</p><p>Le problème n'est pas ton niveau. <strong>C'est que ton projet n'a pas de forme lisible.</strong> C'est un talent flottant, sans architecture.</p><p>→ Les gens ne comprennent pas<br/>→ Donc ils ne choisissent pas</p><p><strong>Ton blocage principal : Ton intention & ton positionnement.</strong></p><p>Tu as besoin de clarifier ta direction et de la rendre visible. C'est un problème d'Intention — pas de capacité.</p><p>Quand ta direction sera claire, tes clientes te trouveront naturellement.</p>`,
+    description: `<p>Ce que tu crées est d'une qualité incontestable, mais en dehors de ton cercle direct, tu es invisible.</p><p>Et à force, tu commences à douter — pas de ton travail, mais de <strong>toi</strong>.</p><p>Le problème n'est pas ton niveau. <strong>C'est que ton business n'a pas de forme lisible.</strong> C'est un talent flottant, sans architecture.</p><p>→ Les gens ne comprennent pas<br/>→ Donc ils ne choisissent pas</p><p><strong>Ton blocage principal : Ton intention & ton positionnement.</strong></p><p>Tu as besoin de clarifier ta direction et de la rendre visible. C'est un problème d'Intention — pas de capacité.</p><p>Quand ta direction sera claire, tes clientes te trouveront naturellement.</p>`,
     emojis: ["👤", "✨", "📡", "🕯️", "🌫️"]
   },
 
@@ -524,7 +487,7 @@ const archetypes = {
     titlePlain: "L'Empire Sans Système",
     subtitle: "Tu n'es pas bloquée. Tu es coincée dans un schéma précis.",
     image: "/images/empire.png",
-    description: `<p>Ta marque fonctionne.<br/>Mais il te <strong>consomme</strong>.</p><p>Tout passe par toi. Tout dépend de toi. Et plus tu avances, plus tu t'enfermes.</p><p>Le problème n'est pas ton ambition. <strong>C'est l'absence de structure.</strong></p><p>→ rien n'est cadré<br/>→ rien n'est duplicable</p><p><strong>Ton blocage principal : la structure</strong></p><p>Tu n'as pas besoin de plus de clients. Tu as besoin <strong>d'un système</strong>.</p>`,
+    description: `<p>Ton business fonctionne.<br/>Mais il te <strong>consomme</strong>.</p><p>Tout passe par toi. Tout dépend de toi. Et plus tu avances, plus tu t'enfermes.</p><p>Le problème n'est pas ton ambition. <strong>C'est l'absence de structure.</strong></p><p>→ rien n'est cadré<br/>→ rien n'est duplicable</p><p><strong>Ton blocage principal : la structure</strong></p><p>Tu n'as pas besoin de plus de clients. Tu as besoin <strong>d'un système</strong>.</p>`,
     emojis: ["🏗️", "📊", "⚙️", "🔁", "🧱"]
   },
 
@@ -654,20 +617,7 @@ function showResults() {
 
 function applyCandidacy() {
   gtag('event', 'offre_redirect', {event_category: 'engagement', event_label: window.currentArchetype});
-
-  // Pousse l'archétype dans MailerLite (best-effort — ne bloque jamais la redirection).
-  // keepalive:true permet à la requête de finir même si la page part déjà vers /offre.
-  if (userEmail) {
-    fetch('/api/track-archetype', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmail, archetype: window.currentArchetype }),
-      keepalive: true
-    }).catch(() => {});
-  }
-
-  const emailParam = userEmail ? `&email=${encodeURIComponent(userEmail)}` : '';
-  window.location.href = `/offre?archetype=${window.currentArchetype}${emailParam}`;
+  window.location.href = `/offre?archetype=${window.currentArchetype}`;
 }
 
 function shareToSocials() {
@@ -748,10 +698,10 @@ function generateCardImage() {
     ctx.lineTo(590, 1380);
     ctx.stroke();
     
-    // 9. "Mon archétype marque"
+    // 9. "Mon archétype"
     ctx.font = 'italic 36px "Cormorant Garamond"';
     ctx.fillStyle = 'rgba(245,240,232,.7)';
-    ctx.fillText('Mon archétype marque', 540, 1450);
+    ctx.fillText('Mon archétype', 540, 1450);
     
     // 10. @studio.k.digital
     ctx.font = '500 26px "Jost"';
