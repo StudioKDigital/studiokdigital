@@ -153,7 +153,7 @@ h1 em{font-style:italic;color:var(--gold)}
               <div class="ml-form-successContent">
                 <h4>C'est parti.</h4>
                 <p>5 minutes, et tu sais par où commencer.</p>
-                <a href="/quiz" class="sk-quiz-link">Découvrir mon archétype →</a>
+                <a href="/quiz" style="color:var(--c45);font-size:.7rem;text-decoration:underline">Ça ne s'ouvre pas ? Clique ici</a>
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@ h1 em{font-style:italic;color:var(--gold)}
     e.style.animationDelay=(Math.random()*5)+'s';e.style.animationDuration=(Math.random()*4+3)+'s';
     s.appendChild(e);}
 })();
-function ml_webform_success_41066761(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-41066761 .row-success').show();$('.ml-subscribe-form-41066761 .row-form').hide();gtag('event','email_capture',{event_category:'engagement'});}
+function ml_webform_success_41066761(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-41066761 .row-success').show();$('.ml-subscribe-form-41066761 .row-form').hide();gtag('event','email_capture',{event_category:'engagement'});setTimeout(function(){window.location.href='/quiz';},900);}
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
 <script>fetch("https://assets.mailerlite.com/jsonp/2332480/forms/186989628817933728/takel")</script>
