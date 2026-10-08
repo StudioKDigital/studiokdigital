@@ -1,507 +1,1160 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1E0A0A">
-  <title>Studio K | Communication digitale & création web à Yutz, Thionville, Metz</title>
-  <meta name="description" content="Studio K — Communication digitale, visibilité locale et création de sites vitrines pour indépendants et commerces locaux à Yutz, Thionville, Metz et en Moselle. 7 ans d'expérience.">
-  <meta property="og:title" content="Studio K — Communication digitale & création web">
-  <meta property="og:description" content="Des solutions simples, soignées et efficaces pour améliorer votre présence en ligne.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
+  <a class="logo" href="#top" aria-label="Studio K - Accueil">
+    Studio <span>K</span>
+  </a>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Studio K","email":"hello@studiokdigital.fr","url":"https://www.studiokdigital.fr","sameAs":["https://www.instagram.com/studio.k.digital"],"address":{"@type":"PostalAddress","addressLocality":"Yutz","addressRegion":"Moselle","addressCountry":"FR"},"areaServed":["Yutz","Thionville","Metz","Moselle","Luxembourg"]}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <nav aria-label="Navigation principale">
+    <a href="#packs">Prestations</a>
+    <a href="#portfolio">Projets</a>
+    <a href="#about">À propos</a>
+    <a class="btn" href="#contact">Parlons-en</a>
+  </nav>
 
-  <style>
-    :root {
-      --bg: #1e0a0a;
-      --bg-deep: #140606;
-      --surface: rgba(255,255,255,.055);
-      --surface-2: rgba(255,255,255,.025);
-      --ink: #f3ebe6;
-      --muted: #b9a39c;
-      --line: rgba(243,235,230,.14);
-      --ice: #a9d3f0;
-      --ice-strong: #cfe6f7;
-      --cream: #f3ebe6;
-      --serif: "DM Serif Display", Georgia, serif;
-      --sans: Jost, system-ui, sans-serif;
-      --max: 1080px;
-      --shadow: rgba(0,0,0,.34);
-      --highlight: rgba(255,255,255,.22);
-    }
+</div>
+<div class="wrap">
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 10% 5%, rgba(169,211,240,.08), transparent 28%),
-        radial-gradient(circle at 90% 35%, rgba(150,60,60,.15), transparent 30%),
-        var(--bg);
-      color: var(--ink);
-      font: 400 16px/1.7 var(--sans);
-      overflow-x: hidden;
-    }
+  <div class="hero-copy">
 
-    a { color: inherit; }
-    h1,h2,h3,p { margin-top: 0; }
-    h1,h2,h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; }
-    h1 { font-size: clamp(34px, 5.6vw, 58px); letter-spacing: -.025em; }
-    h2 { font-size: clamp(28px, 3.8vw, 42px); letter-spacing: -.02em; }
-    h3 { font-size: 22px; }
-    em { color: var(--ice); font-style: italic; }
+    <span class="eyebrow">
+      Studio K · Yutz, Moselle
+    </span>
 
-    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
-    .section { padding: 72px 0; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--ice);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--ice);
-      opacity: .7;
-    }
-    .intro { max-width: 670px; color: var(--muted); font-size: 16.5px; }
+    <h1 id="hero-title">
+      Votre commerce mérite d'être <em>trouvé</em> en ligne.
+    </h1>
 
-    /* Glass / relief — used lightly rather than everywhere */
-    .glass {
-      background: linear-gradient(145deg, var(--surface), var(--surface-2));
-      border: 1px solid rgba(255,255,255,.13);
-      box-shadow:
-        inset 1px 1px 0 var(--highlight),
-        12px 18px 38px var(--shadow);
-      backdrop-filter: blur(18px) saturate(130%);
-      -webkit-backdrop-filter: blur(18px) saturate(130%);
-    }
+    <p class="intro">
+      Communication digitale, visibilité locale et création web :
+      des prestations claires et soignées pour les indépendants et
+      commerces qui veulent une présence en ligne plus professionnelle.
+    </p>
 
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding: 12px 0;
-      background: linear-gradient(to bottom, rgba(20,6,6,.92), rgba(20,6,6,.65), transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 58px;
-      padding: 0 10px 0 22px;
-      border-radius: 999px;
-    }
-    .logo { text-decoration: none; font: 400 24px var(--serif); }
-    .logo span { color: var(--ice); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
-    nav a:hover { color: var(--ink); }
+    <div class="actions">
 
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 24px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--ice-strong), #8cc3e8);
-      color: #1e0a0a;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      box-shadow: 0 10px 26px rgba(111,168,214,.22), inset 0 1px 0 rgba(255,255,255,.8);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 15px 32px rgba(111,168,214,.32), inset 0 1px 0 rgba(255,255,255,.9); }
-    .btn.secondary {
-      background: rgba(255,255,255,.035);
-      color: var(--ink);
-      border: 1px solid var(--line);
-      box-shadow: inset 1px 1px 0 rgba(255,255,255,.12);
-    }
-    .btn.secondary:hover { border-color: rgba(169,211,240,.55); }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      <a class="btn" href="#packs">
+        Voir les prestations
+      </a>
 
-    /* Hero */
-    .hero { position: relative; min-height: 540px; display: grid; align-items: center; padding: 78px 0 78px; overflow: hidden; }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      right: -120px;
-      top: 80px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, rgba(207,230,247,.3), rgba(169,211,240,.06) 42%, transparent 70%);
-      filter: blur(4px);
-      pointer-events: none;
-    }
-    .hero-copy { position: relative; z-index: 2; max-width: 790px; }
-    .hero h1 { max-width: 820px; margin-bottom: 24px; }
-    .hero .intro { max-width: 650px; margin-bottom: 34px; }
-    .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
-    .trust {
-      padding: 7px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(255,255,255,.025);
-      font-size: 12px;
-    }
-    .trust strong { color: var(--ink); font-weight: 500; }
+      <a class="btn secondary" href="#portfolio">
+        Voir les projets
+      </a>
 
-    .hero-orb {
-      position: absolute;
-      right: 8%;
-      top: 19%;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,.65), transparent 14%),
-        radial-gradient(circle at 60% 70%, rgba(169,211,240,.25), transparent 38%),
-        linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.015));
-      border: 1px solid rgba(255,255,255,.22);
-      box-shadow: inset 18px 18px 35px rgba(255,255,255,.05), inset -18px -18px 40px rgba(0,0,0,.3), 20px 28px 50px rgba(0,0,0,.28);
-      opacity: .8;
-    }
-    .hero-orb::after { content: ""; position: absolute; inset: 14%; border: 1px solid rgba(207,230,247,.25); border-radius: 50%; }
-
-    /* Small horizontal marquee — deliberately static/slow, decorative only */
-    .ribbon { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
-    .ribbon-track { display: inline-flex; gap: 34px; padding: 15px 0; min-width: 100%; justify-content: center; color: var(--muted); font: 400 18px var(--serif); }
-    .ribbon-track span:nth-child(even) { color: var(--ice); }
-
-    /* Cards */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { border-radius: 22px; padding: 24px; }
-    .card h3 { margin-bottom: 10px; }
-    .card p, .card li { color: var(--muted); font-size: 15px; }
-    .card ul { margin: 20px 0 0; padding-left: 18px; }
-    .card li { margin: 7px 0; }
-    .price { margin: 14px 0 10px; color: var(--ice); font: 400 36px var(--serif); }
-    .pack-tag { color: var(--ice); font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
-    .featured { border-color: rgba(169,211,240,.45); box-shadow: inset 1px 1px 0 rgba(255,255,255,.25), 14px 22px 48px rgba(0,0,0,.34), 0 0 40px rgba(169,211,240,.06); }
-    .option { margin-top: 18px; padding: 18px 22px; border-radius: 18px; color: var(--muted); font-size: 14px; }
-    .option strong { color: var(--ink); font-weight: 500; }
-
-    /* Portfolio (texte) */
-    .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
-    .project { border-radius: 22px; padding: 26px; }
-    .project.wide { grid-column: 1 / -1; }
-    .project h3 { margin-bottom: 8px; }
-    .project p { color: var(--muted); font-size: 15px; margin: 0; max-width: 640px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
-    .tags li { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; color: var(--muted); background: rgba(255,255,255,.025); box-shadow: inset 2px 2px 5px rgba(0,0,0,.25), inset -2px -2px 5px rgba(255,255,255,.04); }
-
-    /* About */
-    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
-    .about-copy p { color: var(--muted); font-size: 17px; }
-    .facts { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
-    .fact { padding: 22px; border-radius: 18px; }
-    .fact b { display: block; color: var(--ice); font: 400 38px var(--serif); }
-    .fact span { color: var(--muted); font-size: 13px; }
-
-    /* Process / FAQ */
-    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 42px; }
-    .step-number { color: var(--ice); font: 400 34px var(--serif); }
-    .step h3 { margin: 5px 0 8px; }
-    .step p { margin: 0; color: var(--muted); font-size: 15px; }
-    .faq { max-width: 780px; }
-    details { border-bottom: 1px solid var(--line); }
-    summary { cursor: pointer; list-style: none; padding: 22px 0; font: 400 19px var(--serif); display: flex; justify-content: space-between; gap: 20px; }
-    summary::-webkit-details-marker { display:none; }
-    summary::after { content: "+"; color: var(--ice); font: 400 24px var(--sans); }
-    details[open] summary::after { content: "−"; }
-    details p { max-width: 680px; padding-bottom: 20px; color: var(--muted); margin: 0; }
-
-    /* CTA */
-    .cta { text-align: center; padding: 80px 0; border-top: 1px solid var(--line); }
-    .cta .intro { margin: 0 auto 30px; }
-    .cta .actions { justify-content: center; }
-
-    footer { padding: 30px 0 110px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-    footer .wrap { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-    footer a { color: var(--ice); text-decoration:none; }
-
-    .mobile-bar { display:none; }
-
-    @media (max-width: 820px) {
-      nav a:not(.btn) { display:none; }
-      .hero-orb { right: -55px; top: 13%; opacity: .45; }
-      .grid, .steps, .about, .portfolio-grid { grid-template-columns: 1fr; }
-      .about { gap: 35px; }
-      .section { padding: 76px 0; }
-    }
-
-    @media (max-width: 560px) {
-      .wrap { width: min(var(--max), calc(100% - 28px)); }
-      h1 { font-size: clamp(32px, 9.5vw, 42px); }
-      .hero { min-height: auto; padding: 75px 0 80px; }
-      .hero-orb { width: 130px; height: 130px; top: 9%; right: -55px; }
-      .card { padding: 24px; }
-      .facts { grid-template-columns: 1fr; }
-      .mobile-bar { position:fixed; display:flex; left:10px; right:10px; bottom:10px; z-index:60; gap:8px; padding:8px; border-radius:999px; }
-      .mobile-bar .btn { flex:1; min-height:44px; padding:0 12px; }
-      footer { padding-bottom: 100px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior:auto; }
-      *, *::before, *::after { transition:none !important; animation:none !important; }
-    }
-
-    /* Motion Studio K, discret */
-    .glass { box-shadow: inset 1px 1px 0 var(--highlight), 10px 14px 30px var(--shadow), -6px -6px 18px rgba(255,255,255,.03); }
-    .ribbon-track { justify-content: flex-start; gap: 0; width: max-content; min-width: 0; animation: rb 55s linear infinite; }
-    .ribbon-track span { margin-right: 34px; }
-    @keyframes rb { to { transform: translateX(-50%); } }
-    .hero-orb { animation: fl 9s ease-in-out infinite alternate; }
-    @keyframes fl { to { transform: translateY(-16px); } }
-    .btn { position: relative; overflow: hidden; }
-    .btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%); transform: translateX(-130%); }
-    .btn:hover::after { transform: translateX(130%); transition: transform .7s; }
-    .card, .project, .option { transition: transform .35s ease, border-color .35s, box-shadow .35s; }
-    .card:hover, .project:hover { transform: translateY(-6px); border-color: rgba(169,211,240,.4); }
-    .tags li:hover, .trust:hover { border-color: var(--ice); color: var(--ice); }
-    .reveal { opacity: 0; translate: 0 22px; transition: opacity .7s ease, translate .7s cubic-bezier(.2,.8,.2,1), transform .35s ease, border-color .35s, box-shadow .35s; transition-delay: var(--d,0ms), var(--d,0ms), 0s, 0s, 0s; }
-    .reveal.on { opacity: 1; translate: 0 0; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; translate: none; } }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="wrap">
-    <div class="nav glass">
-      <a class="logo" href="#top">Studio <span>K</span></a>
-      <nav>
-        <a href="#packs">Prestations</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">À propos</a>
-        <a class="btn" href="#contact">Parlons-en</a>
-      </nav>
     </div>
-  </div>
-</header>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <span class="eyebrow">Studio K · Yutz, Moselle</span>
-        <h1>Votre commerce mérite d'être <em>vu</em> en ligne.</h1>
-        <p class="intro">Communication digitale, visibilité locale et création web : des prestations claires et soignées pour les indépendants et commerces qui veulent une présence en ligne plus professionnelle.</p>
-        <div class="actions">
-          <a class="btn" href="#packs">Voir les prestations</a>
-          <a class="btn secondary" href="#portfolio">Voir le portfolio</a>
-        </div>
-        <div class="trust-row" aria-label="Points forts">
-          <span class="trust"><strong>7 ans d'expérience</strong></span>
-          <span class="trust"><strong>Prix fixes</strong></span>
-          <span class="trust">Sans abonnement</span>
-          <span class="trust">Une seule interlocutrice</span>
-          <span class="trust">Sur place ou à distance</span>
-        </div>
-      </div>
-      <div class="hero-orb" aria-hidden="true"></div>
+    <div class="trust-row" aria-label="Points forts">
+
+      <span class="trust">
+        <strong>7 ans d'expérience</strong>
+      </span>
+
+      <span class="trust">
+        <strong>Prix fixes</strong>
+      </span>
+
+      <span class="trust">
+        Sans abonnement
+      </span>
+
+      <span class="trust">
+        Une seule interlocutrice
+      </span>
+
+      <span class="trust">
+        Sur place ou à distance
+      </span>
+
     </div>
-  </section>
 
-  <div class="ribbon" aria-hidden="true">
-    <div class="ribbon-track"><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span></div>
   </div>
 
-  <section class="section" id="packs">
-    <div class="wrap">
-      <span class="eyebrow">Les prestations</span>
-      <h2>Trois besoins. <em>Trois solutions.</em></h2>
-      <p class="intro">Un périmètre défini, un prix annoncé à l'avance et une prestation pensée pour être directement utile à votre activité.</p>
-
-      <div class="grid" style="margin-top:42px">
-        <article class="card glass">
-          <span class="pack-tag">Pack 01 · Visibilité locale</span>
-          <h3>Votre fiche Google, <em>au propre.</em></h3>
-          <div class="price">290 €</div>
-          <ul>
-            <li>Optimisation complète de votre fiche Google Business Profile</li>
-            <li>Catégories, services et zone desservie</li>
-            <li>Description et sélection des informations utiles</li>
-            <li>Conseils pour valoriser vos avis et vos photos</li>
-          </ul>
-        </article>
-
-        <article class="card glass">
-          <span class="pack-tag">Pack 02 · Image & réseaux</span>
-          <h3>Un mois de contenu <em>prêt à utiliser.</em></h3>
-          <div class="price">450 €</div>
-          <ul>
-            <li>6 modèles Canva adaptés à votre activité</li>
-            <li>1 mois de calendrier éditorial</li>
-            <li>Idées de contenus prêtes à publier</li>
-            <li>Optimisation de votre profil</li>
-          </ul>
-        </article>
-
-        <article class="card glass featured">
-          <span class="pack-tag">Pack 03 · Le plus complet</span>
-          <h3>Un site vitrine <em>simple et soigné.</em></h3>
-          <div class="price">750 €</div>
-          <ul>
-            <li>Site one-page adapté au mobile</li>
-            <li>Présentation, prestations, galerie, avis et contact</li>
-            <li>SEO local de base</li>
-            <li>Mise en ligne incluse</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="option glass">
-        <strong>Option · Prise en main & autonomie — 150 €</strong><br>
-        Une session personnalisée pour vous permettre de modifier vous-même votre site, vos contenus ou vos outils.
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="portfolio" style="padding-top:70px">
-    <div class="wrap">
-      <span class="eyebrow">Sélection</span>
-      <h2>Quelques projets, <em>pour voir comment je travaille.</em></h2>
-      <p class="intro">Des missions autour de la stratégie, du digital et de la création de marque.</p>
-
-      <div class="portfolio-grid">
-        <article class="project glass wide">
-          <span class="pack-tag">Stratégie marketing 360°</span>
-          <h3>Diagnostiqueur immobilier</h3>
-          <p>Accompagnement sur plusieurs années d'une entreprise de diagnostic immobilier — rôle clé dans la structuration marketing et le développement de la visibilité digitale.</p>
-          <ul class="tags"><li>Contenus multi-plateformes</li><li>Email marketing B2B</li><li>SEO &amp; blog</li><li>Meta &amp; Google Ads</li></ul>
-        </article>
-        <article class="project glass">
-          <span class="pack-tag">Création de marque</span>
-          <h3>Bijoux</h3>
-          <ul class="tags"><li>Identité visuelle</li><li>Naming</li><li>Storytelling</li><li>Packaging</li><li>E-commerce</li><li>Feed Instagram</li></ul>
-        </article>
-        <article class="project glass">
-          <span class="pack-tag">Présence digitale</span>
-          <h3>Essentielle Madagascar</h3>
-          <p>Présence digitale complète pour une créatrice d'huiles essentielles artisanales.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about" style="border-top:1px solid var(--line)">
-    <div class="wrap">
-      <div class="about">
-        <div>
-          <span class="eyebrow">À propos</span>
-          <h2>Bonjour, je suis <em>Sarah.</em></h2>
-        </div>
-        <div class="about-copy">
-          <p>J'accompagne depuis 7 ans des entreprises et indépendants dans leur communication digitale, avec une approche à la fois stratégique, créative et très concrète.</p>
-          <p>Mon objectif ici est simple : vous aider à avoir une présence en ligne claire, professionnelle et cohérente, sans vous vendre une prestation dont vous n'avez pas besoin.</p>
-          <ul class="tags" style="margin-top:22px"><li>7 ans d'expérience en marketing digital</li><li>Yutz · Thionville · Moselle et à distance</li><li>Contenus, sites vitrines, outils digitaux</li><li>Prestations cadrées, prix lisibles</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <span class="eyebrow">Le fonctionnement</span>
-      <h2>Simple, rapide, <em>sans jargon.</em></h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">01</div>
-          <h3>On échange</h3>
-          <p>Vous m'expliquez votre activité et votre besoin. Je vous indique la prestation la plus adaptée.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">02</div>
-          <h3>Je crée</h3>
-          <p>Je réalise la prestation à partir de vos informations, de vos contenus et de votre univers.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">03</div>
-          <h3>Vous récupérez</h3>
-          <p>Vous validez le résultat et repartez avec une présence digitale plus claire et plus professionnelle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq" style="border-top:1px solid var(--line)">
-    <div class="wrap faq">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2>Les <em>questions</em> essentielles.</h2>
-      <details>
-        <summary>Où intervenez-vous ?</summary>
-        <p>À Yutz, Thionville, en Moselle et à distance. Pour les prestations qui le nécessitent, un échange en visio ou par téléphone suffit.</p>
-      </details>
-      <details>
-        <summary>Y a-t-il un abonnement ?</summary>
-        <p>Non. Les packs sont proposés à prix fixe pour un périmètre défini. Si vous avez besoin d'un accompagnement différent, nous en discutons avant de commencer.</p>
-      </details>
-      <details>
-        <summary>Quel est le délai ?</summary>
-        <p>Le délai dépend de la prestation et de la rapidité avec laquelle vous me transmettez les éléments nécessaires. Le calendrier est défini ensemble avant le démarrage.</p>
-      </details>
-      <details>
-        <summary>Et si je ne sais pas quel pack choisir ?</summary>
-        <p>Écrivez-moi simplement ce qui vous pose problème. Je vous orienterai vers la solution la plus adaptée, sans vous pousser vers une prestation inutile.</p>
-      </details>
-    </div>
-  </section>
-
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <span class="eyebrow">Un projet ?</span>
-      <h2>On regarde ce dont vous <em>avez vraiment besoin.</em></h2>
-      <p class="intro">Décrivez-moi votre activité et votre besoin. Je vous répondrai avec une proposition claire.</p>
-      <div class="actions">
-        <a class="btn" href="mailto:hello@studiokdigital.fr?subject=Demande%20de%20devis%20—%20Studio%20K">Demander un devis</a>
-        <a class="btn secondary" href="mailto:hello@studiokdigital.fr">hello@studiokdigital.fr</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div><strong>Studio K</strong><br>Communication digitale & création web · Moselle</div>
-    <div><a href="https://www.instagram.com/studio.k.digital" target="_blank" rel="noopener">Instagram</a><br>Mentions légales à compléter</div>
+  <div
+    class="hero-orb"
+    aria-hidden="true">
   </div>
-</footer>
 
-<div class="mobile-bar glass">
-  <a class="btn" href="#packs">Prestations</a>
-  <a class="btn secondary" href="mailto:hello@studiokdigital.fr?subject=Demande%20de%20devis%20—%20Studio%20K">Me contacter</a>
+</div>
+<div class="ribbon-track">
+
+  <span>Visibilité locale</span>
+  <span>Site vitrine</span>
+  <span>Présence Instagram</span>
+  <span>SEO local</span>
+  <span>Communication digitale</span>
+
+  <span>Visibilité locale</span>
+  <span>Site vitrine</span>
+  <span>Présence Instagram</span>
+  <span>SEO local</span>
+  <span>Communication digitale</span>
+
+  <span>Visibilité locale</span>
+  <span>Site vitrine</span>
+  <span>Présence Instagram</span>
+  <span>SEO local</span>
+  <span>Communication digitale</span>
+
+  <span>Visibilité locale</span>
+  <span>Site vitrine</span>
+  <span>Présence Instagram</span>
+  <span>SEO local</span>
+  <span>Communication digitale</span>
+
+</div>
+<div class="wrap">
+
+  <span class="eyebrow">
+    Les prestations
+  </span>
+
+  <h2 id="packs-title">
+    Trois besoins, <em>trois portes d'entrée.</em>
+  </h2>
+
+  <p class="intro">
+    Tarifs de lancement, périmètre défini et prix annoncé à l'avance.
+    Choisissez ce dont vous avez besoin.
+  </p>
+
+  <div class="doors">
+
+    <a
+      class="door card glass featured"
+      href="#site">
+
+      <span class="pack-tag">
+        Un site qui convertit · Offre phare
+      </span>
+
+      <h3>
+        Site vitrine <em>Essentiel</em>
+      </h3>
+
+      <p>
+        Site, fiche Google et Analytics inclus :
+        une recherche devient une prise de contact.
+      </p>
+
+      <div class="price">
+        990 €
+      </div>
+
+      <span class="go">
+        Voir le détail <span>→</span>
+      </span>
+
+    </a>
+
+    <a
+      class="door card glass"
+      href="#google">
+
+      <span class="pack-tag">
+        Être trouvé
+      </span>
+
+      <h3>
+        Visibilité <em>locale</em>
+      </h3>
+
+      <p>
+        Une fiche Google Business Profile complète,
+        pensée pour donner envie d'appeler ou de passer.
+      </p>
+
+      <div class="price">
+        290 €
+      </div>
+
+      <span class="go">
+        Voir le détail <span>→</span>
+      </span>
+
+    </a>
+
+    <a
+      class="door card glass"
+      href="#instagram">
+
+      <span class="pack-tag">
+        Être vu
+      </span>
+
+      <h3>
+        Présence <em>Instagram</em>
+      </h3>
+
+      <p>
+        Un compte soigné et un mois de contenu
+        prêt à publier.
+      </p>
+
+      <div class="price">
+        450 €
+      </div>
+
+      <span class="go">
+        Voir le détail <span>→</span>
+      </span>
+
+    </a>
+
+  </div>
+
+</div>
+<div class="wrap split">
+
+  <div>
+
+    <span class="eyebrow">
+      Offre phare · Tarif de lancement
+    </span>
+
+    <h2 id="site-title">
+      Site vitrine <em>Essentiel</em>
+    </h2>
+
+    <p class="intro">
+      Un site clair, professionnel et pensé pour transformer
+      une recherche Google en prise de contact.
+    </p>
+
+    <div class="priceline">
+      <span class="price">990 €</span>
+      <span>Fiche Google Business Profile et Google Analytics inclus</span>
+    </div>
+
+    <ul class="tags" aria-label="Caractéristiques principales">
+      <li>One-page optimisé mobile</li>
+      <li>SEO local de base</li>
+      <li>Formation à l'interface</li>
+      <li>Transfert de propriété</li>
+    </ul>
+
+    <div class="blocks">
+
+      <div class="full">
+
+        <h4>
+          Ce que vous obtenez
+        </h4>
+
+        <ul>
+
+          <li>
+            Site one-page moderne, rapide et optimisé mobile
+          </li>
+
+          <li>
+            Direction artistique et positionnement adaptés à votre activité
+          </li>
+
+          <li>
+            Services, horaires, avis et formulaire de contact
+          </li>
+
+          <li>
+            SEO local de base
+          </li>
+
+          <li>
+            Fiche Google Business Profile optimisée
+          </li>
+
+          <li>
+            Google Analytics relié au site
+          </li>
+
+          <li>
+            Mentions légales, politique de confidentialité
+            et bannière cookies
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h4>
+          Comment c'est livré
+        </h4>
+
+        <ol>
+
+          <li>
+            Brief et récupération de vos contenus
+          </li>
+
+          <li>
+            Maquette validée ensemble
+          </li>
+
+          <li>
+            Corrections incluses, puis mise en ligne
+          </li>
+
+          <li>
+            Formation à l'interface
+          </li>
+
+          <li>
+            Transfert de propriété
+          </li>
+
+        </ol>
+
+      </div>
+
+      <div>
+
+        <h4>
+          À votre charge
+        </h4>
+
+        <ul>
+
+          <li>
+            Abonnement Framer
+            (hébergement et accès à l'éditeur)
+          </li>
+
+          <li>
+            Nom de domaine
+          </li>
+
+          <li>
+            Pages supplémentaires : sur devis
+          </li>
+
+        </ul>
+
+        <h4 style="margin-top:16px">
+          En option
+        </h4>
+
+        <ul>
+
+          <li>
+            Rapport mensuel de statistiques : 40 €/mois
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div
+      class="actions"
+      style="margin-top:26px">
+
+      <a
+        class="btn"
+        href="#contact">
+        Demander ce site
+      </a>
+
+    </div>
+
+  </div>
+
+  <div
+    class="visual glass"
+    aria-label="Illustration d'un site vitrine professionnel">
+
+    <div class="mock-top">
+      <i></i>
+      <i></i>
+      <i></i>
+      <span>votre-commerce.fr</span>
+    </div>
+
+    <div class="sk h"></div>
+    <div class="sk m"></div>
+    <div class="sk s"></div>
+
+    <span class="mbtn">
+      Appeler · Prendre rendez-vous
+    </span>
+
+    <div class="mcards">
+      <b></b>
+      <b></b>
+      <b></b>
+    </div>
+
+    <div
+      class="stars"
+      style="margin-top:14px;font-size:13px">
+
+      ★★★★★
+
+      <small
+        style="color:var(--muted);letter-spacing:0">
+        avis clients
+      </small>
+
+    </div>
+
+    <small class="cap">
+      Illustration
+    </small>
+
+  </div>
+
+</div>
+<div class="wrap split rev">
+
+  <div>
+
+    <span class="eyebrow">
+      Être trouvé · Tarif de lancement
+    </span>
+
+    <h2 id="google-title">
+      Visibilité <em>locale</em>
+    </h2>
+
+    <p class="intro">
+      Votre fiche Google Business Profile est souvent la première
+      chose qu'un client voit. Autant qu'elle donne envie.
+    </p>
+
+    <div class="priceline">
+
+      <span class="price">
+        290 €
+      </span>
+
+      <span>
+        Une fiche, optimisée en profondeur
+      </span>
+
+    </div>
+
+    <div class="blocks">
+
+      <div class="full">
+
+        <h4>
+          Ce que vous obtenez
+        </h4>
+
+        <ul>
+
+          <li>
+            Optimisation complète de votre fiche Google Business Profile
+          </li>
+
+          <li>
+            Catégories, services et zone desservie
+          </li>
+
+          <li>
+            Description, photos et informations utiles
+          </li>
+
+          <li>
+            Conseils pour valoriser vos avis
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <h4 class="optt">
+      Pour aller plus loin, sans engagement
+    </h4>
+
+    <ul class="opts">
+
+      <li>
+        <b>Suivi Google Essentiel · 60 €/mois</b>
+        <span>
+          Réponses à vos avis et 1 publication par mois.
+        </span>
+      </li>
+
+      <li>
+        <b>Suivi Google Complet · 120 €/mois</b>
+        <span>
+          Réponses aux avis, publications, photos et rapport mensuel.
+        </span>
+      </li>
+
+      <li>
+        <b>Rapport mensuel de statistiques · 40 €/mois</b>
+        <span>
+          Inclus dans le suivi Complet.
+        </span>
+      </li>
+
+    </ul>
+
+    <div
+      class="actions"
+      style="margin-top:26px">
+
+      <a
+        class="btn"
+        href="#contact">
+        Optimiser ma fiche
+      </a>
+
+    </div>
+
+  </div>
+
+  <div
+    class="visual glass"
+    aria-label="Illustration d'une fiche Google Business Profile">
+
+    <div class="gname">
+
+      <b>
+        Votre commerce
+      </b>
+
+      <span class="stars">
+        ★★★★★
+      </span>
+
+      <small>
+        4,8 · exemple
+      </small>
+
+    </div>
+
+    <p class="gline">
+      Commerce local · Ouvert · Ferme à 19 h
+    </p>
+
+    <div class="gbtns">
+      <span>Appeler</span>
+      <span>Itinéraire</span>
+      <span>Site web</span>
+    </div>
+
+    <div class="gph">
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+
+    <div
+      class="gpin"
+      aria-hidden="true">
+      📍
+    </div>
+
+    <small class="cap">
+      Illustration
+    </small>
+
+  </div>
+
+</div>
+<div class="wrap split">
+
+  <div>
+
+    <span class="eyebrow">
+      Être vu · Tarif de lancement
+    </span>
+
+    <h2 id="instagram-title">
+      Présence <em>Instagram</em>
+    </h2>
+
+    <p class="intro">
+      Vos clients jettent un œil à votre compte avant de venir :
+      autant qu'il soit soigné, cohérent et régulier.
+    </p>
+
+    <div class="priceline">
+
+      <span class="price">
+        450 €
+      </span>
+
+      <span>
+        Un mois de communication, prêt à utiliser
+      </span>
+
+    </div>
+
+    <ul
+      class="tags"
+      aria-label="Caractéristiques principales">
+
+      <li>Contenus prêts à publier</li>
+      <li>Image cohérente</li>
+      <li>Un mois organisé d'avance</li>
+
+    </ul>
+
+    <div class="blocks">
+
+      <div class="full">
+
+        <h4>
+          Ce que vous obtenez
+        </h4>
+
+        <ul>
+
+          <li>
+            6 modèles Canva adaptés à votre activité
+          </li>
+
+          <li>
+            1 mois de calendrier éditorial
+          </li>
+
+          <li>
+            Idées de contenus prêtes à publier
+          </li>
+
+          <li>
+            Optimisation de votre profil Instagram
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div
+      class="actions"
+      style="margin-top:26px">
+
+      <a
+        class="btn"
+        href="#contact">
+        Je veux mon mois de contenu
+      </a>
+
+    </div>
+
+  </div>
+
+  <div
+    class="visual glass igm"
+    aria-label="Illustration d'un compte Instagram organisé">
+
+    <div class="igh">
+
+      <i
+        class="av"
+        aria-hidden="true">
+      </i>
+
+      <div>
+
+        <div
+          class="sk"
+          style="width:60%">
+        </div>
+
+        <div
+          class="sk"
+          style="width:40%">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="igg">
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+
+    <small class="cap">
+      Illustration
+    </small>
+
+  </div>
+
+</div>
+<div class="wrap">
+
+  <span class="eyebrow">
+    Quelques projets
+  </span>
+
+  <h2 id="portfolio-title">
+    Une expérience digitale <em>concrète.</em>
+  </h2>
+
+  <p class="intro">
+    Une sélection de projets réalisés au fil de mes expériences
+    en communication digitale, création de contenus, stratégie et web.
+  </p>
+
+  <div class="portfolio-grid">
+
+    <article class="project glass wide">
+
+      <span class="pack-tag">
+        Stratégie marketing & visibilité digitale
+      </span>
+
+      <h3>
+        Diagnostiqueur immobilier
+      </h3>
+
+      <p>
+        Accompagnement sur plusieurs années d'une entreprise
+        de diagnostic immobilier, avec un rôle clé dans la structuration
+        marketing et le développement de sa visibilité digitale.
+      </p>
+
+      <ul
+        class="tags"
+        aria-label="Compétences mobilisées">
+
+        <li>Google Ads</li>
+        <li>Google Analytics</li>
+        <li>Search Console</li>
+        <li>SEO & blog</li>
+        <li>Email marketing B2B</li>
+        <li>Coordination de refonte</li>
+
+      </ul>
+
+    </article>
+
+    <article class="project glass">
+
+      <span class="pack-tag">
+        Création de marque
+      </span>
+
+      <h3>
+        Marque de bijoux
+      </h3>
+
+      <p>
+        Création de ma propre marque, de l'identité visuelle
+        à la boutique en ligne, en passant par le storytelling
+        et la présence sur les réseaux sociaux.
+      </p>
+
+      <ul
+        class="tags"
+        aria-label="Compétences mobilisées">
+
+        <li>Identité visuelle</li>
+        <li>Naming</li>
+        <li>Storytelling</li>
+        <li>Packaging</li>
+        <li>E-commerce</li>
+        <li>Instagram</li>
+
+      </ul>
+
+    </article>
+
+    <article class="project glass">
+
+      <span class="pack-tag">
+        Présence digitale
+      </span>
+
+      <h3>
+        Essentielle Madagascar
+      </h3>
+
+      <p>
+        Travail autour de la présence digitale d'une créatrice
+        d'huiles essentielles artisanales et de la valorisation
+        de son univers de marque.
+      </p>
+
+    </article>
+
+  </div>
+
+  <p
+    class="intro"
+    style="margin-top:28px">
+
+    Je développe aujourd'hui une offre dédiée aux indépendants
+    et commerces de proximité. Cette sélection montre mon expérience
+    et ma manière de travailler ; les premières réalisations locales
+    viendront progressivement l'enrichir.
+
+  </p>
+
+</div>
+<div class="wrap">
+
+  <div class="about">
+
+    <div>
+
+      <span class="eyebrow">
+        À propos
+      </span>
+
+      <h2 id="about-title">
+        Bonjour, je suis <em>Sarah.</em>
+      </h2>
+
+    </div>
+
+    <div class="about-copy">
+
+      <p>
+        J'accompagne depuis 7 ans des entreprises et indépendants
+        dans leur communication digitale, avec une approche à la fois
+        stratégique, créative et très concrète.
+      </p>
+
+      <p>
+        Mon objectif ici est simple : vous aider à avoir une présence
+        en ligne claire, professionnelle et cohérente, sans vous vendre
+        une prestation dont vous n'avez pas besoin.
+      </p>
+
+      <ul
+        class="tags"
+        style="margin-top:22px">
+
+        <li>
+          7 ans d'expérience en marketing digital
+        </li>
+
+        <li>
+          Yutz · Thionville · Moselle et à distance
+        </li>
+
+        <li>
+          Contenus, sites vitrines, outils digitaux
+        </li>
+
+        <li>
+          Prestations cadrées, prix lisibles
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="wrap">
+
+  <span class="eyebrow">
+    Le fonctionnement
+  </span>
+
+  <h2 id="process-title">
+    Simple, rapide, <em>sans jargon.</em>
+  </h2>
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">
+        01
+      </div>
+
+      <h3>
+        On échange
+      </h3>
+
+      <p>
+        Vous m'expliquez votre activité et votre besoin.
+        Je vous indique la prestation la plus adaptée.
+      </p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">
+        02
+      </div>
+
+      <h3>
+        Je crée
+      </h3>
+
+      <p>
+        Je réalise la prestation à partir de vos informations,
+        de vos contenus et de votre univers.
+      </p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">
+        03
+      </div>
+
+      <h3>
+        Vous récupérez
+      </h3>
+
+      <p>
+        Vous validez le résultat et repartez avec une présence
+        digitale plus claire et plus professionnelle.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="wrap faq">
+
+  <span class="eyebrow">
+    Questions fréquentes
+  </span>
+
+  <h2 id="faq-title">
+    Les <em>questions</em> essentielles.
+  </h2>
+
+  <details>
+
+    <summary>
+      Quels types d'activités accompagnez-vous ?
+    </summary>
+
+    <p>
+      J'accompagne notamment les indépendants, commerces de proximité,
+      artisans, prestataires de services et petites structures qui
+      souhaitent améliorer leur présence en ligne.
+    </p>
+
+  </details>
+
+  <details>
+
+    <summary>
+      Où intervenez-vous ?
+    </summary>
+
+    <p>
+      À Yutz, Thionville, en Moselle et à distance.
+      Pour les prestations qui le nécessitent, un échange en visio
+      ou par téléphone suffit.
+    </p>
+
+  </details>
+
+  <details>
+
+    <summary>
+      Y a-t-il un abonnement ?
+    </summary>
+
+    <p>
+      Non. Les prestations principales sont proposées à prix fixe
+      pour un périmètre défini. Si vous avez besoin d'un accompagnement
+      différent, nous en discutons avant de commencer.
+    </p>
+
+  </details>
+
+  <details>
+
+    <summary>
+      Quel est le délai ?
+    </summary>
+
+    <p>
+      Le délai dépend de la prestation et de la rapidité avec laquelle
+      vous me transmettez les éléments nécessaires. Le calendrier est
+      défini ensemble avant le démarrage.
+    </p>
+
+  </details>
+
+  <details>
+
+    <summary>
+      Le suivi mensuel est-il obligatoire ?
+    </summary>
+
+    <p>
+      Non. Le suivi de fiche Google, la réponse aux avis,
+      les publications et le rapport mensuel sont proposés
+      en option, sans engagement.
+    </p>
+
+  </details>
+
+  <details>
+
+    <summary>
+      Et si je ne sais pas quel pack choisir ?
+    </summary>
+
+    <p>
+      Écrivez-moi simplement ce qui vous pose problème.
+      Je vous orienterai vers la solution la plus adaptée,
+      sans vous pousser vers une prestation inutile.
+    </p>
+
+  </details>
+
+</div>
+<div class="wrap">
+
+  <span class="eyebrow">
+    Un projet ?
+  </span>
+
+  <h2 id="contact-title">
+    On regarde ce dont vous <em>avez vraiment besoin.</em>
+  </h2>
+
+  <p class="intro">
+    Décrivez-moi votre activité et votre besoin.
+    Je vous répondrai avec une proposition claire.
+  </p>
+
+  <iframe
+    name="mlframe"
+    title="Confirmation du formulaire"
+    hidden>
+  </iframe>
+
+  <form
+    id="ml"
+    class="mlform glass"
+    action="https://assets.mailerlite.com/jsonp/2332480/forms/200573415109690834/subscribe"
+    method="post"
+    target="mlframe">
+
+    <label
+      for="email"
+      class="sr-only">
+      Votre adresse email
+    </label>
+
+    <input
+      id="email"
+      type="email"
+      name="fields[email]"
+      placeholder="Votre email"
+      aria-label="Votre email"
+      autocomplete="email"
+      required>
+
+    <input
+      type="hidden"
+      name="ml-submit"
+      value="1">
+
+    <input
+      type="hidden"
+      name="anticsrf"
+      value="true">
+
+    <button
+      class="btn"
+      type="submit">
+      Être recontacté(e)
+    </button>
+
+  </form>
+
+  <p
+    id="mlok"
+    class="mlnote"
+    hidden
+    style="color:var(--ice);font-size:15px">
+
+    Merci, je reviens vers vous très vite.
+
+  </p>
+
+  <p class="mlnote">
+    Devis gratuit · Réponse sous 24 h · Sans engagement.
+    En envoyant votre email, vous acceptez d'être recontacté(e)
+    par Studio K.
+  </p>
+
+  <div class="actions">
+
+    <a
+      class="btn secondary"
+      href="mailto:hello@studiokdigital.fr">
+
+      Ou écrivez-moi :
+      hello@studiokdigital.fr
+
+    </a>
+
+  </div>
+
+</div>
+<div>
+  <strong>Studio K</strong>
+  <br>
+  Communication digitale & création web · Moselle
 </div>
 
-<script>
-(function(){var s=".section h2,.section .intro,.eyebrow,.card,.project,.step,.option,details,.cta h2";var els=document.querySelectorAll(s);
-if(!("IntersectionObserver" in window))return;
-var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("on");o.unobserve(x.target)}})},{threshold:.12});
-els.forEach(function(el,i){el.classList.add("reveal");el.style.setProperty("--d",(i%3)*80+"ms");o.observe(el)})})();
-</script>
-</body>
-</html>
+<div>
+
+  <a
+    href="https://www.instagram.com/studio.k.digital"
+    target="_blank"
+    rel="noopener noreferrer">
+    Instagram
+  </a>
+
+  <br>
+
+  <a href="#mentions">
+    Mentions légales
+  </a>
+
+</div>
+<p>
+
+  <strong>Mentions légales.</strong>
+
+  Éditeur : [PRÉNOM NOM], entrepreneur individuel,
+  exerçant sous le nom commercial Studio K ·
+  SIRET [XXX XXX XXX XXXXX] ·
+  [ADRESSE OU VILLE] ·
+  hello@studiokdigital.fr.
+
+  Directrice de la publication :
+  [PRÉNOM NOM].
+
+  Hébergeur :
+  Vercel Inc., 440 N Barranca Ave #4133,
+  Covina, CA 91723, États-Unis.
+
+  Données personnelles :
+  l'email saisi dans le formulaire sert uniquement
+  à vous recontacter (outil MailerLite).
+
+  La mesure d'audience Google Analytics n'est activée
+  qu'avec votre accord.
+
+  Pour exercer vos droits d'accès ou de suppression :
+  hello@studiokdigital.fr.
+
+</p>
+ Prestations
+ Me contacter
