@@ -1,507 +1,391 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1E0A0A">
-  <title>Studio K | Communication digitale & création web à Yutz, Thionville, Metz</title>
-  <meta name="description" content="Studio K — Communication digitale, visibilité locale et création de sites vitrines pour indépendants et commerces locaux à Yutz, Thionville, Metz et en Moselle. 7 ans d'expérience.">
-  <meta property="og:title" content="Studio K — Communication digitale & création web">
-  <meta property="og:description" content="Des solutions simples, soignées et efficaces pour améliorer votre présence en ligne.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Studio K","email":"hello@studiokdigital.fr","url":"https://www.studiokdigital.fr","sameAs":["https://www.instagram.com/studio.k.digital"],"address":{"@type":"PostalAddress","addressLocality":"Yutz","addressRegion":"Moselle","addressCountry":"FR"},"areaServed":["Yutz","Thionville","Metz","Moselle","Luxembourg"]}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #1e0a0a;
-      --bg-deep: #140606;
-      --surface: rgba(255,255,255,.055);
-      --surface-2: rgba(255,255,255,.025);
-      --ink: #f3ebe6;
-      --muted: #b9a39c;
-      --line: rgba(243,235,230,.14);
-      --ice: #a9d3f0;
-      --ice-strong: #cfe6f7;
-      --cream: #f3ebe6;
-      --serif: "DM Serif Display", Georgia, serif;
-      --sans: Jost, system-ui, sans-serif;
-      --max: 1080px;
-      --shadow: rgba(0,0,0,.34);
-      --highlight: rgba(255,255,255,.22);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 10% 5%, rgba(169,211,240,.08), transparent 28%),
-        radial-gradient(circle at 90% 35%, rgba(150,60,60,.15), transparent 30%),
-        var(--bg);
-      color: var(--ink);
-      font: 400 16px/1.7 var(--sans);
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; }
-    h1,h2,h3,p { margin-top: 0; }
-    h1,h2,h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; }
-    h1 { font-size: clamp(34px, 5.6vw, 58px); letter-spacing: -.025em; }
-    h2 { font-size: clamp(28px, 3.8vw, 42px); letter-spacing: -.02em; }
-    h3 { font-size: 22px; }
-    em { color: var(--ice); font-style: italic; }
-
-    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
-    .section { padding: 72px 0; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--ice);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--ice);
-      opacity: .7;
-    }
-    .intro { max-width: 670px; color: var(--muted); font-size: 16.5px; }
-
-    /* Glass / relief — used lightly rather than everywhere */
-    .glass {
-      background: linear-gradient(145deg, var(--surface), var(--surface-2));
-      border: 1px solid rgba(255,255,255,.13);
-      box-shadow:
-        inset 1px 1px 0 var(--highlight),
-        12px 18px 38px var(--shadow);
-      backdrop-filter: blur(18px) saturate(130%);
-      -webkit-backdrop-filter: blur(18px) saturate(130%);
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding: 12px 0;
-      background: linear-gradient(to bottom, rgba(20,6,6,.92), rgba(20,6,6,.65), transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 58px;
-      padding: 0 10px 0 22px;
-      border-radius: 999px;
-    }
-    .logo { text-decoration: none; font: 400 24px var(--serif); }
-    .logo span { color: var(--ice); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
-    nav a:hover { color: var(--ink); }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 24px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--ice-strong), #8cc3e8);
-      color: #1e0a0a;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      box-shadow: 0 10px 26px rgba(111,168,214,.22), inset 0 1px 0 rgba(255,255,255,.8);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 15px 32px rgba(111,168,214,.32), inset 0 1px 0 rgba(255,255,255,.9); }
-    .btn.secondary {
-      background: rgba(255,255,255,.035);
-      color: var(--ink);
-      border: 1px solid var(--line);
-      box-shadow: inset 1px 1px 0 rgba(255,255,255,.12);
-    }
-    .btn.secondary:hover { border-color: rgba(169,211,240,.55); }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    /* Hero */
-    .hero { position: relative; min-height: 540px; display: grid; align-items: center; padding: 78px 0 78px; overflow: hidden; }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      right: -120px;
-      top: 80px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, rgba(207,230,247,.3), rgba(169,211,240,.06) 42%, transparent 70%);
-      filter: blur(4px);
-      pointer-events: none;
-    }
-    .hero-copy { position: relative; z-index: 2; max-width: 790px; }
-    .hero h1 { max-width: 820px; margin-bottom: 24px; }
-    .hero .intro { max-width: 650px; margin-bottom: 34px; }
-    .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
-    .trust {
-      padding: 7px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(255,255,255,.025);
-      font-size: 12px;
-    }
-    .trust strong { color: var(--ink); font-weight: 500; }
-
-    .hero-orb {
-      position: absolute;
-      right: 8%;
-      top: 19%;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,.65), transparent 14%),
-        radial-gradient(circle at 60% 70%, rgba(169,211,240,.25), transparent 38%),
-        linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.015));
-      border: 1px solid rgba(255,255,255,.22);
-      box-shadow: inset 18px 18px 35px rgba(255,255,255,.05), inset -18px -18px 40px rgba(0,0,0,.3), 20px 28px 50px rgba(0,0,0,.28);
-      opacity: .8;
-    }
-    .hero-orb::after { content: ""; position: absolute; inset: 14%; border: 1px solid rgba(207,230,247,.25); border-radius: 50%; }
-
-    /* Small horizontal marquee — deliberately static/slow, decorative only */
-    .ribbon { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
-    .ribbon-track { display: inline-flex; gap: 34px; padding: 15px 0; min-width: 100%; justify-content: center; color: var(--muted); font: 400 18px var(--serif); }
-    .ribbon-track span:nth-child(even) { color: var(--ice); }
-
-    /* Cards */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { border-radius: 22px; padding: 24px; }
-    .card h3 { margin-bottom: 10px; }
-    .card p, .card li { color: var(--muted); font-size: 15px; }
-    .card ul { margin: 20px 0 0; padding-left: 18px; }
-    .card li { margin: 7px 0; }
-    .price { margin: 14px 0 10px; color: var(--ice); font: 400 36px var(--serif); }
-    .pack-tag { color: var(--ice); font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
-    .featured { border-color: rgba(169,211,240,.45); box-shadow: inset 1px 1px 0 rgba(255,255,255,.25), 14px 22px 48px rgba(0,0,0,.34), 0 0 40px rgba(169,211,240,.06); }
-    .option { margin-top: 18px; padding: 18px 22px; border-radius: 18px; color: var(--muted); font-size: 14px; }
-    .option strong { color: var(--ink); font-weight: 500; }
-
-    /* Portfolio (texte) */
-    .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
-    .project { border-radius: 22px; padding: 26px; }
-    .project.wide { grid-column: 1 / -1; }
-    .project h3 { margin-bottom: 8px; }
-    .project p { color: var(--muted); font-size: 15px; margin: 0; max-width: 640px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
-    .tags li { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; color: var(--muted); background: rgba(255,255,255,.025); box-shadow: inset 2px 2px 5px rgba(0,0,0,.25), inset -2px -2px 5px rgba(255,255,255,.04); }
-
-    /* About */
-    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
-    .about-copy p { color: var(--muted); font-size: 17px; }
-    .facts { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
-    .fact { padding: 22px; border-radius: 18px; }
-    .fact b { display: block; color: var(--ice); font: 400 38px var(--serif); }
-    .fact span { color: var(--muted); font-size: 13px; }
-
-    /* Process / FAQ */
-    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 42px; }
-    .step-number { color: var(--ice); font: 400 34px var(--serif); }
-    .step h3 { margin: 5px 0 8px; }
-    .step p { margin: 0; color: var(--muted); font-size: 15px; }
-    .faq { max-width: 780px; }
-    details { border-bottom: 1px solid var(--line); }
-    summary { cursor: pointer; list-style: none; padding: 22px 0; font: 400 19px var(--serif); display: flex; justify-content: space-between; gap: 20px; }
-    summary::-webkit-details-marker { display:none; }
-    summary::after { content: "+"; color: var(--ice); font: 400 24px var(--sans); }
-    details[open] summary::after { content: "−"; }
-    details p { max-width: 680px; padding-bottom: 20px; color: var(--muted); margin: 0; }
-
-    /* CTA */
-    .cta { text-align: center; padding: 80px 0; border-top: 1px solid var(--line); }
-    .cta .intro { margin: 0 auto 30px; }
-    .cta .actions { justify-content: center; }
-
-    footer { padding: 30px 0 110px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-    footer .wrap { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-    footer a { color: var(--ice); text-decoration:none; }
-
-    .mobile-bar { display:none; }
-
-    @media (max-width: 820px) {
-      nav a:not(.btn) { display:none; }
-      .hero-orb { right: -55px; top: 13%; opacity: .45; }
-      .grid, .steps, .about, .portfolio-grid { grid-template-columns: 1fr; }
-      .about { gap: 35px; }
-      .section { padding: 76px 0; }
-    }
-
-    @media (max-width: 560px) {
-      .wrap { width: min(var(--max), calc(100% - 28px)); }
-      h1 { font-size: clamp(32px, 9.5vw, 42px); }
-      .hero { min-height: auto; padding: 75px 0 80px; }
-      .hero-orb { width: 130px; height: 130px; top: 9%; right: -55px; }
-      .card { padding: 24px; }
-      .facts { grid-template-columns: 1fr; }
-      .mobile-bar { position:fixed; display:flex; left:10px; right:10px; bottom:10px; z-index:60; gap:8px; padding:8px; border-radius:999px; }
-      .mobile-bar .btn { flex:1; min-height:44px; padding:0 12px; }
-      footer { padding-bottom: 100px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior:auto; }
-      *, *::before, *::after { transition:none !important; animation:none !important; }
-    }
-
-    /* Motion Studio K, discret */
-    .glass { box-shadow: inset 1px 1px 0 var(--highlight), 10px 14px 30px var(--shadow), -6px -6px 18px rgba(255,255,255,.03); }
-    .ribbon-track { justify-content: flex-start; gap: 0; width: max-content; min-width: 0; animation: rb 55s linear infinite; }
-    .ribbon-track span { margin-right: 34px; }
-    @keyframes rb { to { transform: translateX(-50%); } }
-    .hero-orb { animation: fl 9s ease-in-out infinite alternate; }
-    @keyframes fl { to { transform: translateY(-16px); } }
-    .btn { position: relative; overflow: hidden; }
-    .btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%); transform: translateX(-130%); }
-    .btn:hover::after { transform: translateX(130%); transition: transform .7s; }
-    .card, .project, .option { transition: transform .35s ease, border-color .35s, box-shadow .35s; }
-    .card:hover, .project:hover { transform: translateY(-6px); border-color: rgba(169,211,240,.4); }
-    .tags li:hover, .trust:hover { border-color: var(--ice); color: var(--ice); }
-    .reveal { opacity: 0; translate: 0 22px; transition: opacity .7s ease, translate .7s cubic-bezier(.2,.8,.2,1), transform .35s ease, border-color .35s, box-shadow .35s; transition-delay: var(--d,0ms), var(--d,0ms), 0s, 0s, 0s; }
-    .reveal.on { opacity: 1; translate: 0 0; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; translate: none; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studio K | Site web &amp; visibilité locale à Yutz, Thionville</title>
+<meta name="description" content="Studio K, à Yutz : site vitrine, fiche Google Business Profile et présence Instagram pour les commerces, artisans et indépendants de Moselle.">
+<link rel="canonical" href="https://www.studiokdigital.fr/">
+<meta property="og:url" content="https://www.studiokdigital.fr/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#1E0A0A">
+<script>try{var m=localStorage.getItem("skt");if(m)document.documentElement.setAttribute("data-theme",m)}catch(e){}</script>
+<meta name="author" content="Studio K">
+<meta property="og:title" content="Studio K | Communication digitale & création web">
+<meta property="og:description" content="Communication digitale, visibilité locale et création de sites vitrines pour indépendants et commerces locaux.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Studio K">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://www.studiokdigital.fr/#business","name":"Studio K","description":"Studio de communication digitale et création web pour indépendants et commerces locaux.","url":"https://www.studiokdigital.fr/","email":"hello@studiokdigital.fr","address":{"@type":"PostalAddress","addressLocality":"Yutz","addressRegion":"Moselle","addressCountry":"FR"},"areaServed":[{"@type":"City","name":"Yutz"},{"@type":"City","name":"Thionville"},{"@type":"City","name":"Metz"},{"@type":"AdministrativeArea","name":"Moselle"},{"@type":"Country","name":"Luxembourg"}],"sameAs":["https://www.instagram.com/studio.k.digital"]}]}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233a0f1a'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23a9d3f0'%3E✦%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#3a0f1a;--cream:#f6efe8;--ice:#a9d3f0;--ink:#3a0f12;--muted:#7a5f58;--line:rgba(58,15,18,.14);--acc:#386a91;--sf:rgba(255,255,255,.62);--sf2:rgba(255,255,255,.3);--gb:rgba(255,255,255,.9);--hl:#fff;--sh:rgba(120,70,60,.2);--nm:rgba(255,255,255,.95);--sk1:rgba(58,15,18,.08);--sk2:rgba(79,134,173,.28);--serif:"DM Serif Display",Georgia,serif;--sans:Jost,system-ui,sans-serif;--max:1080px}
+.dark{--ink:#f3ebe6;--muted:#c9b4ac;--line:rgba(243,235,230,.16);--acc:#a9d3f0;--sf:rgba(255,255,255,.07);--sf2:rgba(255,255,255,.025);--gb:rgba(255,255,255,.15);--hl:rgba(255,255,255,.22);--sh:rgba(0,0,0,.4);--nm:rgba(255,255,255,.03);--sk1:rgba(255,255,255,.07);--sk2:rgba(169,211,240,.26);color:var(--ink)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 16px/1.7 var(--sans);overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,h4,p{margin-top:0}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1}
+h1{font-size:clamp(34px,5.4vw,56px);letter-spacing:-.02em}
+h2{font-size:clamp(28px,3.8vw,42px);letter-spacing:-.015em}
+h3{font-size:22px}
+em{color:var(--acc);font-style:italic}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+.section{padding:72px 0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;color:var(--acc);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.intro{max-width:660px;color:var(--muted);font-size:16.5px}
+.center{text-align:center}.center .intro{margin-inline:auto}
+.glass{background:linear-gradient(145deg,var(--sf),var(--sf2));border:1px solid var(--gb);box-shadow:inset 1px 1px 0 var(--hl),9px 12px 28px var(--sh),-7px -7px 18px var(--nm);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%)}
+/* header */
+header{position:sticky;top:0;z-index:50;height:82px;margin-bottom:-82px;padding-top:12px}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 8px 0 22px;border-radius:999px;background:rgba(30,10,14,.62);border:1px solid rgba(255,255,255,.14);box-shadow:8px 10px 26px rgba(0,0,0,.25);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#f3ebe6}
+.logo{text-decoration:none;font:400 24px var(--serif)}.logo span{color:var(--ice)}
+nav{display:flex;align-items:center;gap:26px}
+nav a:not(.btn){color:#d9c8c0;text-decoration:none;font-size:13px;transition:color .25s}nav a:not(.btn):hover{color:#fff}
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;border-radius:999px;background:var(--wine);color:#f6efe8;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;border:0;cursor:pointer;box-shadow:0 10px 24px rgba(58,15,26,.28),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-130%)}
+.btn:hover::after{transform:translateX(130%);transition:transform .7s}
+.dark .btn{background:#f6efe8;color:var(--wine);box-shadow:0 10px 26px rgba(0,0,0,.28),inset 0 1px 0 #fff}
+.btn.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.dark .btn.secondary{background:rgba(255,255,255,.04);color:var(--ink)}
+.btn.secondary:hover{border-color:var(--acc)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn i{font-style:normal;transition:transform .3s}.btn:hover i{transform:translateX(4px)}
+/* waves */
+.wv{display:block;width:100%;height:56px}
+.wvbox{line-height:0}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:132px 0 96px;background:radial-gradient(60% 80% at 82% 8%,rgba(196,96,118,.5),transparent 62%),radial-gradient(40% 50% at 96% 62%,rgba(169,211,240,.2),transparent 60%),linear-gradient(160deg,#4d1426,#2c0b14 58%,#1e0a0a)}
+.hero .wv{position:absolute;left:0;bottom:-1px;color:var(--cream)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:2}
+.hero h1{margin-bottom:22px}.hero h1 em{color:var(--ice)}
+.hero .intro{margin-bottom:30px;color:#d9c8c0}
+.trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.trust{padding:6px 13px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.04);font-size:12px;transition:border-color .3s,color .3s,transform .3s}
+.trust:hover{border-color:var(--ice);color:var(--ice);transform:translateY(-2px)}.trust strong{color:var(--ink);font-weight:500}
+.devices{position:relative;padding:10px 40px 30px 0;animation:fl 9s ease-in-out infinite alternate}
+.laptop .screen{aspect-ratio:16/10;border:7px solid #0f0508;border-radius:14px;background:linear-gradient(150deg,#3b1020,#1e0a12);padding:14px 16px;box-shadow:18px 26px 50px rgba(0,0,0,.4)}
+.laptop .base{height:12px;width:108%;margin:0 -4%;border-radius:0 0 14px 14px;background:linear-gradient(#cfc3c0,#8f8284)}
+.phone{position:absolute;right:0;bottom:0;width:116px;aspect-ratio:9/18.5;border:6px solid #0f0508;border-radius:22px;background:linear-gradient(160deg,#2c0f1a,#190912);padding:12px 8px;box-shadow:14px 20px 36px rgba(0,0,0,.45);animation:fl 7s ease-in-out infinite alternate-reverse}
+.phone .igh{margin-bottom:8px}.phone .av{width:24px;height:24px}.phone .igg{gap:3px}.phone .igg i{border-radius:4px}
+/* mocks */
+.mock-top{display:flex;align-items:center;gap:5px;margin-bottom:12px}
+.mock-top i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.mock-top span{flex:1;margin-left:8px;padding:2px 10px;border-radius:999px;background:var(--sk1);font-size:10px;color:var(--muted)}
+.sk{height:9px;border-radius:6px;margin:8px 0;background:linear-gradient(90deg,var(--sk1),var(--sk2),var(--sk1));background-size:200% 100%;animation:shm 3.5s linear infinite}
+.sk.h{height:20px;width:70%}.sk.m{width:88%}.sk.s{width:55%}
+.mbtn{display:inline-block;margin-top:8px;padding:7px 16px;border-radius:999px;background:var(--wine);color:#f6efe8;font-size:10.5px;font-weight:600;animation:pl 2.8s ease-in-out infinite}
+.dark .mbtn{background:#f6efe8;color:var(--wine)}
+.mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.mcards b{height:46px;border-radius:10px;background:var(--sk1);border:1px solid var(--line)}
+.igh{display:flex;align-items:center;gap:12px;margin-bottom:14px}.igh>div{flex:1}
+.av{width:50px;height:50px;border-radius:50%;flex:none;background:linear-gradient(135deg,var(--ice),rgba(150,60,80,.85))}
+.igg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.igg i{aspect-ratio:1;border-radius:10px;background:linear-gradient(135deg,rgba(150,60,80,.65),rgba(58,15,26,.95));transition:transform .35s}
+.igg i:nth-child(even){background:linear-gradient(135deg,rgba(169,211,240,.7),rgba(169,211,240,.25))}
+.igg i:nth-child(3n){background:linear-gradient(135deg,rgba(243,235,230,.9),rgba(230,205,200,.6))}
+.igg i:hover{transform:scale(1.08)}
+.stars{color:#d9a93a;letter-spacing:2px}
+.gname b{display:block;margin-bottom:2px;font:400 22px var(--serif)}.gname small{color:var(--muted)}
+.gline{color:var(--muted);font-size:13px;margin:6px 0 14px}
+.gbtns{display:flex;gap:8px;flex-wrap:wrap}.gbtns span{padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--acc)}
+.gph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.gph i{height:84px;border-radius:12px;background:linear-gradient(135deg,rgba(150,60,80,.6),rgba(169,211,240,.5))}
+.gph i:nth-child(2){background:linear-gradient(135deg,rgba(169,211,240,.6),rgba(243,235,230,.7))}
+.gph i:nth-child(3){background:linear-gradient(135deg,rgba(243,235,230,.8),rgba(150,60,80,.55))}
+.gpin{position:absolute;right:22px;top:18px;font-size:26px;animation:pn 2.4s ease-in-out infinite}
+.visual{position:relative;padding:24px;border-radius:26px;min-height:300px;animation:vf 9s ease-in-out infinite alternate}
+.cap{position:absolute;right:18px;bottom:10px;color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+/* doors */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px}
+.door{display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:var(--ink);padding:30px 24px 26px;border-radius:24px;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.door:hover{transform:translateY(-8px);box-shadow:inset 1px 1px 0 var(--hl),14px 22px 40px var(--sh),-7px -7px 18px var(--nm)}
+.t1{background:linear-gradient(160deg,#fbf3ea,#f1e3d6)}.t2{background:linear-gradient(160deg,#eef6fc,#d3e6f4)}.t3{background:linear-gradient(160deg,#fcf0f1,#f2d8dd)}
+.ic{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;margin-bottom:14px;background:rgba(255,255,255,.7);box-shadow:inset 1px 1px 0 #fff,4px 6px 14px var(--sh);color:var(--wine);transition:transform .5s}
+.ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.door:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.door h3{margin-bottom:8px}.door p{color:var(--muted);font-size:14.5px;margin-bottom:12px}
+.badge{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:6px;font-weight:500}
+.price{margin:6px 0 16px;color:var(--wine);font:400 38px var(--serif)}
+.door .btn{margin-top:auto;min-height:44px}
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:38px;text-align:center}
+.why-item .ic{margin-inline:auto}.why-item h3{font-size:18px;font-family:var(--sans);font-weight:500;margin-bottom:4px}.why-item p{color:var(--muted);font-size:14px;margin:0}
+/* offers */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev .visual{order:-1}
+.priceline{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:16px 0 4px;color:var(--muted);font-size:14px}
+.priceline .price{margin:0;font-size:42px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.tags li{padding:4px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted);background:var(--sf2);box-shadow:inset 2px 2px 5px rgba(0,0,0,.08),inset -2px -2px 5px var(--nm);transition:border-color .3s,color .3s}
+.tags li:hover{border-color:var(--acc);color:var(--acc)}
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:10px}.blocks .full{grid-column:1/-1}
+.blocks h4,.optt{margin:0;font:500 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.blocks ul,.blocks ol{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}.blocks li{margin:5px 0}
+.optt{margin-top:26px}
+.opts{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:10px}
+.opts li{padding:12px 16px;border:1px solid var(--line);border-radius:16px;background:var(--sf2);transition:border-color .3s,transform .3s}
+.opts li:hover{border-color:var(--acc);transform:translateX(4px)}
+.opts b{display:block;font-weight:500;font-size:14.5px}.opts span{color:var(--muted);font-size:13.5px}
+.tint-ice{background:#eaf3f9}.tint-pink{background:#f8ecee}
+/* portfolio */
+.band{background:#dcebf4}
+.portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.project{position:relative;overflow:hidden;border-radius:22px;padding:26px;transition:transform .35s,border-color .35s,box-shadow .35s}
+.project.wide{grid-column:1/-1}
+.project h3{margin-bottom:8px}.project p{color:var(--muted);font-size:15px;margin:0;max-width:640px}
+.pack-tag{display:block;margin-bottom:8px;color:var(--acc);font-size:11px;font-weight:500;letter-spacing:.17em;text-transform:uppercase}
+.project::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--acc),transparent);transition:width .6s}
+.project:hover{transform:translateY(-6px)}.project:hover::before{width:100%}
+.project.on .tags li{animation:tg .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms + 250ms)}
+.tags li:nth-child(2){--i:1}.tags li:nth-child(3){--i:2}.tags li:nth-child(4){--i:3}.tags li:nth-child(5){--i:4}.tags li:nth-child(6){--i:5}
+/* about */
+.about-sec{background:linear-gradient(160deg,#3d1022,#24090f 70%,#1e0a0a)}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.cover{aspect-ratio:1;max-width:340px;border-radius:26px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#5a1a30,#2c0b14);padding:24px;animation:vf 9s ease-in-out infinite alternate}
+.cover b{display:block;font:400 44px var(--serif);color:#f6efe8}.cover span{color:var(--ice);font-size:26px}
+.about-copy p{color:var(--muted);font-size:17px}
+/* steps / faq */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:38px}
+.step-number{color:var(--acc);font:400 34px var(--serif)}.step h3{margin:4px 0 8px}.step p{margin:0;color:var(--muted);font-size:15px}
+.faq{max-width:780px}
+details{margin-bottom:12px;border-radius:18px;padding:0 22px}
+summary{cursor:pointer;list-style:none;padding:18px 0;font:500 16px var(--sans);display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font:400 24px var(--sans);line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{max-width:680px;padding-bottom:18px;color:var(--muted);margin:0;animation:dn .4s ease}
+/* cta */
+.cta{position:relative;padding:80px 0 90px;text-align:center;background:radial-gradient(60% 70% at 15% 20%,rgba(169,211,240,.28),transparent 65%),linear-gradient(180deg,#3a4a68,#2c1b33 55%,#1e0a0a)}
+.cta .intro{margin:0 auto 28px;color:#d9c8c0}
+.mlform{display:flex;gap:8px;max-width:520px;margin:0 auto 14px;padding:8px;border-radius:999px}
+.mlform[hidden]{display:none}
+.mlform input[type=email]{flex:1;min-width:0;padding:0 20px;min-height:48px;border:0;border-radius:999px;background:rgba(0,0,0,.22);color:#f3ebe6;font:inherit;box-shadow:inset 3px 3px 8px rgba(0,0,0,.35),inset -2px -2px 6px rgba(255,255,255,.05)}
+.mlform input[type=email]:focus{outline:1.5px solid var(--ice)}
+.mlnote{color:var(--muted);font-size:12px;max-width:520px;margin:0 auto 18px}
+.cta .actions{justify-content:center}
+.cc{position:fixed;left:12px;bottom:16px;z-index:60;max-width:420px;padding:16px;border-radius:20px;font-size:13px}
+.cc .row{display:flex;gap:8px;margin-top:12px}.cc .btn{min-height:40px;padding:0 18px;font-size:12px}
+footer{padding:34px 0 110px;background:#160708;color:var(--muted);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--ice);text-decoration:none}
+.legal{display:block!important;margin-top:22px;font-size:11px;line-height:1.6;opacity:.85}.legal p{margin:0}
+.mobile-bar{display:none}
+/* motion */
+.reveal{opacity:0;translate:0 22px;transition:opacity .7s ease,translate .7s cubic-bezier(.2,.8,.2,1),transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .35s;transition-delay:var(--d,0ms),var(--d,0ms),0s,0s,0s}
+.reveal.on{opacity:1;translate:0 0}
+@keyframes fl{to{transform:translateY(-14px)}}@keyframes vf{to{transform:translateY(-10px)}}@keyframes shm{to{background-position:-200% 0}}@keyframes pl{50%{transform:scale(1.06)}}@keyframes pn{50%{transform:translateY(-8px)}}@keyframes tg{from{opacity:0;transform:translateY(8px)}}@keyframes dn{from{opacity:0;transform:translateY(-6px)}}
+@media(max-width:900px){.hero-grid,.split,.about,.blocks,.portfolio-grid,.doors,.steps{grid-template-columns:1fr}.project.wide{grid-column:auto}.why{grid-template-columns:repeat(2,1fr)}.split{gap:28px}.split.rev .visual{order:0}.visual{min-height:0}.devices{max-width:420px;margin:10px auto 0}.cover{margin:auto}nav a:not(.btn){display:none}.section{padding:60px 0}.hero{padding:118px 0 84px}}
+@media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 28px))}.mlform{flex-direction:column;border-radius:22px}.mobile-bar{position:fixed;display:flex;left:10px;right:10px;bottom:10px;z-index:60;gap:8px;padding:8px;border-radius:999px;background:rgba(30,10,14,.8)}.mobile-bar .btn{flex:1;min-height:44px;padding:0 12px}.cc{right:12px;bottom:92px}footer{padding-bottom:100px}.phone{width:92px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;translate:none}}
+.intro{font-size:15px}.hero .intro{font-size:15.5px}.door p{font-size:14px}.about-copy p{font-size:15.5px}.project p{font-size:14px}details p{font-size:14.5px}
+.badge-pill{display:inline-block;padding:3px 12px;border-radius:999px;background:rgba(255,255,255,.8);color:var(--acc);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:10px;box-shadow:inset 1px 1px 0 #fff,3px 4px 10px var(--sh)}
+.check{list-style:none;padding:0;margin:14px 0 0}.check li{position:relative;padding-left:22px;margin:7px 0;color:var(--muted);font-size:14.5px}.check li::before{content:"✦";position:absolute;left:0;top:3px;color:var(--acc);font-size:11px}
+.note{font-size:13px;color:var(--muted);margin:14px 0 0}
+.band{padding:72px 0}
+.portfolio-grid{grid-template-columns:repeat(3,1fr)}.project{padding:0}.project.wide{grid-column:auto}.project .body{padding:20px 22px 24px}
+.shot{aspect-ratio:4/3;overflow:hidden;background:linear-gradient(140deg,rgba(150,60,80,.35),rgba(169,211,240,.55))}.shot.s2{background:linear-gradient(140deg,rgba(169,211,240,.65),rgba(243,235,230,.95))}.shot.s3{background:linear-gradient(140deg,rgba(243,235,230,.95),rgba(150,60,80,.4))}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}.project:hover .shot img{transform:scale(1.06)}
+.photo{overflow:hidden;border-radius:26px}.photo img,.cover img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.cover:has(img){padding:0;overflow:hidden}
+.ig-top{display:flex;align-items:center;gap:16px}.ig-top .av{width:62px;height:62px}
+.ig-stats{display:flex;flex:1;justify-content:space-around;text-align:center}.ig-stats b{display:block;font:400 20px var(--serif);line-height:1.2}.ig-stats span{font-size:11px;color:var(--muted)}
+.ig-bio{margin-top:14px;display:grid;gap:2px;font-size:13px}.ig-bio b{font-weight:600}.ig-bio span{color:var(--muted)}.ig-bio .lnk{color:var(--acc)}
+.ig-btns{display:flex;gap:8px;margin-top:14px}.ig-btns span{flex:1;text-align:center;padding:7px;border-radius:10px;font-size:12px;font-weight:500;background:var(--sk1);border:1px solid var(--line)}.ig-btns span:first-child{background:var(--wine);color:#f6efe8;border-color:transparent}
+.ig-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:16px}.ig-row i{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,rgba(150,60,80,.65),rgba(58,15,26,.95))}.ig-row i:nth-child(2){background:linear-gradient(135deg,rgba(169,211,240,.7),rgba(169,211,240,.25))}.ig-row i:nth-child(3){background:linear-gradient(135deg,rgba(243,235,230,.9),rgba(230,205,200,.6))}
+.how{list-style:none;margin:0;padding:0 0 18px;counter-reset:s}.how li{counter-increment:s;display:flex;gap:12px;margin:9px 0;color:var(--muted);font-size:14.5px}.how li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--acc);color:#fff;font-size:12px;font-weight:600}.how b{color:var(--ink);font-weight:500}
+.num{font:400 22px var(--serif);color:var(--acc);margin-right:16px}.t{display:flex;align-items:center}
+.faqh{margin:34px 0 14px;font-size:22px}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr}}
+.hero-grid{grid-template-columns:1fr;text-align:center}.hero h1{max-width:820px;margin-inline:auto}.hero .intro{margin-inline:auto}.hero .actions,.trust-row{justify-content:center}.hero .eyebrow{justify-content:center}
+.gbtns .call{background:var(--wine);color:#f6efe8;border-color:transparent}
+.about{grid-template-columns:1fr;gap:6px;max-width:720px}.about h2{margin-bottom:12px}
+.skip{position:absolute;left:-999px;top:0}.skip:focus{left:12px;top:12px;z-index:100;background:#fff;color:#3a0f12;padding:8px 14px;border-radius:8px}
+.theme{width:40px;height:40px;margin-right:6px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:transparent;color:#f3ebe6;font-size:16px;line-height:1;cursor:pointer;transition:background .25s}.theme:hover{background:rgba(255,255,255,.1)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media(prefers-color-scheme:dark){
+:root:not([data-theme="light"]){--ink:#f3ebe6;--muted:#c9b4ac;--line:rgba(243,235,230,.16);--acc:#a9d3f0;--sf:rgba(255,255,255,.07);--sf2:rgba(255,255,255,.025);--gb:rgba(255,255,255,.15);--hl:rgba(255,255,255,.22);--sh:rgba(0,0,0,.4);--nm:rgba(255,255,255,.03);--sk1:rgba(255,255,255,.07);--sk2:rgba(169,211,240,.26);color-scheme:dark}
+:root:not([data-theme="light"]) body{background:#1b0a0d}
+:root:not([data-theme="light"]) .tint-ice{background:rgba(169,211,240,.06)}:root:not([data-theme="light"]) .tint-pink{background:rgba(190,90,110,.1)}:root:not([data-theme="light"]) .band{background:rgba(169,211,240,.07)}
+:root:not([data-theme="light"]) .t1{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03))}:root:not([data-theme="light"]) .t2{background:linear-gradient(160deg,rgba(169,211,240,.14),rgba(169,211,240,.05))}:root:not([data-theme="light"]) .t3{background:linear-gradient(160deg,rgba(190,90,110,.18),rgba(190,90,110,.07))}
+:root:not([data-theme="light"]) .ic{background:rgba(255,255,255,.09);color:var(--acc)}:root:not([data-theme="light"]) .badge-pill{background:rgba(255,255,255,.1)}:root:not([data-theme="light"]) .price{color:var(--acc)}
+:root:not([data-theme="light"]) .btn,:root:not([data-theme="light"]) .mbtn,:root:not([data-theme="light"]) .gbtns .call,:root:not([data-theme="light"]) .ig-btns span:first-child{background:#f6efe8;color:#3a0f1a}
+:root:not([data-theme="light"]) .btn.secondary{background:transparent;color:var(--ink)}:root:not([data-theme="light"]) .how li::before{color:#1e0a0d}
+}
+:root[data-theme="dark"]{--ink:#f3ebe6;--muted:#c9b4ac;--line:rgba(243,235,230,.16);--acc:#a9d3f0;--sf:rgba(255,255,255,.07);--sf2:rgba(255,255,255,.025);--gb:rgba(255,255,255,.15);--hl:rgba(255,255,255,.22);--sh:rgba(0,0,0,.4);--nm:rgba(255,255,255,.03);--sk1:rgba(255,255,255,.07);--sk2:rgba(169,211,240,.26);color-scheme:dark}
+:root[data-theme="dark"] body{background:#1b0a0d}
+:root[data-theme="dark"] .tint-ice{background:rgba(169,211,240,.06)}:root[data-theme="dark"] .tint-pink{background:rgba(190,90,110,.1)}:root[data-theme="dark"] .band{background:rgba(169,211,240,.07)}
+:root[data-theme="dark"] .t1{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03))}:root[data-theme="dark"] .t2{background:linear-gradient(160deg,rgba(169,211,240,.14),rgba(169,211,240,.05))}:root[data-theme="dark"] .t3{background:linear-gradient(160deg,rgba(190,90,110,.18),rgba(190,90,110,.07))}
+:root[data-theme="dark"] .ic{background:rgba(255,255,255,.09);color:var(--acc)}:root[data-theme="dark"] .badge-pill{background:rgba(255,255,255,.1)}:root[data-theme="dark"] .price{color:var(--acc)}
+:root[data-theme="dark"] .btn,:root[data-theme="dark"] .mbtn,:root[data-theme="dark"] .gbtns .call,:root[data-theme="dark"] .ig-btns span:first-child{background:#f6efe8;color:#3a0f1a}
+:root[data-theme="dark"] .btn.secondary{background:transparent;color:var(--ink)}:root[data-theme="dark"] .how li::before{color:#1e0a0d}
+</style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
-    <div class="nav glass">
-      <a class="logo" href="#top">Studio <span>K</span></a>
-      <nav>
-        <a href="#packs">Prestations</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">À propos</a>
-        <a class="btn" href="#contact">Parlons-en</a>
-      </nav>
-    </div>
-  </div>
-</header>
+<a class="skip" href="#top">Aller au contenu</a>
+<header><div class="wrap"><div class="nav"><a class="logo" href="#top" aria-label="Studio K, accueil">Studio <span>K</span></a>
+<nav aria-label="Navigation principale"><a href="#packs">Offres</a><a href="#portfolio">Projets</a><a href="#about">À propos</a><button class="theme" type="button" aria-label="Changer de thème clair ou sombre">☾</button><a class="btn" href="#contact">Parlons-en</a></nav></div></div></header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <span class="eyebrow">Studio K · Yutz, Moselle</span>
-        <h1>Votre commerce mérite d'être <em>vu</em> en ligne.</h1>
-        <p class="intro">Communication digitale, visibilité locale et création web : des prestations claires et soignées pour les indépendants et commerces qui veulent une présence en ligne plus professionnelle.</p>
-        <div class="actions">
-          <a class="btn" href="#packs">Voir les prestations</a>
-          <a class="btn secondary" href="#portfolio">Voir le portfolio</a>
-        </div>
-        <div class="trust-row" aria-label="Points forts">
-          <span class="trust"><strong>7 ans d'expérience</strong></span>
-          <span class="trust"><strong>Prix fixes</strong></span>
-          <span class="trust">Sans abonnement</span>
-          <span class="trust">Une seule interlocutrice</span>
-          <span class="trust">Sur place ou à distance</span>
-        </div>
-      </div>
-      <div class="hero-orb" aria-hidden="true"></div>
-    </div>
-  </section>
+<section class="hero dark" aria-labelledby="hero-title"><div class="wrap hero-grid">
+<div>
+<span class="eyebrow">Site web · Google · Instagram</span>
+<h1 id="hero-title">Votre activité mérite d'être <em>trouvée</em> en ligne.</h1>
+<p class="intro">Des sites web modernes, une visibilité locale et des réseaux sociaux qui attirent. Tout ce qu'il vous faut pour faire grandir votre activité.</p>
+<div class="actions"><a class="btn" href="#packs">Découvrir les offres <i>→</i></a></div>
+<div class="trust-row" aria-label="Points forts"><span class="trust"><strong>7 ans d'expérience</strong></span><span class="trust"><strong>Prix fixes</strong></span><span class="trust">Sans engagement</span><span class="trust">Sur place ou à distance</span></div>
+</div>
+</div>
+</section>
 
-  <div class="ribbon" aria-hidden="true">
-    <div class="ribbon-track"><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span><span>Google Business</span><span>Site vitrine</span><span>Réseaux sociaux</span><span>SEO local</span><span>Communication digitale</span></div>
-  </div>
+<section class="section center" id="packs" aria-labelledby="packs-title"><div class="wrap">
+<span class="eyebrow">Offres</span>
+<h2 id="packs-title">Des solutions sur mesure pour votre <em>visibilité.</em></h2>
+<div class="doors">
+<a class="door card glass t1" href="#site"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></span><span class="badge-pill">Tarif de lancement</span><h3>Site vitrine <em>Essentiel</em></h3><p>Un site one-page moderne, rapide et 100 % personnalisé pour votre activité.</p><div class="price">990 €</div><span class="btn">Voir les détails <i>→</i></span></a>
+<a class="door card glass t2" href="#google"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.3-6-10a6 6 0 1 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></span><span class="badge-pill" aria-hidden="true" style="visibility:hidden">.</span><h3>Visibilité <em>locale</em></h3><p>Soyez visible sur Google et attirez de nouveaux clients tous les jours.</p><div class="price">290 €</div><span class="btn">Voir les détails <i>→</i></span></a>
+<a class="door card glass t3" href="#instagram"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><span class="badge-pill">Tarif de lancement</span><h3>Présence <em>Instagram</em></h3><p>Un compte Instagram soigné et cohérent, avec un mois de contenu prêt à publier pour renforcer votre image de marque.</p><div class="price">450 €</div><span class="btn">Voir les détails <i>→</i></span></a>
+</div></div></section>
 
-  <section class="section" id="packs">
-    <div class="wrap">
-      <span class="eyebrow">Les prestations</span>
-      <h2>Trois besoins. <em>Trois solutions.</em></h2>
-      <p class="intro">Un périmètre défini, un prix annoncé à l'avance et une prestation pensée pour être directement utile à votre activité.</p>
+<section class="section center" aria-labelledby="why-title" style="padding-top:20px"><div class="wrap">
+<span class="eyebrow">Pourquoi Studio K ?</span>
+<h2 id="why-title">Une approche <em>claire</em> et humaine.</h2>
+<div class="why">
+<div class="why-item"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><h3>7 ans d'expérience</h3><p>En marketing digital, du SEO local à la création de marque.</p></div>
+<div class="why-item"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg></span><h3>Prix fixes</h3><p>Un périmètre défini et un prix annoncé à l'avance.</p></div>
+<div class="why-item"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><h3>Une interlocutrice</h3><p>Vous parlez directement à la personne qui crée.</p></div>
+<div class="why-item"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Calendrier clair</h3><p>Défini ensemble avant le démarrage.</p></div>
+</div></div></section>
 
-      <div class="grid" style="margin-top:42px">
-        <article class="card glass">
-          <span class="pack-tag">Pack 01 · Visibilité locale</span>
-          <h3>Votre fiche Google, <em>au propre.</em></h3>
-          <div class="price">290 €</div>
-          <ul>
-            <li>Optimisation complète de votre fiche Google Business Profile</li>
-            <li>Catégories, services et zone desservie</li>
-            <li>Description et sélection des informations utiles</li>
-            <li>Conseils pour valoriser vos avis et vos photos</li>
-          </ul>
-        </article>
+<section class="section" id="site" aria-labelledby="site-title" style="border-top:1px solid var(--line)"><div class="wrap split">
+<div>
+<span class="eyebrow">Tarif de lancement</span>
+<h2 id="site-title">Site vitrine <em>Essentiel</em></h2>
+<p class="intro">Un site clair, professionnel et pensé pour transformer une recherche Google en prise de contact.</p>
+<div class="priceline"><span class="price">990 €</span><span>Fiche Google et Google Analytics inclus</span></div>
+<ul class="check"><li>Site one-page moderne, rapide et optimisé mobile</li><li>Services, horaires, avis et formulaire de contact</li><li>SEO local de base</li><li>Formation à l'interface et transfert de propriété</li><li>Mentions légales et bannière cookies</li></ul>
+<p class="note">Hébergement, nom de domaine et pages supplémentaires : détaillés dans le devis.</p>
+<div class="actions" style="margin-top:22px"><a class="btn" href="#contact">Demander un devis <i>→</i></a></div>
+</div>
+<div class="visual glass" role="img" aria-label="Illustration d'un site vitrine professionnel">
+<div class="mock-top"><i></i><i></i><i></i><span>votre-entreprise.fr</span></div><div class="sk h"></div><div class="sk m"></div><div class="sk s"></div><span class="mbtn">📞 Appeler maintenant</span><div class="mcards"><b></b><b></b><b></b></div>
+<div class="stars" style="margin-top:14px;font-size:13px">★★★★★ <small style="color:var(--muted);letter-spacing:0">avis clients</small></div><small class="cap">Illustration</small></div>
+</div></section>
 
-        <article class="card glass">
-          <span class="pack-tag">Pack 02 · Image & réseaux</span>
-          <h3>Un mois de contenu <em>prêt à utiliser.</em></h3>
-          <div class="price">450 €</div>
-          <ul>
-            <li>6 modèles Canva adaptés à votre activité</li>
-            <li>1 mois de calendrier éditorial</li>
-            <li>Idées de contenus prêtes à publier</li>
-            <li>Optimisation de votre profil</li>
-          </ul>
-        </article>
+<section class="section tint-ice" id="google" aria-labelledby="google-title"><div class="wrap split rev">
+<div>
+<span class="eyebrow">Être trouvé</span>
+<h2 id="google-title">Visibilité <em>locale</em></h2>
+<p class="intro">Votre fiche Google Business Profile est souvent la première chose qu'un client voit. Autant qu'elle donne envie.</p>
+<div class="priceline"><span class="price">290 €</span><span>Une fiche, optimisée en profondeur</span></div>
+<ul class="check"><li>Optimisation complète de votre fiche Google Business Profile</li><li>Catégories, services et zone desservie</li><li>Description, photos et informations utiles</li><li>Conseils pour valoriser vos avis</li></ul>
+<p class="note">Suivi mensuel, réponses aux avis et publications : en option, sur devis.</p>
+<div class="actions" style="margin-top:22px"><a class="btn" href="#contact">Optimiser ma fiche <i>→</i></a></div>
+</div>
+<div class="visual glass" role="img" aria-label="Illustration d'une fiche Google Business Profile">
+<div class="gname"><b>Votre entreprise</b><span class="stars">★★★★★</span> <small>4,8 · exemple</small></div><p class="gline">Artisan · Commerce local · Ouvert · Ferme à 18 h</p>
+<div class="gbtns"><span class="call">📞 Appeler</span><span>Itinéraire</span><span>Site web</span></div><div class="gph"><i></i><i></i><i></i></div><div class="gpin" aria-hidden="true">📍</div><small class="cap">Illustration</small></div>
+</div></section>
 
-        <article class="card glass featured">
-          <span class="pack-tag">Pack 03 · Le plus complet</span>
-          <h3>Un site vitrine <em>simple et soigné.</em></h3>
-          <div class="price">750 €</div>
-          <ul>
-            <li>Site one-page adapté au mobile</li>
-            <li>Présentation, prestations, galerie, avis et contact</li>
-            <li>SEO local de base</li>
-            <li>Mise en ligne incluse</li>
-          </ul>
-        </article>
-      </div>
+<section class="section tint-pink" id="instagram" aria-labelledby="instagram-title"><div class="wrap split">
+<div>
+<span class="eyebrow">Tarif de lancement</span>
+<h2 id="instagram-title">Présence <em>Instagram</em></h2>
+<p class="intro">Vos clients jettent un œil à votre compte avant de venir : autant qu'il soit soigné, cohérent et régulier.</p>
+<div class="priceline"><span class="price">450 €</span><span>Un mois de communication, prêt à utiliser</span></div>
+<ul class="check"><li>6 modèles Canva adaptés à votre activité</li><li>1 mois de calendrier éditorial</li><li>Idées de contenus prêtes à publier</li><li>Optimisation de votre profil Instagram</li></ul>
+<div class="actions" style="margin-top:22px"><a class="btn" href="#contact">Je veux mon mois de contenu <i>→</i></a></div>
+</div>
+<div class="visual glass" role="img" aria-label="Illustration d'un compte Instagram de commerce">
+<div class="ig-top"><i class="av"></i><div class="ig-stats"><div><b>48</b><span>publications</span></div><div><b>1 280</b><span>abonnés</span></div><div><b>310</b><span>abonnements</span></div></div></div>
+<div class="ig-bio"><b>@votreentreprise</b><span>Artisan &amp; commerce local · Moselle</span><span>✨ Réalisations et actualités</span><span>📍 Intervention en Moselle et au Luxembourg</span><span class="lnk">votre-entreprise.fr</span></div>
+<div class="ig-btns"><span>📞 Appeler</span><span>Message</span></div>
+<div class="ig-row"><i></i><i></i><i></i></div>
+<small class="cap">Illustration</small></div>
+</div></section>
 
-      <div class="option glass">
-        <strong>Option · Prise en main & autonomie — 150 €</strong><br>
-        Une session personnalisée pour vous permettre de modifier vous-même votre site, vos contenus ou vos outils.
-      </div>
-    </div>
-  </section>
+<section class="section band" id="portfolio" aria-labelledby="portfolio-title"><div class="wrap">
+<span class="eyebrow">Portfolio</span>
+<h2 id="portfolio-title">Quelques projets, <em>pour voir ma façon de travailler.</em></h2>
+<p class="intro">Des projets réalisés en création de marque, stratégie et web.</p>
+<!-- IMAGES : dans chaque .shot, ajoute <img src="projet1.jpg" alt="Description" width="800" height="600" loading="lazy"> -->
+<div class="portfolio-grid">
+<article class="project glass"><div class="shot"></div><div class="body"><span class="pack-tag">Stratégie &amp; visibilité</span><h3>Diagnostiqueur immobilier</h3><p>Structuration marketing et visibilité digitale d'une entreprise de diagnostic immobilier : SEO, Google Ads, Analytics, emailing.</p></div></article>
+<article class="project glass"><div class="shot s2"></div><div class="body"><span class="pack-tag">Création de marque</span><h3>Marque de bijoux</h3><p>Création de ma propre marque, de l'identité visuelle à la boutique en ligne.</p></div></article>
+<article class="project glass"><div class="shot s3"></div><div class="body"><span class="pack-tag">Présence digitale</span><h3>Essentielle Madagascar</h3><p>Présence digitale d'une créatrice d'huiles essentielles artisanales.</p></div></article>
+</div>
+</div></section>
 
-  <section class="section" id="portfolio" style="padding-top:70px">
-    <div class="wrap">
-      <span class="eyebrow">Sélection</span>
-      <h2>Quelques projets, <em>pour voir comment je travaille.</em></h2>
-      <p class="intro">Des missions autour de la stratégie, du digital et de la création de marque.</p>
+<section class="section about-sec dark" id="about" aria-labelledby="about-title"><div class="wrap about">
+<div><span class="eyebrow">À propos</span>
+<h2 id="about-title">Studio K, une passion <em>devenue métier.</em></h2></div>
+<div>
+<div class="about-copy"><p>Je suis Sarah, passionnée par le digital, le design et la communication, j'aide les entrepreneurs et les petites entreprises à se rendre visibles, à se démarquer et à atteindre leurs objectifs grâce à des solutions simples, efficaces et sur mesure.</p></div>
+<div class="actions" style="margin-top:22px"><a class="btn" href="#contact">Parlons-en <i>→</i></a></div>
+</div></div></section>
 
-      <div class="portfolio-grid">
-        <article class="project glass wide">
-          <span class="pack-tag">Stratégie marketing 360°</span>
-          <h3>Diagnostiqueur immobilier</h3>
-          <p>Accompagnement sur plusieurs années d'une entreprise de diagnostic immobilier — rôle clé dans la structuration marketing et le développement de la visibilité digitale.</p>
-          <ul class="tags"><li>Contenus multi-plateformes</li><li>Email marketing B2B</li><li>SEO &amp; blog</li><li>Meta &amp; Google Ads</li></ul>
-        </article>
-        <article class="project glass">
-          <span class="pack-tag">Création de marque</span>
-          <h3>Bijoux</h3>
-          <ul class="tags"><li>Identité visuelle</li><li>Naming</li><li>Storytelling</li><li>Packaging</li><li>E-commerce</li><li>Feed Instagram</li></ul>
-        </article>
-        <article class="project glass">
-          <span class="pack-tag">Présence digitale</span>
-          <h3>Essentielle Madagascar</h3>
-          <p>Présence digitale complète pour une créatrice d'huiles essentielles artisanales.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<section class="section" id="faq" aria-labelledby="faq-title"><div class="wrap faq">
+<span class="eyebrow">Questions fréquentes</span>
+<h2 id="faq-title">Les <em>questions</em> essentielles.</h2>
+<details class="glass" open><summary>Comment ça fonctionne ?</summary><ol class="how"><li><span><b>On échange.</b> Vous m'expliquez votre activité et votre besoin, je vous indique la prestation la plus adaptée.</span></li><li><span><b>Je crée.</b> Je réalise la prestation à partir de vos informations, de vos contenus et de votre univers.</span></li><li><span><b>Vous récupérez.</b> Vous validez le résultat et repartez avec une présence digitale plus claire et plus professionnelle.</span></li></ol></details>
+<details class="glass"><summary>Quels types d'activités accompagnez-vous ?</summary><p>Indépendants, commerces de proximité, artisans, prestataires de services et petites structures qui souhaitent améliorer leur présence en ligne.</p></details>
+<details class="glass"><summary>Où intervenez-vous ?</summary><p>À Yutz, Thionville, en Moselle et à distance. Pour les prestations qui le nécessitent, un échange en visio ou par téléphone suffit.</p></details>
+<details class="glass"><summary>Y a-t-il un abonnement ?</summary><p>Mes prestations sont à prix fixe, sans abonnement chez moi. Seuls l'hébergement du site et le nom de domaine sont à votre charge, détaillés dans le devis.</p></details>
+<details class="glass"><summary>Quel est le délai ?</summary><p>Il dépend de la prestation et de la rapidité de vos retours. Le calendrier est défini ensemble avant le démarrage.</p></details>
+<details class="glass"><summary>Le suivi mensuel est-il obligatoire ?</summary><p>Non. Votre site est relié à Google Analytics dans tous les cas. Le suivi de fiche Google, les réponses aux avis, les publications et le rapport mensuel sont en option, sans engagement.</p></details>
+</div></section>
 
-  <section class="section" id="about" style="border-top:1px solid var(--line)">
-    <div class="wrap">
-      <div class="about">
-        <div>
-          <span class="eyebrow">À propos</span>
-          <h2>Bonjour, je suis <em>Sarah.</em></h2>
-        </div>
-        <div class="about-copy">
-          <p>J'accompagne depuis 7 ans des entreprises et indépendants dans leur communication digitale, avec une approche à la fois stratégique, créative et très concrète.</p>
-          <p>Mon objectif ici est simple : vous aider à avoir une présence en ligne claire, professionnelle et cohérente, sans vous vendre une prestation dont vous n'avez pas besoin.</p>
-          <ul class="tags" style="margin-top:22px"><li>7 ans d'expérience en marketing digital</li><li>Yutz · Thionville · Moselle et à distance</li><li>Contenus, sites vitrines, outils digitaux</li><li>Prestations cadrées, prix lisibles</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <span class="eyebrow">Le fonctionnement</span>
-      <h2>Simple, rapide, <em>sans jargon.</em></h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">01</div>
-          <h3>On échange</h3>
-          <p>Vous m'expliquez votre activité et votre besoin. Je vous indique la prestation la plus adaptée.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">02</div>
-          <h3>Je crée</h3>
-          <p>Je réalise la prestation à partir de vos informations, de vos contenus et de votre univers.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">03</div>
-          <h3>Vous récupérez</h3>
-          <p>Vous validez le résultat et repartez avec une présence digitale plus claire et plus professionnelle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq" style="border-top:1px solid var(--line)">
-    <div class="wrap faq">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2>Les <em>questions</em> essentielles.</h2>
-      <details>
-        <summary>Où intervenez-vous ?</summary>
-        <p>À Yutz, Thionville, en Moselle et à distance. Pour les prestations qui le nécessitent, un échange en visio ou par téléphone suffit.</p>
-      </details>
-      <details>
-        <summary>Y a-t-il un abonnement ?</summary>
-        <p>Non. Les packs sont proposés à prix fixe pour un périmètre défini. Si vous avez besoin d'un accompagnement différent, nous en discutons avant de commencer.</p>
-      </details>
-      <details>
-        <summary>Quel est le délai ?</summary>
-        <p>Le délai dépend de la prestation et de la rapidité avec laquelle vous me transmettez les éléments nécessaires. Le calendrier est défini ensemble avant le démarrage.</p>
-      </details>
-      <details>
-        <summary>Et si je ne sais pas quel pack choisir ?</summary>
-        <p>Écrivez-moi simplement ce qui vous pose problème. Je vous orienterai vers la solution la plus adaptée, sans vous pousser vers une prestation inutile.</p>
-      </details>
-    </div>
-  </section>
-
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <span class="eyebrow">Un projet ?</span>
-      <h2>On regarde ce dont vous <em>avez vraiment besoin.</em></h2>
-      <p class="intro">Décrivez-moi votre activité et votre besoin. Je vous répondrai avec une proposition claire.</p>
-      <div class="actions">
-        <a class="btn" href="mailto:hello@studiokdigital.fr?subject=Demande%20de%20devis%20—%20Studio%20K">Demander un devis</a>
-        <a class="btn secondary" href="mailto:hello@studiokdigital.fr">hello@studiokdigital.fr</a>
-      </div>
-    </div>
-  </section>
+<section class="cta dark" id="contact" aria-labelledby="contact-title"><div class="wrap">
+<span class="eyebrow">On y va ?</span>
+<h2 id="contact-title">Parlons de votre <em>projet.</em></h2>
+<p class="intro">Vous avez une idée, un besoin ou juste une question ? Écrivez-moi, réponse sous 24 h.</p>
+<iframe name="mlframe" title="Confirmation du formulaire" hidden></iframe>
+<form id="ml" class="mlform glass" action="https://assets.mailerlite.com/jsonp/2332480/forms/200573415109690834/subscribe" method="post" target="mlframe">
+<label for="email" class="sr-only">Votre adresse email</label>
+<input id="email" type="email" name="fields[email]" placeholder="Votre email" autocomplete="email" required>
+<input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+<button class="btn" type="submit">Être recontacté(e)</button></form>
+<p id="mlok" class="mlnote" hidden style="color:var(--ice);font-size:15px">Merci, je reviens vers vous très vite.</p>
+<p class="mlnote">Devis gratuit · Réponse sous 24 h · Sans engagement. En envoyant votre email, vous acceptez d'être recontacté(e) par Studio K.</p>
+<div class="actions"><a class="btn secondary" href="mailto:hello@studiokdigital.fr">Ou écrivez-moi : hello@studiokdigital.fr</a></div>
+</div></section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div><strong>Studio K</strong><br>Communication digitale & création web · Moselle</div>
-    <div><a href="https://www.instagram.com/studio.k.digital" target="_blank" rel="noopener">Instagram</a><br>Mentions légales à compléter</div>
-  </div>
+<footer class="dark"><div class="wrap"><div><strong>Studio K</strong><br>Communication digitale &amp; création web · Moselle</div><div><a href="https://www.instagram.com/studio.k.digital" target="_blank" rel="noopener noreferrer">Instagram</a><br><a href="mentions-legales.html">Mentions légales</a></div></div>
 </footer>
 
-<div class="mobile-bar glass">
-  <a class="btn" href="#packs">Prestations</a>
-  <a class="btn secondary" href="mailto:hello@studiokdigital.fr?subject=Demande%20de%20devis%20—%20Studio%20K">Me contacter</a>
-</div>
+<div class="mobile-bar glass dark"><a class="btn" href="#packs">Prestations</a><a class="btn secondary" href="#contact">Me contacter</a></div>
 
 <script>
-(function(){var s=".section h2,.section .intro,.eyebrow,.card,.project,.step,.option,details,.cta h2";var els=document.querySelectorAll(s);
-if(!("IntersectionObserver" in window))return;
-var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("on");o.unobserve(x.target)}})},{threshold:.12});
+(function(){var s=".section h2,.section .intro,.eyebrow,.card,.project,.visual,.step,.why-item,details,.cta h2";var els=document.querySelectorAll(s);
+if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("on")});return}
+var o=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("on");o.unobserve(x.target)}})},{threshold:.12});
 els.forEach(function(el,i){el.classList.add("reveal");el.style.setProperty("--d",(i%3)*80+"ms");o.observe(el)})})();
+(function(){var f=document.getElementById("ml");if(!f)return;
+f.addEventListener("submit",function(){setTimeout(function(){f.hidden=true;var s=document.getElementById("mlok");if(s)s.hidden=false},600)});
+try{fetch("https://assets.mailerlite.com/jsonp/2332480/forms/200573415109690834/takel",{mode:"no-cors"}).catch(function(){})}catch(e){}})();
+(function(){var GA_ID="G-K2RC0XT3N6",K="skc",c;try{c=localStorage.getItem(K)}catch(e){}
+function load(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",GA_ID,{anonymize_ip:true})}
+if(c==="1"){load();return}if(c==="0")return;
+var b=document.createElement("div");b.className="cc glass dark";
+b.innerHTML="<p style=\"margin:0\">Je mesure l'audience avec Google Analytics, uniquement avec votre accord.</p><div class=\"row\"><button class=\"btn\" data-a=\"1\">Accepter</button><button class=\"btn secondary\" data-a=\"0\">Refuser</button></div>";
+b.addEventListener("click",function(e){var a=e.target.getAttribute("data-a");if(a===null)return;try{localStorage.setItem(K,a)}catch(x){}b.remove();if(a==="1")load()});
+document.body.appendChild(b)})();
+</script>
+<script>
+(function(){var r=document.documentElement,b=document.querySelector(".theme"),k="skt";
+function cur(){return r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}
+function lab(){if(b)b.textContent=cur()==="dark"?"☀":"☾"}
+lab();
+if(b)b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem(k,n)}catch(e){}lab()})})();
 </script>
 </body>
 </html>
