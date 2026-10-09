@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mentions légales et confidentialité | Studio K</title>
+<meta name="description" content="Mentions légales et politique de confidentialité de Studio K.">
+<meta name="theme-color" content="#1E0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3a0f12;--muted:#6f5650;--acc:#4f86ad;--line:rgba(58,15,18,.14);--serif:"DM Serif Display",Georgia,serif;--sans:Jost,system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#f6efe8;color:var(--ink);font:400 15.5px/1.75 var(--sans)}
+header{background:linear-gradient(160deg,#4d1426,#1e0a0a);padding:18px 0}
+.wrap{width:min(780px,calc(100% - 40px));margin:auto}
+.logo{font:400 24px var(--serif);color:#f3ebe6;text-decoration:none}.logo span{color:#a9d3f0}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.15}
+h1{font-size:clamp(30px,5vw,42px);margin:44px 0 8px}
+h2{font-size:24px;margin:36px 0 8px}
+p,li{color:var(--muted)}
+a{color:var(--acc)}
+.back{display:inline-block;margin:26px 0 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+button{margin-top:10px;min-height:44px;padding:0 22px;border:0;border-radius:999px;background:#3a0f1a;color:#f6efe8;font:500 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+footer{padding:40px 0;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="./">Studio <span>K</span></a></div></header>
+<main class="wrap">
+<a class="back" href="./">← Retour au site</a>
+<h1>Mentions légales et confidentialité</h1>
+<p>Dernière mise à jour : 9 octobre 2026</p>
+
+<h2>Éditeur du site</h2>
+<p>Le site est édité par Sarah Gauguin, entrepreneur individuel, exerçant sous le nom commercial Studio K.<br>
+SIRET : 888 900 347 00012<br>
+Adresse : Villeneuve-sur-yonne <br>
+Email : <a href="mailto:hello@studiokdigital.fr">hello@studiokdigital.fr</a><br>
+Directrice de la publication : Sarah Gauguin</p>
+
+<h2>Hébergement</h2>
+<p>Le site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.</p>
+
+<h2>Propriété intellectuelle</h2>
+<p>Les contenus du site (textes, visuels, mises en page) sont la propriété de Studio K, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
+
+<h2>Données personnelles</h2>
+<p><strong>Responsable du traitement :</strong> Saah Gauguin, Studio K.</p>
+<p><strong>Données collectées :</strong> l'adresse email que vous saisissez dans le formulaire de contact, afin de vous recontacter au sujet de votre demande est enregistrée dans l'outil d'emailing MailerLite.</p>
+<p><strong>Durée de conservation :</strong> 3 ans après le dernier échange.</p>
+<p><strong>Vos droits :</strong> vous pouvez demander l'accès, la rectification, l'effacement de vos données ou vous opposer à leur traitement en écrivant à <a href="mailto:hello@studiokdigital.fr">hello@studiokdigital.fr</a>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p>
+
+<h2>Cookies et mesure d'audience</h2>
+<p>Avec votre accord uniquement, le site utilise Google Analytics pour mesurer sa fréquentation de façon anonymisée. Sans votre accord, aucun cookie de mesure n'est déposé. Votre choix est mémorisé sur votre appareil.</p>
+<button type="button" id="reset">Modifier mon choix</button>
+</main>
+<footer><div class="wrap">© Studio K</div></footer>
+<script>
+document.getElementById("reset").addEventListener("click",function(){try{localStorage.removeItem("skc")}catch(e){}location.href="./"});
+</script>
+</body>
+</html>
